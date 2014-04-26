@@ -1,27 +1,34 @@
 package com.PDA.game;
 
-import com.badlogic.gdx.ApplicationAdapter;
-import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.graphics.GL20;
-import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.Game;
+import com.badlogic.gdx.Screen;
+import com.badlogic.gdx.graphics.FPSLogger;
 
-public class MyPDAGame extends ApplicationAdapter {
-	SpriteBatch batch;
-	Texture img;
+public class MyPDAGame extends Game {
+	boolean firstTimeCreate = true;
+	FPSLogger fps;
 	
 	@Override
 	public void create () {
-		batch = new SpriteBatch();
-		img = new Texture("badlogic.jpg");
+		Settings.load();
+		Assets.load();
+		setScreen(new MainScreen(this));
+		fps = new FPSLogger();
 	}
 
 	@Override
 	public void render () {
-		Gdx.gl.glClearColor(1, 0, 0, 1);
-		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
-		batch.begin();
-		batch.draw(img, 0, 0);
-		batch.end();
+		super.render();
+		fps.log();
+	}
+	
+	/** {@link Game#dispose()} only calls {@link Screen#hide()} so you need to override {@link Game#dispose()} in order to call
+	 * {@link Screen#dispose()} on each of your screens which still need to dispose of their resources. SuperJumper doesn't
+	 * actually have such resources so this is only to complete the example. */
+	@Override
+	public void dispose () {
+		super.dispose();
+
+		getScreen().dispose();
 	}
 }
