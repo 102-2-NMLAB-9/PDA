@@ -3,36 +3,34 @@ package com.PDA.game;
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
+import com.badlogic.gdx.Application.ApplicationType;
+import com.badlogic.gdx.Input.Keys;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector3;
 
-public class HighscoresScreen implements Screen {
+public class GameScreen implements Screen {
 	Game game;
 
 	OrthographicCamera guiCam;
 	SpriteBatch batcher;
 	Rectangle backBounds;
+	Rectangle testBounds;
 	Vector3 touchPoint;
-	String[] highScores;
-	float xOffset = 0;
+	float accelX = 0;
+	float accelY = 0;
 
-	public HighscoresScreen (Game game) {
+	public GameScreen (Game game) {
 		this.game = game;
 
 		guiCam = new OrthographicCamera(1280, 960);
 		guiCam.position.set(1280 / 2, 960 / 2, 0);
 		backBounds = new Rectangle(0, 0, 64, 64);
+		testBounds = new Rectangle(500, 400, 300, 300);
 		touchPoint = new Vector3();
 		batcher = new SpriteBatch();
-		highScores = new String[5];
-		for (int i = 0; i < 5; i++) {
-			highScores[i] = i + 1 + ". " + Settings.highscores[i];
-			xOffset = Math.max(Assets.font.getBounds(highScores[i]).width, xOffset);
-		}
-		xOffset = 640 - xOffset / 2 + Assets.font.getSpaceWidth() / 2;
 	}
 
 	public void update () {
@@ -44,6 +42,19 @@ public class HighscoresScreen implements Screen {
 				game.setScreen(new MainScreen(game));
 				return;
 			}
+		}
+		ApplicationType appType = Gdx.app.getType();
+		// should work also with Gdx.input.isPeripheralAvailable(Peripheral.Accelerometer)
+		if (appType == ApplicationType.Android || appType == ApplicationType.iOS) {
+			accelX = Gdx.input.getAccelerometerY();
+			accelY = Gdx.input.getAccelerometerX();
+		} else {
+			accelX = 0;
+			accelY = 0;
+			if (Gdx.input.isKeyPressed(Keys.DPAD_RIGHT)) accelX = 10f;
+			if (Gdx.input.isKeyPressed(Keys.DPAD_LEFT)) accelX = -10f;
+			if (Gdx.input.isKeyPressed(Keys.DPAD_DOWN)) accelY = 10f;
+			if (Gdx.input.isKeyPressed(Keys.DPAD_UP)) accelY = -10f;
 		}
 	}
 
@@ -60,15 +71,19 @@ public class HighscoresScreen implements Screen {
 
 		batcher.enableBlending();
 		batcher.begin();
-		batcher.draw(Assets.highScoreRegion, 100, 750, 1080, 200);
-
-		float y = 300;
-		for (int i = 4; i >= 0; i--) {
-			Assets.font.draw(batcher, highScores[i], xOffset, y);
-			y += Assets.font.getLineHeight();
-		}
 
 		batcher.draw(Assets.back, 0, 0, 64, 64);
+		batcher.end();
+		
+		batcher.begin();
+		if (accelX > 5f) Assets.font.draw(batcher, "right", 0, 960);
+		else if (accelX < -5f) Assets.font.draw(batcher, "left", 0, 960);
+		else if (accelY > 5f) Assets.font.draw(batcher, "down", 0, 960);
+		else if (accelY < -5f) Assets.font.draw(batcher, "up", 0, 960);
+		batcher.end();
+		
+		batcher.begin();
+		batcher.draw(Assets.testRegion, 500, 400, 300, 300);
 		batcher.end();
 	}
 

@@ -56,6 +56,14 @@ public class Assets {
 	public static TextureRegion highScoreRegion;
 	public static Texture back;
 	public static TextureRegion backRegion;
+	public static Texture help;
+	public static TextureRegion helpRegion;
+	public static Texture twoplay;
+	public static TextureRegion twoplayRegion;
+	public static Texture gamescene;
+	public static TextureRegion gamesceneRegion;
+	public static Texture test;
+	public static TextureRegion testRegion;
 	
 	public static Texture loadTexture (String file) {
 		return new Texture(Gdx.files.internal(file));
@@ -103,6 +111,14 @@ public class Assets {
 		highScoreRegion = new TextureRegion(highScore);
 		back = loadTexture("data/back.png");
 		backRegion = new TextureRegion(back);
+		twoplay = loadTexture("data/2play.png");
+		twoplayRegion = new TextureRegion(twoplay);
+		help = loadTexture("data/helpme.png");
+		helpRegion = new TextureRegion(help);
+		gamescene = loadTexture("data/scene.png");
+		gamesceneRegion = new TextureRegion(gamescene);
+		test = loadTexture("data/movetest.png");
+		testRegion = new TextureRegion(test);
 		
 		font = new BitmapFont(Gdx.files.internal("data/font.fnt"), Gdx.files.internal("data/font.png"), false);
 		music = Gdx.audio.newMusic(Gdx.files.internal("data/music.mp3"));

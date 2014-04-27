@@ -18,6 +18,7 @@ public class MainScreen implements Screen {
 	Rectangle playBounds;
 	Rectangle highscoresBounds;
 	Rectangle helpBounds;
+	Rectangle twoPlayBounds;
 	Vector3 touchPoint;
 	
 	public MainScreen(Game game)
@@ -30,7 +31,8 @@ public class MainScreen implements Screen {
 		soundBounds = new Rectangle(0, 0, 64, 64);
 		playBounds = new Rectangle(500, 600, 300, 100);
 		highscoresBounds = new Rectangle(500, 450, 300, 100);
-		helpBounds = new Rectangle(160 - 150, 200 - 18 - 36, 300, 36);
+		twoPlayBounds = new Rectangle(500, 300, 300, 100);
+		helpBounds = new Rectangle(500, 150, 300, 100);
 		touchPoint = new Vector3();
 		
 	}
@@ -43,7 +45,7 @@ public class MainScreen implements Screen {
 
 			if (playBounds.contains(touchPoint.x, touchPoint.y)) {
 				Assets.playSound(Assets.clickSound);
-				//game.setScreen(new GameScreen(game));
+				game.setScreen(new GameScreen(game));
 				return;
 			}
 			if (highscoresBounds.contains(touchPoint.x, touchPoint.y)) {
@@ -54,6 +56,11 @@ public class MainScreen implements Screen {
 			if (helpBounds.contains(touchPoint.x, touchPoint.y)) {
 				Assets.playSound(Assets.clickSound);
 				//game.setScreen(new HelpScreen(game));
+				return;
+			}
+			if (twoPlayBounds.contains(touchPoint.x, touchPoint.y)) {
+				Assets.playSound(Assets.clickSound);
+				//game.setScreen(new twoPlayScreen(game));
 				return;
 			}
 			if (soundBounds.contains(touchPoint.x, touchPoint.y)) {
@@ -84,8 +91,8 @@ public class MainScreen implements Screen {
 		batcher.draw(Assets.warRegion, 100, 750, 1080, 200);
 		batcher.draw(Assets.playRegion, 500, 600, 300, 100);
 		batcher.draw(Assets.highScoreRegion, 500, 450, 300, 100);
-		//batcher.draw(Assets.logo, 160 - 274 / 2, 480 - 10 - 142, 274, 142);
-		//batcher.draw(Assets.mainMenu, 10, 200 - 110 / 2, 300, 110);
+		batcher.draw(Assets.twoplayRegion, 500, 300, 300, 100);
+		batcher.draw(Assets.helpRegion, 500, 150, 300, 100);
 		batcher.draw(Settings.soundEnabled ? Assets.soundRegion : Assets.noSoundRegion, 0, 0, 64, 64);
 		
 		batcher.end();
