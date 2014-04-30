@@ -1,7 +1,9 @@
 package com.PDA.game;
 
+
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.InputProcessor;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.Application.ApplicationType;
 import com.badlogic.gdx.Input.Keys;
@@ -11,7 +13,7 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector3;
 
-public class GameScreen implements Screen {
+public class GameScreen implements Screen,InputProcessor {
 	Game game;
 
 	OrthographicCamera guiCam;
@@ -21,10 +23,13 @@ public class GameScreen implements Screen {
 	Vector3 touchPoint;
 	float accelX = 0;
 	float accelY = 0;
+	float posx = 500;
+	float posy = 400;
+	float length = 300;
 
 	public GameScreen (Game game) {
 		this.game = game;
-
+		Gdx.input.setInputProcessor(this);
 		guiCam = new OrthographicCamera(1280, 960);
 		guiCam.position.set(1280 / 2, 960 / 2, 0);
 		backBounds = new Rectangle(0, 0, 64, 64);
@@ -32,8 +37,8 @@ public class GameScreen implements Screen {
 		touchPoint = new Vector3();
 		batcher = new SpriteBatch();
 	}
-
-	public void update () {
+	
+	public void update (float delta) {
 		if (Gdx.input.justTouched()) {
 			guiCam.unproject(touchPoint.set(Gdx.input.getX(), Gdx.input.getY(), 0));
 
@@ -58,7 +63,7 @@ public class GameScreen implements Screen {
 		}
 	}
 
-	public void draw () {
+	public void draw (float delta) {
 		GL20 gl = Gdx.gl;
 		gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 		guiCam.update();
@@ -83,14 +88,14 @@ public class GameScreen implements Screen {
 		batcher.end();
 		
 		batcher.begin();
-		batcher.draw(Assets.testRegion, 500, 400, 300, 300);
+		batcher.draw(Assets.testRegion, posx, posy, 300, 300);
 		batcher.end();
 	}
 
 	@Override
 	public void render (float delta) {
-		update();
-		draw();
+		update(delta);
+		draw(delta);
 	}
 
 	@Override
@@ -115,5 +120,52 @@ public class GameScreen implements Screen {
 
 	@Override
 	public void dispose () {
+	}
+	@Override
+	public boolean keyDown(int keycode) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+	@Override
+	public boolean keyUp(int keycode) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+	@Override
+	public boolean keyTyped(char character) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+	@Override
+	public boolean touchDown(int screenX, int screenY, int pointer, int button) {
+		// TODO Auto-generated method stub
+		if(screenX>=posx && screenX<=posx+length && 900-screenY>=posy && 900-screenY<=posy+length)
+		{return true;}
+		else
+	    {return false;}
+	}
+	@Override
+	public boolean touchUp(int screenX, int screenY, int pointer, int button) {
+		return false;
+	}
+	@Override
+	public boolean touchDragged(int screenX, int screenY, int pointer) {
+		// TODO Auto-generated method stub
+		if(touchDown(screenX,screenY,pointer,1))
+		{
+		   posx=screenX-150;
+		   posy=750-screenY;
+		}
+		return false;
+	}
+	@Override
+	public boolean mouseMoved(int screenX, int screenY) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+	@Override
+	public boolean scrolled(int amount) {
+		// TODO Auto-generated method stub
+		return false;
 	}
 }
