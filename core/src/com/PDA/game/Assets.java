@@ -64,6 +64,8 @@ public class Assets {
 	public static TextureRegion gamesceneRegion;
 	public static Texture test;
 	public static TextureRegion testRegion;
+	public static Texture[] boxes;
+	public static TextureRegion[] boxregion; 
 	
 	public static Texture loadTexture (String file) {
 		return new Texture(Gdx.files.internal(file));
@@ -119,6 +121,10 @@ public class Assets {
 		gamesceneRegion = new TextureRegion(gamescene);
 		test = loadTexture("data/movetest.png");
 		testRegion = new TextureRegion(test);
+		boxes = new Texture[16];
+		for(int i=0; i<16; ++i ) boxes[i] = loadTexture("data/cell.png");
+		boxregion = new TextureRegion[16];
+		for(int i=0; i<16; ++i) boxregion[i] = new TextureRegion(boxes[i]);
 		
 		font = new BitmapFont(Gdx.files.internal("data/font.fnt"), Gdx.files.internal("data/font.png"), false);
 		music = Gdx.audio.newMusic(Gdx.files.internal("data/music.mp3"));

@@ -90,6 +90,25 @@ public class GameScreen implements Screen,InputProcessor {
 		batcher.begin();
 		batcher.draw(Assets.testRegion, posx, posy, 300, 300);
 		batcher.end();
+		
+		batcher.begin();
+		batcher.draw(Assets.boxregion[0], 70, 70, 140, 140);
+		batcher.draw(Assets.boxregion[1], 215, 70, 140, 140);
+		batcher.draw(Assets.boxregion[2], 360, 70, 140, 140);
+		batcher.draw(Assets.boxregion[3], 505, 70, 140, 140);
+		batcher.draw(Assets.boxregion[4], 70, 215, 140, 140);
+		batcher.draw(Assets.boxregion[5], 215, 215, 140, 140);
+		batcher.draw(Assets.boxregion[6], 360, 215, 140, 140);
+		batcher.draw(Assets.boxregion[7], 505, 215, 140, 140);
+		batcher.draw(Assets.boxregion[8], 70, 360, 140, 140);
+		batcher.draw(Assets.boxregion[9], 215, 360, 140, 140);
+		batcher.draw(Assets.boxregion[10], 360, 360, 140, 140);
+		batcher.draw(Assets.boxregion[11], 505, 360, 140, 140);
+		batcher.draw(Assets.boxregion[12], 70, 505, 140, 140);
+		batcher.draw(Assets.boxregion[13], 215, 505, 140, 140);
+		batcher.draw(Assets.boxregion[14], 360, 505, 140, 140);
+		batcher.draw(Assets.boxregion[15], 505, 505, 140, 140);
+		batcher.end();
 	}
 
 	@Override
