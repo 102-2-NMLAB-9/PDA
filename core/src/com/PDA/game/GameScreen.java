@@ -1,7 +1,6 @@
 package com.PDA.game;
 
 
-import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.InputProcessor;
 import com.badlogic.gdx.Screen;
@@ -14,7 +13,7 @@ import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector3;
 
 public class GameScreen implements Screen,InputProcessor {
-	Game game;
+	MyPDAGame game;
 
 	OrthographicCamera guiCam;
 	SpriteBatch batcher;
@@ -27,7 +26,7 @@ public class GameScreen implements Screen,InputProcessor {
 	float posy = 400;
 	float length = 300;
 
-	public GameScreen (Game game) {
+	public GameScreen (MyPDAGame game) {
 		this.game = game;
 		Gdx.input.setInputProcessor(this);
 		guiCam = new OrthographicCamera(1280, 960);

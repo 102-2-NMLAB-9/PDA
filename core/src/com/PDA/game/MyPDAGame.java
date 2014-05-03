@@ -1,12 +1,40 @@
 package com.PDA.game;
 
+import java.io.IOException;
+import java.util.ArrayList;
+
+import com.PDA.game.Personnage;
+import com.PDA.network.UnicastClient;
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.FPSLogger;
 
 public class MyPDAGame extends Game {
+	public UITrick androidUI;
 	boolean firstTimeCreate = true;
 	FPSLogger fps;
+	public UnicastClient mc;
+	public Joueur player;
+	public ArrayList<Personnage> playersConnected;
+	public ArrayList<String> listHost ;
+	
+	public MyPDAGame(UITrick actionResolver) {
+		super();
+		this.androidUI = actionResolver;
+		playersConnected = new ArrayList<Personnage>();
+		listHost = new ArrayList<String>();
+		player = new Test();
+		player.setNom("test");
+		player.setName("alsotest");
+	}
+	
+	public MyPDAGame() {
+		super();
+	}
+	
+	public void setMC(UnicastClient m){
+		this.mc = m;
+	}
 	
 	@Override
 	public void create () {
@@ -26,6 +54,11 @@ public class MyPDAGame extends Game {
 	 * actually have such resources so this is only to complete the example. */
 	@Override
 	public void dispose () {
+		try {
+			this.mc.deco();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 		super.dispose();
 
 		getScreen().dispose();

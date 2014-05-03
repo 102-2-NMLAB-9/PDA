@@ -1,6 +1,5 @@
 package com.PDA.game;
 
-import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL20;
@@ -11,7 +10,7 @@ import com.badlogic.gdx.math.Vector3;
 import com.badlogic.gdx.utils.TimeUtils;
 
 public class MainScreen implements Screen {
-	Game game;
+	MyPDAGame game;
 	OrthographicCamera guiCam;
 	SpriteBatch batcher;
 	Rectangle soundBounds;
@@ -21,7 +20,7 @@ public class MainScreen implements Screen {
 	Rectangle twoPlayBounds;
 	Vector3 touchPoint;
 	
-	public MainScreen(Game game)
+	public MainScreen(MyPDAGame game)
 	{
 		this.game = game;
 		
@@ -60,7 +59,7 @@ public class MainScreen implements Screen {
 			}
 			if (twoPlayBounds.contains(touchPoint.x, touchPoint.y)) {
 				Assets.playSound(Assets.clickSound);
-				//game.setScreen(new twoPlayScreen(game));
+				game.setScreen(new ChatScreen(game));
 				return;
 			}
 			if (soundBounds.contains(touchPoint.x, touchPoint.y)) {

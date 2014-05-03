@@ -1,6 +1,5 @@
 package com.PDA.game;
 
-import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL20;
@@ -10,7 +9,7 @@ import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector3;
 
 public class HighscoresScreen implements Screen {
-	Game game;
+	MyPDAGame game;
 
 	OrthographicCamera guiCam;
 	SpriteBatch batcher;
@@ -19,7 +18,7 @@ public class HighscoresScreen implements Screen {
 	String[] highScores;
 	float xOffset = 0;
 
-	public HighscoresScreen (Game game) {
+	public HighscoresScreen (MyPDAGame game) {
 		this.game = game;
 
 		guiCam = new OrthographicCamera(1280, 960);
