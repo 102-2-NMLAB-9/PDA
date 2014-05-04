@@ -54,11 +54,11 @@ public  class ChatWindow{
 		
 		SplitPane splitPane = new SplitPane(scrollPaneMessage, scrollPaneUser, false, skin, "default-horizontal");
 
-		float width = 1280f;
+		float width = 960f;
 		float height = 960f;
 
 		window = new Window("Chat", skin);
-		window.setPosition(width*5, 100);
+		window.setPosition(width*.4f, 100);
 		window.defaults().spaceBottom(10);
 		window.row().fill().expandX();
 		window.row();
@@ -113,33 +113,27 @@ public  class ChatWindow{
 	}
 
 	public void addName(String name) {
-		Array<String> tmp = this.nameList.getItems();
-		Array<String> names = new Array<String>();
-		for(int i = 0; i < tmp.size; i ++)
-			names.add(name);
-		names.add(name);
-		this.setNames(names);
+		Array<String> tmp = new Array<String>();
+		for(String it: nameList.getItems()){
+			tmp.add(it);
+		}
+		tmp.add(name);
+		nameList.setItems(tmp);
 	}
 
 	public void removeName(String name) {
-		Array<String> tmp = this.nameList.getItems();
-		Array<String> names = new Array<String>();
-		int i = 0;
-		int j = 0;
-		boolean trouve = false;
-		while(j < tmp.size - 1){
-			if(tmp.get(i).equals(name)){
-				i++;
-				trouve = true;
-			}
-			else{
-				names.add(tmp.get(i));
-				i++;
-				j++;
+		Array<String> tmp = new Array<String>();
+		for(String it: nameList.getItems()){
+			tmp.add(it);
+		}
+		for ( int i = 0; i < tmp.size; i++ )
+		{
+			if ( tmp.get(i).equals(name) )
+			{
+				tmp.removeIndex(i);
+				break;
 			}
 		}
-		
-		if(trouve)
-			this.setNames(names);
+		this.setNames(tmp);
 	}
 }

@@ -6,7 +6,6 @@ import static com.badlogic.gdx.scenes.scene2d.actions.Actions.sequence;
 
 import java.io.IOException;
 
-import com.PDA.network.UnicastClient;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
@@ -24,11 +23,15 @@ import com.badlogic.gdx.utils.Scaling;
 public class ChatScreen extends AbstractScreen {
 
 	private Stage stage;
+	ChatWindow cw;
+	UnicastClient uc;
 
 	public ChatScreen(MyPDAGame game) {
 		super(game);
 		this.batch = new SpriteBatch();
 		this.stage = new Stage();
+		cw = null;
+		uc = null;
 	}
 
 	@Override
@@ -63,17 +66,17 @@ public class ChatScreen extends AbstractScreen {
 		Gdx.input.setInputProcessor(stage);
 		stage.addActor(buildBackgroundLayer());
 
-		final TextButton validation = new TextButton("Set Connection", skin);
+		final TextButton validation = new TextButton("Connect", skin);
 		validation.pad(50, 0, 0, 100);
-		final TextButton pret = new TextButton("Back", skin);
+		final TextButton pret = new TextButton("prepared", skin);
 		pret.pad(50, 0, 0, 100);
-		pret.setColor(Color.BLUE);
+		pret.setColor(Color.RED);
 
 		// window.debug();
 		final Window window = new Window("Connection", skin);
-		window.getButtonTable().pad(400);
-		window.setPosition(400, 200);
-		window.defaults().pad(20, 20, 20, 20);
+		window.getButtonTable();
+		window.setPosition(100, 400);
+		window.defaults().pad(80, 80, 80, 80);
 		window.row();
 		window.add(validation);
 		window.row();
@@ -83,33 +86,35 @@ public class ChatScreen extends AbstractScreen {
 		stage.addActor(window);
 		validation.addListener(new ChangeListener() {
 			public void changed(ChangeEvent event, Actor actor) {
-				ChatWindow cw = new ChatWindow(game);
-				final UnicastClient uc = new UnicastClient(game);
-				uc.chatWindow = cw;
+				if ( game.mc == null ) {
+					cw = new ChatWindow(game);
+					uc = new UnicastClient(game);
+					uc.chatWindow = cw;
 		
-				game.setMC(uc);
-				try {
-					uc.lancerClient();
-				} catch (IOException e) {
-					e.printStackTrace();
+					game.setMC(uc);
+					game.cw = cw;
+					try {
+						uc.lancerClient();
+					} catch (IOException e) {
+						e.printStackTrace();
+					}
 				}
 				window.removeActor(validation);
 				window.add(pret);
-				window.row();
 
 				pret.addListener(new ChangeListener() {
 					@Override
 					public void changed(ChangeEvent event, Actor actor) {
 						pret.setColor(Color.GREEN);
 						try {
-							uc.estPret();
+							game.mc.estPret();
 						} catch (IOException e) {
 							e.printStackTrace();
 						}
 					}
 				});
 				
-				stage.addActor(cw.getWindow());
+				stage.addActor(game.cw.getWindow());
 //				
 			}
 		});
@@ -120,7 +125,7 @@ public class ChatScreen extends AbstractScreen {
 	 * 
 	 */
 	private Image buildBackgroundLayer() {
-		Image scrollingImage = new Image(Assets.backgroundRegion);
+		Image scrollingImage = new Image(Assets.longWidthRegion);
 		scrollingImage.setPosition(0, 0);
 		scrollingImage.setHeight(960);
 		RepeatAction ra = new RepeatAction();

@@ -65,7 +65,9 @@ public class Assets {
 	public static Texture test;
 	public static TextureRegion testRegion;
 	public static Texture[] boxes;
-	public static TextureRegion[] boxregion; 
+	public static TextureRegion[] boxregion;
+	public static Texture longWidth;
+	public static TextureRegion longWidthRegion;
 	
 	public static Texture loadTexture (String file) {
 		return new Texture(Gdx.files.internal(file));
@@ -73,7 +75,7 @@ public class Assets {
 
 	public static void load () {
 		background = loadTexture("data/background.jpg");
-		backgroundRegion = new TextureRegion(background, 0, 0, 1280, 960);
+		backgroundRegion = new TextureRegion(background);
 		
 		/*
 		items = loadTexture("data/items.png");
@@ -121,6 +123,8 @@ public class Assets {
 		gamesceneRegion = new TextureRegion(gamescene);
 		test = loadTexture("data/movetest.png");
 		testRegion = new TextureRegion(test);
+		longWidth = loadTexture("data/1B.jpg");
+		longWidthRegion = new TextureRegion(longWidth);
 		boxes = new Texture[16];
 		for(int i=0; i<16; ++i ) boxes[i] = loadTexture("data/cell.png");
 		boxregion = new TextureRegion[16];

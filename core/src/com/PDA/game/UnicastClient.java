@@ -1,4 +1,4 @@
-package com.PDA.network;
+package com.PDA.game;
 
 import java.io.IOException;
 import java.net.DatagramPacket;
@@ -10,12 +10,13 @@ import java.util.Enumeration;
 import java.util.Set;
 
 import com.PDA.game.ChatWindow;
+import com.PDA.game.MainScreen;
 import com.PDA.game.MyPDAGame;
-import com.badlogic.gdx.Gdx;
 import com.PDA.game.Joueur;
 import com.PDA.game.Constants;
 import com.PDA.game.MapPerso;
 import com.PDA.game.Test;
+import com.badlogic.gdx.Gdx;
 
 public class UnicastClient {
 
@@ -33,6 +34,7 @@ public class UnicastClient {
 	public UnicastClient(MyPDAGame g) {
 		// initialization
 		this.game = g;
+		chatWindow = g.cw;
 		joueurs = new MapPerso<String, Joueur>();
 
 		monIp = this.getLocalIpAddress();
@@ -45,7 +47,10 @@ public class UnicastClient {
 	public void lancerClient() throws IOException {
 		sendConnection(null, false);
 		chatWindow.addName(game.player.getNom() + " : "
-				+ game.player.getNameClass());
+				+ game.count);
+		game.player.setName(game.player.getNom() + " : "
+				+ game.count);
+		game.count++ ;
 	}
 
 	public void sendConnection(String ipNouveau, boolean nouveau)
@@ -76,6 +81,8 @@ public class UnicastClient {
 					+ broadcastTab[2] + ".255";
 			dp = new DatagramPacket(data, data.length,
 					InetAddress.getByName(broadcast), PORT);
+			if ( ds == null )
+				ds = new DatagramSocket();
 			ds.send(dp);
 
 			dp = new DatagramPacket(data, data.length,
@@ -128,40 +135,20 @@ public class UnicastClient {
 		case Constants.NOUVEAU:
 			actionTraiterNouveau(action, data);
 			break;
-		case Constants.LANCERSKILL:
-			actionTraiterLancerSkill(data);
-			break;
-		case Constants.ATTAQUEMONSTRE:
-			actionTraiterAttaqueMonstre(data);
-			break;
-		case Constants.TOKEN:
-		case Constants.TOKENTOUR:
-			actionToken(data, action);
-			break;
 		case Constants.MESSAGE:
 			actionRecoit(data);
 			break;
-		case Constants.PRET:
-			actionPret();
-			break;
-		case Constants.LANCERSOIN:
-			actionLancerSoin(data);
-			break;
 		case Constants.DECO:
 			actionDeco();
+			break;
+		case Constants.PRET:
+			actionPret();
 			break;
 		default:
 			System.err.println("[UNICASTClient-DEFAULT]:Action non reconnue : "
 					+ action);
 			break;
 		}
-	}
-
-	private void actionLancerSoin(byte[] data) {
-		ip = dpr.getAddress().toString().replace('/', '\0').trim();
-		String ipCible = new String(data, 2, data.length - 2).trim();
-		if (joueurs.get(ipCible).getHp() <= 0)
-			joueurs.get(ipCible).setaJoueCeTour(true);
 	}
 
 	private void actionRecoit(byte[] data) {
@@ -176,17 +163,20 @@ public class UnicastClient {
 	private void actionTraiterNouveau(int action, byte[] data)
 			throws IOException {
 		System.out.println("NOUVEAU JOUEUR");
+		Joueur p = new Test();
 		String pseudo;
 		pseudo = new String(data, 3, data[2]);
-		Joueur p = null;
-		p = new Test();
+		p.setNom(pseudo);
 		ip = dpr.getAddress().toString().replace('/', '\0').trim();
 		if (ip.length() > 0 && !joueurs.containsKey(ip)
 				&& !ip.equals("127.0.0.1")) {
 
 			game.playersConnected.add(p);
 			joueurs.put(ip, p);
-			this.chatWindow.addName(p.getNom() + " : " + p.getNameClass());
+			this.chatWindow.addName(p.getNom() + " : " + game.count);
+			p.setName(p.getNom() + " : "
+					+ game.count);
+			game.count++;
 		}
 		if (action == Constants.CONNEXION)
 			sendConnection(ip, true);
@@ -198,48 +188,6 @@ public class UnicastClient {
 			System.out.println("ip : " + it + " Pseudo : "
 					+ joueurs.get(it).getNom());
 		}
-
-	}
-
-	private void actionTraiterLancerSkill(byte[] data) {
-		ip = dpr.getAddress().toString().replace('/', '\0').trim();
-
-	}
-
-	private void actionTraiterAttaqueMonstre(byte[] data) {
-
-		ip = new String(data, 2, data.length - 2).trim();
-
-		boolean joueursMort = true;
-		for (Joueur j : joueurs.values()) {
-			if (j.getHp() > 0) {
-				joueursMort = false;
-			} else {
-				j.setaJoueCeTour(true);
-			}
-		}
-	}
-
-	private void actionToken(byte[] data, int action) {
-		System.out.println("la");
-		for (Joueur it : joueurs.values()) {
-			it.setToken(false);
-			if (action == Constants.TOKENTOUR) {
-				it.setaJoueCeTour(false);
-			}
-		}
-
-		ip = new String(data, 1, data.length - 1).trim();
-		System.err.println("IP TOKEN :" + ip);
-
-		joueurs.get(ip).setToken(true);
-
-		joueurs.get(ip).setaJoueCeTour(true);
-
-		Gdx.app.postRunnable(new Runnable() {
-			public void run() {
-			}
-		});
 
 	}
 
@@ -257,85 +205,11 @@ public class UnicastClient {
 		sendToAll(data);
 	}
 
-	public void pretPourVagueSuivante(final String ip) {
-		boolean pret = true;
-		for (Joueur j : joueurs.values()) {
-			if (!j.estPret()) {
-				pret = false;
-				break;
-			}
-		}
-		if (pret) {
-			
-			for (Joueur j : joueurs.values()) {
-				j.setPret(false);
-			}
-			
-			regen();
-			
-			joueurs.get(ip).setToken(true);
-			
-			
-			
-			joueurs.get(ip).setaJoueCeTour(true);
-			System.out.println("A JOUE CE TOUR : " + ip);
-
-			return;
-		}
-
-	}
-
-	public void estPret() throws IOException {
-		byte data[] = new byte[1];
-		data[0] = (byte) Constants.PRET;
-		sendToAll(data);
-	}
-
-	public void actionPret() {
-		String ip = dpr.getAddress().toString().replace('/', '\0').trim();
-		joueurs.get(ip).setPret(true);
-		pretPourVagueSuivante(ip);
-	}
-	
 	public void actionDeco(){
 		String ip = dpr.getAddress().toString().replace('/', '\0').trim();
 		this.chatWindow.removeName(joueurs.get(ip).getName());
 		game.playersConnected.remove(joueurs.get(ip));
 		this.joueurs.remove(ip);
-	}
-
-	public void passerToken() throws IOException {
-
-		String ipChoisi = "";
-
-		for (Joueur j : joueurs.values()) {
-
-			if (!j.aJoueCeTour()) {
-				System.out.println(j.getNom() + " a joue ce tour : "
-						+ j.aJoueCeTour());
-				ipChoisi = joueurs.getKey(j);
-				break;
-			}
-
-		}
-
-		byte data[];
-
-		if (ipChoisi.length() < 1) {
-			ipChoisi = joueurs.getKey((Joueur) game.playersConnected
-					.get(game.playersConnected.size() - 1));
-			data = new byte[ipChoisi.length() + 1];
-			data[0] = Constants.TOKENTOUR;
-
-		} else {
-			data = new byte[ipChoisi.length() + 1];
-			data[0] = Constants.TOKEN;
-		}
-		for (int i = 1; i < data.length; i++) {
-			data[i] = (byte) ipChoisi.charAt(i - 1);
-		}
-
-		sendToAll(data);
 	}
 
 	private void sendToAll(byte[] data) throws IOException {
@@ -352,16 +226,7 @@ public class UnicastClient {
 		byte data[] = new byte[1];
 		data[0] = Constants.DECO;
 		sendToAll(data);
-	}
-
-	private void regen() {
-		for (Joueur j : joueurs.values()) {
-			if (j.getHp() > 0)
-				j.setHp(j.getHpMax());
-			j.setMana(j.getManaMax());
-		}
-	}
-	
+	}	
 	
 	public MapPerso<String, Joueur> getJoueurs() {
 		return joueurs;
@@ -397,5 +262,44 @@ public class UnicastClient {
 			ex.printStackTrace();
 		}
 		return "";
+	}
+	
+	public void estPret() throws IOException {
+		byte data[] = new byte[1];
+		data[0] = (byte) Constants.PRET;
+		sendToAll(data);
+	}
+	
+	public void actionPret() {
+		String ip = dpr.getAddress().toString().replace('/', '\0').trim();
+		joueurs.get(ip).setPret(true);
+		pretPourVagueSuivante(ip);
+	}
+	
+	public void pretPourVagueSuivante(final String ip) {
+		boolean pret = true;
+		for (Joueur j : joueurs.values()) {
+			if (!j.estPret()) {
+				pret = false;
+				break;
+			}
+		}
+		if (pret) {
+			game.currentVagueIndex = true;
+			for (Joueur j : joueurs.values()) {
+				j.setPret(false);
+			}
+
+			Gdx.app.postRunnable(new Runnable() {
+				public void run() {
+					if(game.currentVagueIndex == true){
+						game.currentVagueIndex = false;
+						game.setScreen(new MainScreen(game));
+					}			
+				}
+			});
+			return;
+		}
+
 	}
 }

@@ -75,7 +75,7 @@ public class MainScreen implements Screen {
 	
 	public void draw () {
 		GL20 gl = Gdx.gl;
-		gl.glClearColor(1, 0, 0, 1);
+		gl.glClearColor(0, 0, 0, 0);
 		gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 		guiCam.update();
 		batcher.setProjectionMatrix(guiCam.combined);

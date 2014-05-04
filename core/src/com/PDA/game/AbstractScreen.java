@@ -68,10 +68,6 @@ public abstract class AbstractScreen implements com.badlogic.gdx.Screen {
 		
 	}
 	
-	/**
-     *
-     *
-     */
     public final static long getTimePlayed() {
         if (AbstractScreen.timePlayed == 0) {
            synchronized(AbstractScreen.class) {

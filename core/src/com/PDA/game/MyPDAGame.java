@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 import com.PDA.game.Personnage;
-import com.PDA.network.UnicastClient;
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.FPSLogger;
@@ -12,11 +11,14 @@ import com.badlogic.gdx.graphics.FPSLogger;
 public class MyPDAGame extends Game {
 	public UITrick androidUI;
 	boolean firstTimeCreate = true;
-	FPSLogger fps;
+	public FPSLogger fps;
 	public UnicastClient mc;
+	public ChatWindow cw;
 	public Joueur player;
 	public ArrayList<Personnage> playersConnected;
-	public ArrayList<String> listHost ;
+	public ArrayList<String> listHost;
+	public boolean currentVagueIndex = false;
+	public int count = 0;
 	
 	public MyPDAGame(UITrick actionResolver) {
 		super();
@@ -26,6 +28,9 @@ public class MyPDAGame extends Game {
 		player = new Test();
 		player.setNom("test");
 		player.setName("alsotest");
+		mc = null;
+		cw = null;
+		
 	}
 	
 	public MyPDAGame() {
@@ -54,10 +59,13 @@ public class MyPDAGame extends Game {
 	 * actually have such resources so this is only to complete the example. */
 	@Override
 	public void dispose () {
-		try {
-			this.mc.deco();
-		} catch (IOException e) {
-			e.printStackTrace();
+		if (mc != null) {
+			try {
+				this.mc.deco();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+			mc = null;
 		}
 		super.dispose();
 
