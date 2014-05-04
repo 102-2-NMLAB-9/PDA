@@ -5,6 +5,8 @@ import static com.badlogic.gdx.scenes.scene2d.actions.Actions.moveTo;
 import static com.badlogic.gdx.scenes.scene2d.actions.Actions.sequence;
 
 import java.io.IOException;
+import java.net.InetAddress;
+import java.util.List;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
@@ -73,7 +75,7 @@ public class ChatScreen extends AbstractScreen {
 		pret.setColor(Color.RED);
 
 		// window.debug();
-		final Window window = new Window("Connection", skin);
+		final Window window = new Window("UDP ChatRoom", skin);
 		window.getButtonTable();
 		window.setPosition(100, 400);
 		window.defaults().pad(80, 80, 80, 80);
@@ -118,8 +120,38 @@ public class ChatScreen extends AbstractScreen {
 //				
 			}
 		});
-
-
+		/*very slow.
+    	final List<InetAddress> address = game.client.discoverHosts(54777, 5000);
+    	TextButton[] IPList = new TextButton[address.size()];
+    	for ( int i = 0; i < address.size(); i++ )
+    	{
+    		IPList[i]  = new TextButton(address.get(i).toString() + " connect", skin);
+    		IPList[i].pad(50, 0, 0, 100);
+    		final InetAddress tempIp = address.get(i);
+			IPList[i].addListener(new ChangeListener() {
+				@Override
+				public void changed(ChangeEvent event, Actor actor) {
+					pret.setColor(Color.GREEN);
+					try {
+						game.startConnect(tempIp);
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
+				}
+			});
+    	}
+		// window.debug();
+		final Window TCPwindow = new Window("TCP Game", skin);
+		TCPwindow.getButtonTable();
+		TCPwindow.setPosition(800, 0);
+		TCPwindow.defaults().pad(100, 80, 80, 80);
+		TCPwindow.row();
+		TCPwindow.add(IPList);
+		TCPwindow.row();
+		TCPwindow.pack();
+		
+		stage.addActor(TCPwindow);
+		*/
 	}
 	/**
 	 * 

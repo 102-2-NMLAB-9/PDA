@@ -173,6 +173,7 @@ public class UnicastClient {
 
 			game.playersConnected.add(p);
 			joueurs.put(ip, p);
+			game.IP.add(ip);
 			this.chatWindow.addName(p.getNom() + " : " + game.count);
 			p.setName(p.getNom() + " : "
 					+ game.count);

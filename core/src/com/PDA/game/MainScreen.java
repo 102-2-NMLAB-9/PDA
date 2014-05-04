@@ -54,7 +54,7 @@ public class MainScreen implements Screen {
 			}
 			if (helpBounds.contains(touchPoint.x, touchPoint.y)) {
 				Assets.playSound(Assets.clickSound);
-				//game.setScreen(new HelpScreen(game));
+				game.setScreen(new testScreen(game));
 				return;
 			}
 			if (twoPlayBounds.contains(touchPoint.x, touchPoint.y)) {
