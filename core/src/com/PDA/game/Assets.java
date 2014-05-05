@@ -33,6 +33,25 @@ public class Assets {
 	public static TextureRegion platform;
 	public static Animation brakingPlatform;
 	*/
+	
+	public static Animation solider1;
+	public static Animation solider2;
+	public static Animation solider3;
+	public static Animation solider4;
+	public static Animation solider5;
+	public static Animation solider6;
+	public static Animation solider7;
+	public static Animation solider8;
+	public static Animation solider9;
+	public static Animation solider10;
+	public static Animation solider11;
+	public static Animation solider12;
+	public static Animation solider13;
+	public static Animation solider14;
+	public static Animation solider15;
+	public static Animation solider16;
+	public static Texture[] movingsolider;	
+	
 	public static BitmapFont font;
 
 	public static Music music;
@@ -102,6 +121,200 @@ public class Assets {
 		brakingPlatform = new Animation(0.2f, new TextureRegion(items, 64, 160, 64, 16), new TextureRegion(items, 64, 176, 64, 16),
 		new TextureRegion(items, 64, 192, 64, 16), new TextureRegion(items, 64, 208, 64, 16));
 		 */
+		
+		movingsolider = new Texture[8];
+		movingsolider[0] = loadTexture("data/1-1.png");
+		movingsolider[1] = loadTexture("data/1-2.png");
+		movingsolider[2] = loadTexture("data/1-3.png");
+		movingsolider[3] = loadTexture("data/1-4.png");
+		movingsolider[4] = loadTexture("data/1-5.png");
+		movingsolider[5] = loadTexture("data/1-6.png");		
+		movingsolider[6] = loadTexture("data/1-7.png");
+		movingsolider[7] = loadTexture("data/1-8.png");		
+		solider1 = new Animation(0.2f,new TextureRegion(movingsolider[0]),new TextureRegion(movingsolider[1]),
+				new TextureRegion(movingsolider[2]),new TextureRegion(movingsolider[3]),
+				new TextureRegion(movingsolider[4]),new TextureRegion(movingsolider[5]),
+				new TextureRegion(movingsolider[6]),new TextureRegion(movingsolider[7]));
+		movingsolider[0] = loadTexture("data/2-1.png");		
+		movingsolider[1] = loadTexture("data/2-2.png");
+		movingsolider[2] = loadTexture("data/2-3.png");
+		movingsolider[3] = loadTexture("data/2-4.png");
+		movingsolider[4] = loadTexture("data/2-5.png");
+		movingsolider[5] = loadTexture("data/2-6.png");		
+		movingsolider[6] = loadTexture("data/2-7.png");
+		movingsolider[7] = loadTexture("data/2-8.png");	
+		solider2 = new Animation(0.2f,new TextureRegion(movingsolider[0]),new TextureRegion(movingsolider[1]),
+				new TextureRegion(movingsolider[2]),new TextureRegion(movingsolider[3]),
+				new TextureRegion(movingsolider[4]),new TextureRegion(movingsolider[5]),
+				new TextureRegion(movingsolider[6]),new TextureRegion(movingsolider[7]));
+		movingsolider[0] = loadTexture("data/3-1.png");		
+		movingsolider[1] = loadTexture("data/3-2.png");
+		movingsolider[2] = loadTexture("data/3-3.png");
+		movingsolider[3] = loadTexture("data/3-4.png");
+		movingsolider[4] = loadTexture("data/3-5.png");
+		movingsolider[5] = loadTexture("data/3-6.png");		
+		movingsolider[6] = loadTexture("data/3-7.png");
+		movingsolider[7] = loadTexture("data/3-8.png");	
+		solider3 = new Animation(0.2f,new TextureRegion(movingsolider[0]),new TextureRegion(movingsolider[1]),
+				new TextureRegion(movingsolider[2]),new TextureRegion(movingsolider[3]),
+				new TextureRegion(movingsolider[4]),new TextureRegion(movingsolider[5]),
+				new TextureRegion(movingsolider[6]),new TextureRegion(movingsolider[7]));		
+		movingsolider[0] = loadTexture("data/4-1.png");		
+		movingsolider[1] = loadTexture("data/4-2.png");
+		movingsolider[2] = loadTexture("data/4-3.png");
+		movingsolider[3] = loadTexture("data/4-4.png");
+		movingsolider[4] = loadTexture("data/4-5.png");
+		movingsolider[5] = loadTexture("data/4-6.png");		
+		movingsolider[6] = loadTexture("data/4-7.png");
+		movingsolider[7] = loadTexture("data/4-8.png");	
+		solider4 = new Animation(0.2f,new TextureRegion(movingsolider[0]),new TextureRegion(movingsolider[1]),
+				new TextureRegion(movingsolider[2]),new TextureRegion(movingsolider[3]),
+				new TextureRegion(movingsolider[4]),new TextureRegion(movingsolider[5]),
+				new TextureRegion(movingsolider[6]),new TextureRegion(movingsolider[7]));		
+		movingsolider[0] = loadTexture("data/5-1.png");		
+		movingsolider[1] = loadTexture("data/5-2.png");
+		movingsolider[2] = loadTexture("data/5-3.png");
+		movingsolider[3] = loadTexture("data/5-4.png");
+		movingsolider[4] = loadTexture("data/5-5.png");
+		movingsolider[5] = loadTexture("data/5-6.png");		
+		movingsolider[6] = loadTexture("data/5-7.png");
+		movingsolider[7] = loadTexture("data/5-8.png");	
+		solider5 = new Animation(0.2f,new TextureRegion(movingsolider[0]),new TextureRegion(movingsolider[1]),
+				new TextureRegion(movingsolider[2]),new TextureRegion(movingsolider[3]),
+				new TextureRegion(movingsolider[4]),new TextureRegion(movingsolider[5]),
+				new TextureRegion(movingsolider[6]),new TextureRegion(movingsolider[7]));		
+		movingsolider[0] = loadTexture("data/6-1.png");		
+		movingsolider[1] = loadTexture("data/6-2.png");
+		movingsolider[2] = loadTexture("data/6-3.png");
+		movingsolider[3] = loadTexture("data/6-4.png");
+		movingsolider[4] = loadTexture("data/6-5.png");
+		movingsolider[5] = loadTexture("data/6-6.png");		
+		movingsolider[6] = loadTexture("data/6-7.png");
+		movingsolider[7] = loadTexture("data/6-8.png");	
+		solider6 = new Animation(0.2f,new TextureRegion(movingsolider[0]),new TextureRegion(movingsolider[1]),
+				new TextureRegion(movingsolider[2]),new TextureRegion(movingsolider[3]),
+				new TextureRegion(movingsolider[4]),new TextureRegion(movingsolider[5]),
+				new TextureRegion(movingsolider[6]),new TextureRegion(movingsolider[7]));		
+		movingsolider[0] = loadTexture("data/7-1.png");		
+		movingsolider[1] = loadTexture("data/7-2.png");
+		movingsolider[2] = loadTexture("data/7-3.png");
+		movingsolider[3] = loadTexture("data/7-4.png");
+		movingsolider[4] = loadTexture("data/7-5.png");
+		movingsolider[5] = loadTexture("data/7-6.png");		
+		movingsolider[6] = loadTexture("data/7-7.png");
+		movingsolider[7] = loadTexture("data/7-8.png");	
+		solider7 = new Animation(0.2f,new TextureRegion(movingsolider[0]),new TextureRegion(movingsolider[1]),
+				new TextureRegion(movingsolider[2]),new TextureRegion(movingsolider[3]),
+				new TextureRegion(movingsolider[4]),new TextureRegion(movingsolider[5]),
+				new TextureRegion(movingsolider[6]),new TextureRegion(movingsolider[7]));			
+		movingsolider[0] = loadTexture("data/8-1.png");		
+		movingsolider[1] = loadTexture("data/8-2.png");
+		movingsolider[2] = loadTexture("data/8-3.png");
+		movingsolider[3] = loadTexture("data/8-4.png");
+		movingsolider[4] = loadTexture("data/8-5.png");
+		movingsolider[5] = loadTexture("data/8-6.png");		
+		movingsolider[6] = loadTexture("data/8-7.png");
+		movingsolider[7] = loadTexture("data/8-8.png");	
+		solider8 = new Animation(0.2f,new TextureRegion(movingsolider[0]),new TextureRegion(movingsolider[1]),
+				new TextureRegion(movingsolider[2]),new TextureRegion(movingsolider[3]),
+				new TextureRegion(movingsolider[4]),new TextureRegion(movingsolider[5]),
+				new TextureRegion(movingsolider[6]),new TextureRegion(movingsolider[7]));			
+		movingsolider[0] = loadTexture("data/9-1.png");		
+		movingsolider[1] = loadTexture("data/9-2.png");
+		movingsolider[2] = loadTexture("data/9-3.png");
+		movingsolider[3] = loadTexture("data/9-4.png");
+		movingsolider[4] = loadTexture("data/9-5.png");
+		movingsolider[5] = loadTexture("data/9-6.png");		
+		movingsolider[6] = loadTexture("data/9-7.png");
+		movingsolider[7] = loadTexture("data/9-8.png");	
+		solider9 = new Animation(0.2f,new TextureRegion(movingsolider[0]),new TextureRegion(movingsolider[1]),
+				new TextureRegion(movingsolider[2]),new TextureRegion(movingsolider[3]),
+				new TextureRegion(movingsolider[4]),new TextureRegion(movingsolider[5]),
+				new TextureRegion(movingsolider[6]),new TextureRegion(movingsolider[7]));	
+		movingsolider[0] = loadTexture("data/10-1.png");		
+		movingsolider[1] = loadTexture("data/10-2.png");
+		movingsolider[2] = loadTexture("data/10-3.png");
+		movingsolider[3] = loadTexture("data/10-4.png");
+		movingsolider[4] = loadTexture("data/10-5.png");
+		movingsolider[5] = loadTexture("data/10-6.png");		
+		movingsolider[6] = loadTexture("data/10-7.png");
+		movingsolider[7] = loadTexture("data/10-8.png");	
+		solider10 = new Animation(0.2f,new TextureRegion(movingsolider[0]),new TextureRegion(movingsolider[1]),
+				new TextureRegion(movingsolider[2]),new TextureRegion(movingsolider[3]),
+				new TextureRegion(movingsolider[4]),new TextureRegion(movingsolider[5]),
+				new TextureRegion(movingsolider[6]),new TextureRegion(movingsolider[7]));	
+		movingsolider[0] = loadTexture("data/11-1.png");		
+		movingsolider[1] = loadTexture("data/11-2.png");
+		movingsolider[2] = loadTexture("data/11-3.png");
+		movingsolider[3] = loadTexture("data/11-4.png");
+		movingsolider[4] = loadTexture("data/11-5.png");
+		movingsolider[5] = loadTexture("data/11-6.png");		
+		movingsolider[6] = loadTexture("data/11-7.png");
+		movingsolider[7] = loadTexture("data/11-8.png");	
+		solider11 = new Animation(0.2f,new TextureRegion(movingsolider[0]),new TextureRegion(movingsolider[1]),
+				new TextureRegion(movingsolider[2]),new TextureRegion(movingsolider[3]),
+				new TextureRegion(movingsolider[4]),new TextureRegion(movingsolider[5]),
+				new TextureRegion(movingsolider[6]),new TextureRegion(movingsolider[7]));
+		movingsolider[0] = loadTexture("data/12-1.png");		
+		movingsolider[1] = loadTexture("data/12-2.png");
+		movingsolider[2] = loadTexture("data/12-3.png");
+		movingsolider[3] = loadTexture("data/12-4.png");
+		movingsolider[4] = loadTexture("data/12-5.png");
+		movingsolider[5] = loadTexture("data/12-6.png");		
+		movingsolider[6] = loadTexture("data/12-7.png");
+		movingsolider[7] = loadTexture("data/12-8.png");	
+		solider12 = new Animation(0.2f,new TextureRegion(movingsolider[0]),new TextureRegion(movingsolider[1]),
+				new TextureRegion(movingsolider[2]),new TextureRegion(movingsolider[3]),
+				new TextureRegion(movingsolider[4]),new TextureRegion(movingsolider[5]),
+				new TextureRegion(movingsolider[6]),new TextureRegion(movingsolider[7]));			
+		movingsolider[0] = loadTexture("data/13-1.png");		
+		movingsolider[1] = loadTexture("data/13-2.png");
+		movingsolider[2] = loadTexture("data/13-3.png");
+		movingsolider[3] = loadTexture("data/13-4.png");
+		movingsolider[4] = loadTexture("data/13-5.png");
+		movingsolider[5] = loadTexture("data/13-6.png");		
+		movingsolider[6] = loadTexture("data/13-7.png");
+		movingsolider[7] = loadTexture("data/13-8.png");	
+		solider13 = new Animation(0.2f,new TextureRegion(movingsolider[0]),new TextureRegion(movingsolider[1]),
+				new TextureRegion(movingsolider[2]),new TextureRegion(movingsolider[3]),
+				new TextureRegion(movingsolider[4]),new TextureRegion(movingsolider[5]),
+				new TextureRegion(movingsolider[6]),new TextureRegion(movingsolider[7]));			
+		movingsolider[0] = loadTexture("data/14-1.png");		
+		movingsolider[1] = loadTexture("data/14-2.png");
+		movingsolider[2] = loadTexture("data/14-3.png");
+		movingsolider[3] = loadTexture("data/14-4.png");
+		movingsolider[4] = loadTexture("data/14-5.png");
+		movingsolider[5] = loadTexture("data/14-6.png");		
+		movingsolider[6] = loadTexture("data/14-7.png");
+		movingsolider[7] = loadTexture("data/14-8.png");	
+		solider14 = new Animation(0.2f,new TextureRegion(movingsolider[0]),new TextureRegion(movingsolider[1]),
+				new TextureRegion(movingsolider[2]),new TextureRegion(movingsolider[3]),
+				new TextureRegion(movingsolider[4]),new TextureRegion(movingsolider[5]),
+				new TextureRegion(movingsolider[6]),new TextureRegion(movingsolider[7]));			
+		movingsolider[0] = loadTexture("data/15-1.png");		
+		movingsolider[1] = loadTexture("data/15-2.png");
+		movingsolider[2] = loadTexture("data/15-3.png");
+		movingsolider[3] = loadTexture("data/15-4.png");
+		movingsolider[4] = loadTexture("data/15-5.png");
+		movingsolider[5] = loadTexture("data/15-6.png");		
+		movingsolider[6] = loadTexture("data/15-7.png");
+		movingsolider[7] = loadTexture("data/15-8.png");	
+		solider15 = new Animation(0.2f,new TextureRegion(movingsolider[0]),new TextureRegion(movingsolider[1]),
+				new TextureRegion(movingsolider[2]),new TextureRegion(movingsolider[3]),
+				new TextureRegion(movingsolider[4]),new TextureRegion(movingsolider[5]),
+				new TextureRegion(movingsolider[6]),new TextureRegion(movingsolider[7]));		
+		movingsolider[0] = loadTexture("data/16-1.png");		
+		movingsolider[1] = loadTexture("data/16-2.png");
+		movingsolider[2] = loadTexture("data/16-3.png");
+		movingsolider[3] = loadTexture("data/16-4.png");
+		movingsolider[4] = loadTexture("data/16-5.png");
+		movingsolider[5] = loadTexture("data/16-6.png");		
+		movingsolider[6] = loadTexture("data/16-7.png");
+		movingsolider[7] = loadTexture("data/16-8.png");	
+		solider16 = new Animation(0.2f,new TextureRegion(movingsolider[0]),new TextureRegion(movingsolider[1]),
+				new TextureRegion(movingsolider[2]),new TextureRegion(movingsolider[3]),
+				new TextureRegion(movingsolider[4]),new TextureRegion(movingsolider[5]),
+				new TextureRegion(movingsolider[6]),new TextureRegion(movingsolider[7]));		
 		
 		play = loadTexture("data/play.png");
 		playRegion = new TextureRegion(play);
