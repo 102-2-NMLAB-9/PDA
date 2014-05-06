@@ -145,8 +145,7 @@ public class Assets {
 				new TextureRegion(littlefighter[2]),new TextureRegion(littlefighter[3]),
 				new TextureRegion(littlefighter[4]),new TextureRegion(littlefighter[5]),
 				new TextureRegion(littlefighter[6]),new TextureRegion(littlefighter[7]),
-				new TextureRegion(littlefighter[8]),new TextureRegion(littlefighter[9]),
-				new TextureRegion(littlefighter[10]));
+				new TextureRegion(littlefighter[8]),new TextureRegion(littlefighter[9]));
 		
 		movingsoldier = new Texture[8];
 		movingsoldier[0] = loadTexture("data/1-1.png");
