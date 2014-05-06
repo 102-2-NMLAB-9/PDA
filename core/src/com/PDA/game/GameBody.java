@@ -40,7 +40,7 @@ public class GameBody {
 		merged = new boolean[16];
 		newblock = new int[16];
 		
-		if(accelX < -5) {     //Left
+		if(accelX < -5f) {     //Left
 			for(int i=0; i<4; i++) {
 				for(int j=0; j<4; j++) {
 					int idx = 4*j+i;
@@ -64,7 +64,7 @@ public class GameBody {
 					}
 				}
 			}
-		}else if(accelX > 5) {     //Right
+		}else if(accelX > 5f) {     //Right
 			for(int i=3; i>=0; i--) {
 				for(int j=0; j<4; j++) {
 					int idx = 4*j+i;
@@ -88,7 +88,7 @@ public class GameBody {
 					}
 				}
 			}
-		}else if(accelY < -5) {      //Down
+		}else if(accelY > 5f) {      //Down
 			for(int i=0; i<4; i++) {
 				for(int j=0; j<4; j++) {
 					int idx = 4*i+j;
@@ -112,7 +112,7 @@ public class GameBody {
 					}
 				}
 			}
-		}else if(accelY > 5) {      //Up
+		}else if(accelY < -5f) {      //Up
 			for(int i=3; i>=0; i--) {
 				for(int j=0; j<4; j++) {
 					int idx = 4*i+j;
@@ -138,16 +138,18 @@ public class GameBody {
 			}
 		}
 		// Create A New Block
-		for(int i=0; i<16; ++i) {
-			if(status[i] == 0) {
-				newblock[length++] = i;
+		if( accelX > 5 || accelX < -5 || accelY > 5 || accelY < -5 ) {
+			for(int i=0; i<16; ++i) {
+				if(status[i] == 0) {
+					newblock[length++] = i;
+				}
 			}
-		}
-		if(length != 0) {
-			nextone = rnd.nextInt(length);
-			status[nextone] = 1;
-		}else {
-			;
+			if(length != 0) {
+				nextone = rnd.nextInt(length);
+				status[nextone] = 1;
+			}else {
+				;
+			}
 		}
 		return ;
 	}
@@ -159,7 +161,7 @@ public class GameBody {
 			for(int j=0; j<4; j++) {
 				int index = 4*i+j;
 				if( status[index] != 0) {
-					batcher.draw(Assets.solider_regions[status[index]-1], arr[i], arr[j], 100, 100);
+					batcher.draw(Assets.soldier_regions[status[index]-1], arr[j], arr[i], 100, 100);
 				}
 			}
 		}
