@@ -36,6 +36,7 @@ public class ChatScreen extends AbstractScreen {
 		uc = null;
 	}
 
+	/*
 	@Override
 	public void resize(int width, int height) {
 		Vector2 size = Scaling.fit.apply(1280, 960, width, height);
@@ -45,6 +46,7 @@ public class ChatScreen extends AbstractScreen {
         int viewportHeight = (int)size.y;
         Gdx.gl.glViewport(viewportX, viewportY, viewportWidth, viewportHeight);
 	}
+	*/
 
 	@Override
 	public void dispose() {

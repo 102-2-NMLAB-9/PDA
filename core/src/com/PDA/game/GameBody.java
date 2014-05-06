@@ -10,10 +10,10 @@ public class GameBody {
 	int[] status;
 	SpriteBatch batcher;
 	
-	public GameBody() {
+	public GameBody(SpriteBatch batch) {
 		characters = new Rectangle[16];
 		status = new int[16];
-		batcher = new SpriteBatch();
+		batcher = batch;
 		
 		Random rnd = new Random();
 		status[rnd.nextInt(16)] = 1;
@@ -171,7 +171,7 @@ public class GameBody {
 			for(int j=0; j<4; j++) {
 				int index = 4*i+j;
 				if( status[index] != 0) {
-					batcher.draw(Assets.soldier_regions[status[index]-1], arr[j], arr[i], 100, 100);
+					batcher.draw(Assets.soldier_regions[status[index]-1], arr[j], arr[i], 140, 140);
 				}
 			}
 		}
