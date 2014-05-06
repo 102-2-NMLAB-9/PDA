@@ -78,7 +78,7 @@ public class GameBody {
 							}
 						}
 						//Merge
-						if(i < 4 && status[idx] == status[idx+1]) {
+						if(i < 3 && status[idx] == status[idx+1]) {
 							if(!merged[idx+1]) {
 								status[idx+1]++;
 								status[idx] = 0;
@@ -126,7 +126,7 @@ public class GameBody {
 							}
 						}
 						//Merge
-						if(i < 4 && status[idx] == status[idx+4]) {
+						if(i < 3 && status[idx] == status[idx+4]) {
 							if(!merged[idx+4]) {
 								status[idx+4]++;
 								status[idx] = 0;
@@ -143,23 +143,27 @@ public class GameBody {
 				newblock[length++] = i;
 			}
 		}
-		nextone = rnd.nextInt(length);
-		status[nextone] = 1;
+		if(length != 0) {
+			nextone = rnd.nextInt(length);
+			status[nextone] = 1;
+		}else {
+			;
+		}
 		return ;
 	}
 	
 	public void draw() {
 		int[] arr = {70, 215, 360, 505};
+		batcher.begin();
 		for(int i=0; i<4; i++) {
 			for(int j=0; j<4; j++) {
 				int index = 4*i+j;
 				if( status[index] != 0) {
-					batcher.begin();
-					batcher.draw(Assets.solider_regions[status[index]-1], arr[i], arr[j], 140, 140);
-					batcher.end();
+					batcher.draw(Assets.solider_regions[status[index]-1], arr[i], arr[j], 100, 100);
 				}
 			}
 		}
+		batcher.end();
 	}
 	
 	public void render(float accelX, float accelY) {

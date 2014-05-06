@@ -61,8 +61,8 @@ public class GameScreen implements Screen,InputProcessor {
 			if (Gdx.input.isKeyPressed(Keys.DPAD_LEFT)) accelX = -10f;
 			if (Gdx.input.isKeyPressed(Keys.DPAD_DOWN)) accelY = 10f;
 			if (Gdx.input.isKeyPressed(Keys.DPAD_UP)) accelY = -10f;
-			game2048.render(accelX, accelY);
 		}
+		game2048.update(accelX, accelY);
 	}
 
 	public void draw (float delta) {
@@ -111,6 +111,8 @@ public class GameScreen implements Screen,InputProcessor {
 		batcher.draw(Assets.boxregion[14], 360, 505, 140, 140);
 		batcher.draw(Assets.boxregion[15], 505, 505, 140, 140);
 		batcher.end();
+		
+		game2048.draw();
 	}
 
 	@Override
