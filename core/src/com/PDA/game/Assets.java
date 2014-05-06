@@ -51,6 +51,8 @@ public class Assets {
 	public static Animation solider15;
 	public static Animation solider16;
 	public static Texture[] movingsolider;	
+	public static Texture[] soliders;
+	public static TextureRegion[] solider_regions;
 	
 	public static BitmapFont font;
 
@@ -342,6 +344,25 @@ public class Assets {
 		for(int i=0; i<16; ++i ) boxes[i] = loadTexture("data/cell.png");
 		boxregion = new TextureRegion[16];
 		for(int i=0; i<16; ++i) boxregion[i] = new TextureRegion(boxes[i]);
+		soliders = new Texture[16];
+		soliders[0] = loadTexture("data/1.png");
+		soliders[1] = loadTexture("data/2.png");
+		soliders[2] = loadTexture("data/3.png");
+		soliders[3] = loadTexture("data/4.png");
+		soliders[4] = loadTexture("data/5.png");
+		soliders[5] = loadTexture("data/6.png");
+		soliders[6] = loadTexture("data/7.png");
+		soliders[7] = loadTexture("data/8.png");
+		soliders[8] = loadTexture("data/9.png");
+		soliders[9] = loadTexture("data/10.png");
+		soliders[10] = loadTexture("data/11.png");
+		soliders[11] = loadTexture("data/12.png");
+		soliders[12] = loadTexture("data/13.png");
+		soliders[13] = loadTexture("data/14.png");
+		soliders[14] = loadTexture("data/15.png");
+		soliders[15] = loadTexture("data/16.png");
+		solider_regions = new TextureRegion[16];
+		for(int i=0; i<15; i++) solider_regions[i] = new TextureRegion(soliders[i]);
 		
 		font = new BitmapFont(Gdx.files.internal("data/font.fnt"), Gdx.files.internal("data/font.png"), false);
 		music = Gdx.audio.newMusic(Gdx.files.internal("data/music.mp3"));

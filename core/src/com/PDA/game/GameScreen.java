@@ -14,6 +14,7 @@ import com.badlogic.gdx.math.Vector3;
 
 public class GameScreen implements Screen,InputProcessor {
 	MyPDAGame game;
+	GameBody game2048;
 
 	OrthographicCamera guiCam;
 	SpriteBatch batcher;
@@ -28,6 +29,7 @@ public class GameScreen implements Screen,InputProcessor {
 
 	public GameScreen (MyPDAGame game) {
 		this.game = game;
+		game2048 = new GameBody();
 		Gdx.input.setInputProcessor(this);
 		guiCam = new OrthographicCamera(1280, 960);
 		guiCam.position.set(1280 / 2, 960 / 2, 0);
@@ -59,6 +61,7 @@ public class GameScreen implements Screen,InputProcessor {
 			if (Gdx.input.isKeyPressed(Keys.DPAD_LEFT)) accelX = -10f;
 			if (Gdx.input.isKeyPressed(Keys.DPAD_DOWN)) accelY = 10f;
 			if (Gdx.input.isKeyPressed(Keys.DPAD_UP)) accelY = -10f;
+			game2048.render(accelX, accelY);
 		}
 	}
 
