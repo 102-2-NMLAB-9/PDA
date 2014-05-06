@@ -51,6 +51,8 @@ public class Assets {
 	public static Animation soldier15;
 	public static Animation soldier16;
 	public static Texture[] movingsoldier;	
+	public static Texture door;
+	public static TextureRegion doorRegion;	
 	
 	public static BitmapFont font;
 
@@ -316,6 +318,8 @@ public class Assets {
 				new TextureRegion(movingsoldier[4]),new TextureRegion(movingsoldier[5]),
 				new TextureRegion(movingsoldier[6]),new TextureRegion(movingsoldier[7]));		
 		
+		door = loadTexture("data/door.png");
+		doorRegion = new TextureRegion(door);		
 		play = loadTexture("data/play.png");
 		playRegion = new TextureRegion(play);
 		war = loadTexture("data/war.png");

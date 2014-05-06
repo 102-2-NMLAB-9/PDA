@@ -221,6 +221,7 @@ public class GameScreen implements Screen,InputProcessor {
 		else if (accelY > 5f) Assets.font.draw(batcher, "down", 0, 960);
 		else if (accelY < -5f) Assets.font.draw(batcher, "up", 0, 960);
 
+		batcher.draw(Assets.doorRegion,1111,620,150,330);
 		renderSoldiers();
 		batcher.draw(Assets.testRegion, posx, posy, 300, 300);
 		batcher.draw(Assets.boxregion[0], 70, 70, 140, 140);
@@ -409,17 +410,17 @@ public class GameScreen implements Screen,InputProcessor {
 		// TODO Auto-generated method stub
 		if(screenX>=posx && screenX<=posx+length && 900-screenY>=posy && 900-screenY<=posy+length)
 		{
-			Soldier soldier = new Soldier(0,660);
+			Soldier soldier = new Soldier(0,660,50,3,3);
 			soldier3s.add(soldier);	
 		    return true;
 		}
-		Soldier soldier = new Soldier(0,660);
+		Soldier soldier = new Soldier(0,660,40,2,2);
 		soldier2s.add(soldier);
         return false;
 	}
 	@Override
 	public boolean touchUp(int screenX, int screenY, int pointer, int button) {
-		Soldier soldier = new Soldier(0,660);
+		Soldier soldier = new Soldier(0,660,30,1,1);
 		soldier1s.add(soldier);				
 		return false;
 	}

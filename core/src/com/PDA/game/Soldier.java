@@ -17,24 +17,25 @@
 package com.PDA.game;
 
 public class Soldier extends DynamicGameObject {
-	public static final float SOLDIER_WIDTH = 1;
-	public static final float SOLDIER_HEIGHT = 0.6f;
-	public static final float SOLDIER_VELOCITY = 30f;
 
 	float stateTime = 0;
+	float blood;
+	float attack;
 
-	public Soldier (float x, float y) {
-		super(x, y, SOLDIER_WIDTH, SOLDIER_HEIGHT);
-		velocity.set(SOLDIER_VELOCITY, 0);
+	public Soldier (float x, float y,float v,float b,float a) {
+		super(x, y, 222, 222);
+		velocity.set(v, 0);
+		blood=b;
+		attack=a;
 	}
 
 	public void update (float delta) {
 		position.add(velocity.x * delta, velocity.y * delta);
-		bounds.x = position.x - SOLDIER_WIDTH / 2;
-		bounds.y = position.y - SOLDIER_HEIGHT / 2;
-		if (position.x > 960 - SOLDIER_WIDTH / 2) 
+		bounds.x = position.x;
+		bounds.y = position.y;
+		if (position.x > 960) 
 		{
-			position.x = 960 - SOLDIER_WIDTH / 2;
+			position.x = 960;
 			velocity.x = 0;
 		}
 		/*if(velocity.x != 0)
