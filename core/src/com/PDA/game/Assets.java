@@ -34,6 +34,7 @@ public class Assets {
 	public static Animation brakingPlatform;
 	*/
 	
+
 	public static Animation soldier1;
 	public static Animation soldier2;
 	public static Animation soldier3;
@@ -54,6 +55,10 @@ public class Assets {
 	public static Texture door;
 	public static TextureRegion doorRegion;	
 	
+	public static Texture[] soldiers;
+	public static TextureRegion[] soldier_regions;
+
+
 	public static BitmapFont font;
 
 	public static Music music;
@@ -346,6 +351,25 @@ public class Assets {
 		for(int i=0; i<16; ++i ) boxes[i] = loadTexture("data/cell.png");
 		boxregion = new TextureRegion[16];
 		for(int i=0; i<16; ++i) boxregion[i] = new TextureRegion(boxes[i]);
+		soldiers = new Texture[16];
+		soldiers[0] = loadTexture("data/1.png");
+		soldiers[1] = loadTexture("data/2.png");
+		soldiers[2] = loadTexture("data/3.png");
+		soldiers[3] = loadTexture("data/4.png");
+		soldiers[4] = loadTexture("data/5.png");
+		soldiers[5] = loadTexture("data/6.png");
+		soldiers[6] = loadTexture("data/7.png");
+		soldiers[7] = loadTexture("data/8.png");
+		soldiers[8] = loadTexture("data/9.png");
+		soldiers[9] = loadTexture("data/10.png");
+		soldiers[10] = loadTexture("data/11.png");
+		soldiers[11] = loadTexture("data/12.png");
+		soldiers[12] = loadTexture("data/13.png");
+		soldiers[13] = loadTexture("data/14.png");
+		soldiers[14] = loadTexture("data/15.png");
+		soldiers[15] = loadTexture("data/16.png");
+		soldier_regions = new TextureRegion[16];
+		for(int i=0; i<15; i++) soldier_regions[i] = new TextureRegion(soldiers[i]);
 		
 		font = new BitmapFont(Gdx.files.internal("data/font.fnt"), Gdx.files.internal("data/font.png"), false);
 		music = Gdx.audio.newMusic(Gdx.files.internal("data/music.mp3"));

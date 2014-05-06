@@ -20,6 +20,7 @@ import com.badlogic.gdx.math.Vector3;
 
 public class GameScreen implements Screen,InputProcessor {
 	MyPDAGame game;
+	GameBody game2048;
 
 	OrthographicCamera guiCam;
 	SpriteBatch batcher;
@@ -50,6 +51,7 @@ public class GameScreen implements Screen,InputProcessor {
 
 	public GameScreen (MyPDAGame game) {
 		this.game = game;
+		game2048 = new GameBody();
 		Gdx.input.setInputProcessor(this);
 		guiCam = new OrthographicCamera(1280, 960);
 		guiCam.position.set(1280 / 2, 960 / 2, 0);
@@ -98,6 +100,7 @@ public class GameScreen implements Screen,InputProcessor {
 			if (Gdx.input.isKeyPressed(Keys.DPAD_DOWN)) accelY = 10f;
 			if (Gdx.input.isKeyPressed(Keys.DPAD_UP)) accelY = -10f;
 		}
+		game2048.update(accelX, accelY);
 		
 		updateSoldiers(delta);
 	}
@@ -198,7 +201,7 @@ public class GameScreen implements Screen,InputProcessor {
 		{
 			Soldier soldier = soldier16s.get(i);
 			soldier.update(delta);
-		}			
+		}
 	}
 
 	public void draw (float delta) {
@@ -241,6 +244,8 @@ public class GameScreen implements Screen,InputProcessor {
 		batcher.draw(Assets.boxregion[14], 360, 505, 140, 140);
 		batcher.draw(Assets.boxregion[15], 505, 505, 140, 140);
 		batcher.end();
+		
+		game2048.draw();
 	}
 	
 	private void renderSoldiers () 
