@@ -14,6 +14,10 @@ public class GameBody {
 		characters = new Rectangle[16];
 		status = new int[16];
 		batcher = new SpriteBatch();
+		
+		Random rnd = new Random();
+		status[rnd.nextInt(16)] = 1;
+		
 		characters[0] = new Rectangle(70, 70, 140, 140);
 		characters[1] = new Rectangle(215, 70, 140, 140);
 		characters[2] = new Rectangle(360, 70, 140, 140);
@@ -34,8 +38,10 @@ public class GameBody {
 	
 	public void update(float accelX, float accelY) {
 		boolean[] merged;
+		boolean moved = false;
 		int[] newblock;
 		int length =0, nextone = 0;
+		
 		Random rnd = new Random();
 		merged = new boolean[16];
 		newblock = new int[16];
@@ -51,6 +57,7 @@ public class GameBody {
 							if(status[idx_tmp] == 0) {
 								status[idx_tmp] = status[idx_tmp+1];
 								status[idx_tmp+1] = 0;
+								moved = true;
 							}
 						}
 						//Merge
@@ -75,6 +82,7 @@ public class GameBody {
 							if(status[idx_tmp] == 0) {
 								status[idx_tmp] = status[idx_tmp-1];
 								status[idx_tmp-1] = 0;
+								moved = true;
 							}
 						}
 						//Merge
@@ -99,6 +107,7 @@ public class GameBody {
 							if(status[idx_tmp] == 0) {
 								status[idx_tmp] = status[idx_tmp+4];
 								status[idx_tmp+4] = 0;
+								moved = true;
 							}
 						}
 						//Merge
@@ -123,6 +132,7 @@ public class GameBody {
 							if(status[idx_tmp] == 0) {
 								status[idx_tmp] = status[idx_tmp-4];
 								status[idx_tmp-4] = 0;
+								moved = true;
 							}
 						}
 						//Merge
@@ -138,7 +148,7 @@ public class GameBody {
 			}
 		}
 		// Create A New Block
-		if( accelX > 5 || accelX < -5 || accelY > 5 || accelY < -5 ) {
+		if( moved ) {
 			for(int i=0; i<16; ++i) {
 				if(status[i] == 0) {
 					newblock[length++] = i;
@@ -146,7 +156,7 @@ public class GameBody {
 			}
 			if(length != 0) {
 				nextone = rnd.nextInt(length);
-				status[nextone] = 1;
+				status[newblock[nextone]] = 1;
 			}else {
 				;
 			}
