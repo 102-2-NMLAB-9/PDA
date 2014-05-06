@@ -34,7 +34,8 @@ public class Assets {
 	public static Animation brakingPlatform;
 	*/
 	
-
+    public static Animation dennis;
+    public static Texture[] littlefighter;
 	public static Animation soldier1;
 	public static Animation soldier2;
 	public static Animation soldier3;
@@ -128,6 +129,24 @@ public class Assets {
 		brakingPlatform = new Animation(0.2f, new TextureRegion(items, 64, 160, 64, 16), new TextureRegion(items, 64, 176, 64, 16),
 		new TextureRegion(items, 64, 192, 64, 16), new TextureRegion(items, 64, 208, 64, 16));
 		 */
+		
+		littlefighter = new Texture[10];
+		littlefighter[0] = loadTexture("data/a-1.png");
+		littlefighter[1] = loadTexture("data/a-2.png");
+		littlefighter[2] = loadTexture("data/a-3.png");
+		littlefighter[3] = loadTexture("data/a-4.png");
+		littlefighter[4] = loadTexture("data/a-5.png");		
+		littlefighter[5] = loadTexture("data/a-6.png");
+		littlefighter[6] = loadTexture("data/a-7.png");
+		littlefighter[7] = loadTexture("data/a-8.png");
+		littlefighter[8] = loadTexture("data/a-9.png");
+		littlefighter[9] = loadTexture("data/a-10.png");			
+		dennis = new Animation(0.2f,new TextureRegion(littlefighter[0]),new TextureRegion(littlefighter[1]),
+				new TextureRegion(littlefighter[2]),new TextureRegion(littlefighter[3]),
+				new TextureRegion(littlefighter[4]),new TextureRegion(littlefighter[5]),
+				new TextureRegion(littlefighter[6]),new TextureRegion(littlefighter[7]),
+				new TextureRegion(littlefighter[8]),new TextureRegion(littlefighter[9]),
+				new TextureRegion(littlefighter[10]));
 		
 		movingsoldier = new Texture[8];
 		movingsoldier[0] = loadTexture("data/1-1.png");
