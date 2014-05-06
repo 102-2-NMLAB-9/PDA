@@ -1,6 +1,9 @@
 package com.PDA.game;
 
 
+import java.util.ArrayList;
+import java.util.List;
+
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.InputProcessor;
 import com.badlogic.gdx.Screen;
@@ -9,8 +12,11 @@ import com.badlogic.gdx.Input.Keys;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector3;
+
+
 
 public class GameScreen implements Screen,InputProcessor {
 	MyPDAGame game;
@@ -25,6 +31,7 @@ public class GameScreen implements Screen,InputProcessor {
 	float posx = 500;
 	float posy = 400;
 	float length = 300;
+	List<Soldier> soldier1s;	
 
 	public GameScreen (MyPDAGame game) {
 		this.game = game;
@@ -35,6 +42,7 @@ public class GameScreen implements Screen,InputProcessor {
 		testBounds = new Rectangle(500, 400, 300, 300);
 		touchPoint = new Vector3();
 		batcher = new SpriteBatch();
+		this.soldier1s = new ArrayList<Soldier>();		
 	}
 	
 	public void update (float delta) {
@@ -60,6 +68,16 @@ public class GameScreen implements Screen,InputProcessor {
 			if (Gdx.input.isKeyPressed(Keys.DPAD_DOWN)) accelY = 10f;
 			if (Gdx.input.isKeyPressed(Keys.DPAD_UP)) accelY = -10f;
 		}
+		
+		updateSoldier1s(delta);
+	}
+	
+	private void updateSoldier1s (float delta) {
+		int len = soldier1s.size();
+		for (int i = 0; i < len; i++) {
+			Soldier soldier1 = soldier1s.get(i);
+			soldier1.update(delta);
+		}
 	}
 
 	public void draw (float delta) {
@@ -75,22 +93,15 @@ public class GameScreen implements Screen,InputProcessor {
 
 		batcher.enableBlending();
 		batcher.begin();
-
 		batcher.draw(Assets.back, 0, 0, 64, 64);
-		batcher.end();
 		
-		batcher.begin();
 		if (accelX > 5f) Assets.font.draw(batcher, "right", 0, 960);
 		else if (accelX < -5f) Assets.font.draw(batcher, "left", 0, 960);
 		else if (accelY > 5f) Assets.font.draw(batcher, "down", 0, 960);
 		else if (accelY < -5f) Assets.font.draw(batcher, "up", 0, 960);
-		batcher.end();
-		
-		batcher.begin();
+
+		renderSoldier1s();
 		batcher.draw(Assets.testRegion, posx, posy, 300, 300);
-		batcher.end();
-		
-		batcher.begin();
 		batcher.draw(Assets.boxregion[0], 70, 70, 140, 140);
 		batcher.draw(Assets.boxregion[1], 215, 70, 140, 140);
 		batcher.draw(Assets.boxregion[2], 360, 70, 140, 140);
@@ -108,6 +119,15 @@ public class GameScreen implements Screen,InputProcessor {
 		batcher.draw(Assets.boxregion[14], 360, 505, 140, 140);
 		batcher.draw(Assets.boxregion[15], 505, 505, 140, 140);
 		batcher.end();
+	}
+	
+	private void renderSoldier1s () {
+		int len = soldier1s.size();
+		for (int i = 0; i < len; i++) {
+			Soldier soldier1 = soldier1s.get(i);
+			TextureRegion keyFrame = Assets.soldier1.getKeyFrame(soldier1.stateTime, Animation.ANIMATION_LOOPING);
+			batcher.draw(keyFrame, soldier1.position.x, soldier1.position.y, 200, 200);
+		}
 	}
 
 	@Override
@@ -164,6 +184,8 @@ public class GameScreen implements Screen,InputProcessor {
 	}
 	@Override
 	public boolean touchUp(int screenX, int screenY, int pointer, int button) {
+		Soldier soldier1 = new Soldier(0,660);
+		soldier1s.add(soldier1);				
 		return false;
 	}
 	@Override
@@ -172,7 +194,7 @@ public class GameScreen implements Screen,InputProcessor {
 		if(touchDown(screenX,screenY,pointer,1))
 		{
 		   posx=screenX-150;
-		   posy=750-screenY;
+		   posy=750-screenY;   
 		}
 		return false;
 	}
