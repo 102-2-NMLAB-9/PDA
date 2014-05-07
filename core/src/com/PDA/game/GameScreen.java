@@ -48,6 +48,7 @@ public class GameScreen implements Screen,InputProcessor {
 	List<Soldier> soldier14s;
 	List<Soldier> soldier15s;
 	List<Soldier> soldier16s;	
+	List<Dennis> dennis;
 
 	public GameScreen (MyPDAGame game) {
 		this.game = game;
@@ -74,7 +75,8 @@ public class GameScreen implements Screen,InputProcessor {
 		this.soldier13s = new ArrayList<Soldier>();
 		this.soldier14s = new ArrayList<Soldier>();
 		this.soldier15s = new ArrayList<Soldier>();
-		this.soldier16s = new ArrayList<Soldier>();				
+		this.soldier16s = new ArrayList<Soldier>();
+		this.dennis = new ArrayList<Dennis>();		
 	}
 	
 	public void update (float delta) {
@@ -101,11 +103,22 @@ public class GameScreen implements Screen,InputProcessor {
 			if (Gdx.input.isKeyPressed(Keys.DPAD_UP)) accelY = -10f;
 		}
 		game2048.update(accelX, accelY);
-		
+		updateLittlefighters(delta);
 		updateSoldiers(delta);
 	}
 	
-	private void updateSoldiers (float delta) {
+	public void updateLittlefighters(float delta)
+	{
+		int len = dennis.size();
+		for (int i = 0; i < len; i++) 
+		{
+			Dennis fighter = dennis.get(i);
+			fighter.update(delta);
+		}		
+	}
+	
+	private void updateSoldiers (float delta) 
+	{
 		int len = soldier1s.size();
 		for (int i = 0; i < len; i++) 
 		{
@@ -226,6 +239,7 @@ public class GameScreen implements Screen,InputProcessor {
 
 		batcher.draw(Assets.doorRegion,1111,620,150,330);
 		renderSoldiers();
+		renderLittlefighters();
 		batcher.draw(Assets.testRegion, posx, posy, 300, 300);
 		batcher.draw(Assets.boxregion[0], 70, 70, 140, 140);
 		batcher.draw(Assets.boxregion[1], 215, 70, 140, 140);
@@ -248,41 +262,53 @@ public class GameScreen implements Screen,InputProcessor {
 		game2048.draw();
 	}
 	
+	private void renderLittlefighters()
+	{
+		for (int i = 0; i < dennis.size(); i++) 
+		{
+			Dennis fighter = dennis.get(i);
+			TextureRegion keyFrame = Assets.dennis.getKeyFrame(fighter.stateTime,false);
+			batcher.draw(keyFrame, fighter.position.x, fighter.position.y, 222, 222);
+			if(Assets.dennis.isAnimationFinished(fighter.stateTime))
+			{dennis.remove(fighter);}			
+		}	
+	}
+	
 	private void renderSoldiers () 
 	{
 		int len = soldier1s.size();
 		for (int i = 0; i < len; i++) 
 		{
 			Soldier soldier = soldier1s.get(i);
-			TextureRegion keyFrame = Assets.soldier1.getKeyFrame(soldier.stateTime, Animation.ANIMATION_LOOPING);
+			TextureRegion keyFrame = Assets.soldier1.getKeyFrame(soldier.stateTime, true);
 			batcher.draw(keyFrame, soldier.position.x, soldier.position.y, 222, 222);
 		}
 		len = soldier2s.size();
 		for (int i = 0; i < len; i++) 
 		{
 			Soldier soldier = soldier2s.get(i);
-			TextureRegion keyFrame = Assets.soldier2.getKeyFrame(soldier.stateTime, Animation.ANIMATION_LOOPING);
+			TextureRegion keyFrame = Assets.soldier2.getKeyFrame(soldier.stateTime, true);
 			batcher.draw(keyFrame, soldier.position.x, soldier.position.y, 222, 222);
 		}		
 		len = soldier3s.size();
 		for (int i = 0; i < len; i++) 
 		{
 			Soldier soldier = soldier3s.get(i);
-			TextureRegion keyFrame = Assets.soldier3.getKeyFrame(soldier.stateTime, Animation.ANIMATION_LOOPING);
+			TextureRegion keyFrame = Assets.soldier3.getKeyFrame(soldier.stateTime, true);
 			batcher.draw(keyFrame, soldier.position.x, soldier.position.y, 222, 222);
 		}		
 		len = soldier4s.size();
 		for (int i = 0; i < len; i++) 
 		{
 			Soldier soldier = soldier4s.get(i);
-			TextureRegion keyFrame = Assets.soldier4.getKeyFrame(soldier.stateTime, Animation.ANIMATION_LOOPING);
+			TextureRegion keyFrame = Assets.soldier4.getKeyFrame(soldier.stateTime, true);
 			batcher.draw(keyFrame, soldier.position.x, soldier.position.y, 222, 222);
 		}		
 		len = soldier5s.size();
 		for (int i = 0; i < len; i++) 
 		{
 			Soldier soldier = soldier5s.get(i);
-			TextureRegion keyFrame = Assets.soldier5.getKeyFrame(soldier.stateTime, Animation.ANIMATION_LOOPING);
+			TextureRegion keyFrame = Assets.soldier5.getKeyFrame(soldier.stateTime, true);
 			batcher.draw(keyFrame, soldier.position.x, soldier.position.y, 222, 222);
 			
 		}			
@@ -290,42 +316,42 @@ public class GameScreen implements Screen,InputProcessor {
 		for (int i = 0; i < len; i++) 
 		{
 			Soldier soldier = soldier6s.get(i);
-			TextureRegion keyFrame = Assets.soldier6.getKeyFrame(soldier.stateTime, Animation.ANIMATION_LOOPING);
+			TextureRegion keyFrame = Assets.soldier6.getKeyFrame(soldier.stateTime, true);
 			batcher.draw(keyFrame, soldier.position.x, soldier.position.y, 222, 222);
 		}		
 		len = soldier7s.size();
 		for (int i = 0; i < len; i++) 
 		{
 			Soldier soldier = soldier7s.get(i);
-			TextureRegion keyFrame = Assets.soldier7.getKeyFrame(soldier.stateTime, Animation.ANIMATION_LOOPING);
+			TextureRegion keyFrame = Assets.soldier7.getKeyFrame(soldier.stateTime, true);
 			batcher.draw(keyFrame, soldier.position.x, soldier.position.y, 222, 222);
 		}		
 		len = soldier8s.size();
 		for (int i = 0; i < len; i++) 
 		{
 			Soldier soldier = soldier8s.get(i);
-			TextureRegion keyFrame = Assets.soldier8.getKeyFrame(soldier.stateTime, Animation.ANIMATION_LOOPING);
+			TextureRegion keyFrame = Assets.soldier8.getKeyFrame(soldier.stateTime, true);
 			batcher.draw(keyFrame, soldier.position.x, soldier.position.y, 222, 222);
 		}		
 		len = soldier9s.size();
 		for (int i = 0; i < len; i++) 
 		{
 			Soldier soldier = soldier9s.get(i);
-			TextureRegion keyFrame = Assets.soldier9.getKeyFrame(soldier.stateTime, Animation.ANIMATION_LOOPING);
+			TextureRegion keyFrame = Assets.soldier9.getKeyFrame(soldier.stateTime, true);
 			batcher.draw(keyFrame, soldier.position.x, soldier.position.y, 222, 222);
 		}
 		len = soldier10s.size();
 		for (int i = 0; i < len; i++) 
 		{
 			Soldier soldier = soldier10s.get(i);
-			TextureRegion keyFrame = Assets.soldier10.getKeyFrame(soldier.stateTime, Animation.ANIMATION_LOOPING);
+			TextureRegion keyFrame = Assets.soldier10.getKeyFrame(soldier.stateTime, true);
 			batcher.draw(keyFrame, soldier.position.x, soldier.position.y, 222, 222);
 		}		
 		len = soldier11s.size();
 		for (int i = 0; i < len; i++) 
 		{
 			Soldier soldier = soldier11s.get(i);
-			TextureRegion keyFrame = Assets.soldier11.getKeyFrame(soldier.stateTime, Animation.ANIMATION_LOOPING);
+			TextureRegion keyFrame = Assets.soldier11.getKeyFrame(soldier.stateTime, true);
 			batcher.draw(keyFrame, soldier.position.x, soldier.position.y, 222, 222);
 			
 		}			
@@ -333,35 +359,35 @@ public class GameScreen implements Screen,InputProcessor {
 		for (int i = 0; i < len; i++) 
 		{
 			Soldier soldier = soldier12s.get(i);
-			TextureRegion keyFrame = Assets.soldier12.getKeyFrame(soldier.stateTime, Animation.ANIMATION_LOOPING);
+			TextureRegion keyFrame = Assets.soldier12.getKeyFrame(soldier.stateTime, true);
 			batcher.draw(keyFrame, soldier.position.x, soldier.position.y, 222, 222);
 		}		
 		len = soldier13s.size();
 		for (int i = 0; i < len; i++) 
 		{
 			Soldier soldier = soldier13s.get(i);
-			TextureRegion keyFrame = Assets.soldier13.getKeyFrame(soldier.stateTime, Animation.ANIMATION_LOOPING);
+			TextureRegion keyFrame = Assets.soldier13.getKeyFrame(soldier.stateTime, true);
 			batcher.draw(keyFrame, soldier.position.x, soldier.position.y, 222, 222);
 		}		
 		len = soldier14s.size();
 		for (int i = 0; i < len; i++) 
 		{
 			Soldier soldier = soldier14s.get(i);
-			TextureRegion keyFrame = Assets.soldier14.getKeyFrame(soldier.stateTime, Animation.ANIMATION_LOOPING);
+			TextureRegion keyFrame = Assets.soldier14.getKeyFrame(soldier.stateTime, true);
 			batcher.draw(keyFrame, soldier.position.x, soldier.position.y, 222, 222);
 		}		
 		len = soldier15s.size();
 		for (int i = 0; i < len; i++) 
 		{
 			Soldier soldier = soldier15s.get(i);
-			TextureRegion keyFrame = Assets.soldier15.getKeyFrame(soldier.stateTime, Animation.ANIMATION_LOOPING);
+			TextureRegion keyFrame = Assets.soldier15.getKeyFrame(soldier.stateTime, true);
 			batcher.draw(keyFrame, soldier.position.x, soldier.position.y, 222, 222);
 		}		
 		len = soldier16s.size();
 		for (int i = 0; i < len; i++) 
 		{
 			Soldier soldier = soldier16s.get(i);
-			TextureRegion keyFrame = Assets.soldier16.getKeyFrame(soldier.stateTime, Animation.ANIMATION_LOOPING);
+			TextureRegion keyFrame = Assets.soldier16.getKeyFrame(soldier.stateTime, true);
 			batcher.draw(keyFrame, soldier.position.x, soldier.position.y, 222, 222);
 		}			
 	}
@@ -415,8 +441,8 @@ public class GameScreen implements Screen,InputProcessor {
 		// TODO Auto-generated method stub
 		if(screenX>=posx && screenX<=posx+length && 900-screenY>=posy && 900-screenY<=posy+length)
 		{
-			Soldier soldier = new Soldier(0,660,50,3,3);
-			soldier3s.add(soldier);	
+			Dennis fighter = new Dennis(1150,650,-250,1);
+			dennis.add(fighter);	
 		    return true;
 		}
 		Soldier soldier = new Soldier(0,660,40,2,2);

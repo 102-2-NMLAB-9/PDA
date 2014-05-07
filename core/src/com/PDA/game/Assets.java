@@ -4,6 +4,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 
@@ -141,7 +142,7 @@ public class Assets {
 		littlefighter[7] = loadTexture("data/a-8.png");
 		littlefighter[8] = loadTexture("data/a-9.png");
 		littlefighter[9] = loadTexture("data/a-10.png");			
-		dennis = new Animation(0.2f,new TextureRegion(littlefighter[0]),new TextureRegion(littlefighter[1]),
+		dennis = new Animation(0.1f,new TextureRegion(littlefighter[0]),new TextureRegion(littlefighter[1]),
 				new TextureRegion(littlefighter[2]),new TextureRegion(littlefighter[3]),
 				new TextureRegion(littlefighter[4]),new TextureRegion(littlefighter[5]),
 				new TextureRegion(littlefighter[6]),new TextureRegion(littlefighter[7]),
