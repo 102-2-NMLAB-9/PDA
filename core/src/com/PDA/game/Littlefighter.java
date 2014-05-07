@@ -16,12 +16,12 @@
 
 package com.PDA.game;
 
-public class Dennis extends DynamicGameObject {
+public class Littlefighter extends DynamicGameObject {
 
 	float stateTime = 0;
 	float attack;
 
-	public Dennis (float x, float y,float v,float a) {
+	public Littlefighter (float x, float y,float v,float a) {
 		super(x, y, 222, 222);
 		velocity.set(v, 0);
 		attack=a;

@@ -48,7 +48,7 @@ public class GameScreen implements Screen,InputProcessor {
 	List<Soldier> soldier14s;
 	List<Soldier> soldier15s;
 	List<Soldier> soldier16s;	
-	List<Dennis> dennis;
+	List<Littlefighter> dennis;
 
 	public GameScreen (MyPDAGame game) {
 		this.game = game;
@@ -76,7 +76,7 @@ public class GameScreen implements Screen,InputProcessor {
 		this.soldier14s = new ArrayList<Soldier>();
 		this.soldier15s = new ArrayList<Soldier>();
 		this.soldier16s = new ArrayList<Soldier>();
-		this.dennis = new ArrayList<Dennis>();		
+		this.dennis = new ArrayList<Littlefighter>();		
 	}
 	
 	public void update (float delta) {
@@ -112,7 +112,7 @@ public class GameScreen implements Screen,InputProcessor {
 		int len = dennis.size();
 		for (int i = 0; i < len; i++) 
 		{
-			Dennis fighter = dennis.get(i);
+			Littlefighter fighter = dennis.get(i);
 			fighter.update(delta);
 		}		
 	}
@@ -266,7 +266,7 @@ public class GameScreen implements Screen,InputProcessor {
 	{
 		for (int i = 0; i < dennis.size(); i++) 
 		{
-			Dennis fighter = dennis.get(i);
+			Littlefighter fighter = dennis.get(i);
 			TextureRegion keyFrame = Assets.dennis.getKeyFrame(fighter.stateTime,false);
 			batcher.draw(keyFrame, fighter.position.x, fighter.position.y, 222, 222);
 			if(Assets.dennis.isAnimationFinished(fighter.stateTime))
@@ -441,7 +441,7 @@ public class GameScreen implements Screen,InputProcessor {
 		// TODO Auto-generated method stub
 		if(screenX>=posx && screenX<=posx+length && 900-screenY>=posy && 900-screenY<=posy+length)
 		{
-			Dennis fighter = new Dennis(1150,650,-250,1);
+			Littlefighter fighter = new Littlefighter(1150,650,-250,1);
 			dennis.add(fighter);	
 		    return true;
 		}
