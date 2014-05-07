@@ -49,6 +49,8 @@ public class GameScreen implements Screen,InputProcessor {
 	List<Soldier> soldier15s;
 	List<Soldier> soldier16s;	
 	List<Littlefighter> dennis;
+	List<Littlefighter> freezer;
+	List<Littlefighter> wind;	
 
 	public GameScreen (MyPDAGame game) {
 		this.game = game;
@@ -76,7 +78,9 @@ public class GameScreen implements Screen,InputProcessor {
 		this.soldier14s = new ArrayList<Soldier>();
 		this.soldier15s = new ArrayList<Soldier>();
 		this.soldier16s = new ArrayList<Soldier>();
-		this.dennis = new ArrayList<Littlefighter>();		
+		this.dennis = new ArrayList<Littlefighter>();
+		this.freezer = new ArrayList<Littlefighter>();	
+		this.wind = new ArrayList<Littlefighter>();			
 	}
 	
 	public void update (float delta) {
@@ -115,6 +119,18 @@ public class GameScreen implements Screen,InputProcessor {
 			Littlefighter fighter = dennis.get(i);
 			fighter.update(delta);
 		}		
+		len = freezer.size();
+		for (int i = 0; i < len; i++) 
+		{
+			Littlefighter fighter = freezer.get(i);
+			fighter.update(delta);
+		}		
+		len = wind.size();
+		for (int i = 0; i < len; i++) 
+		{
+			Littlefighter fighter = wind.get(i);
+			fighter.update(delta);
+		}			
 	}
 	
 	private void updateSoldiers (float delta) 
@@ -270,7 +286,30 @@ public class GameScreen implements Screen,InputProcessor {
 			TextureRegion keyFrame = Assets.dennis.getKeyFrame(fighter.stateTime,false);
 			batcher.draw(keyFrame, fighter.position.x, fighter.position.y, 222, 222);
 			if(Assets.dennis.isAnimationFinished(fighter.stateTime))
-			{dennis.remove(fighter);}			
+			{dennis.remove(i);}			
+		}	
+		for (int i = 0; i < freezer.size(); i++) 
+		{
+			Littlefighter fighter = freezer.get(i);
+			TextureRegion keyFrame = Assets.freezer.getKeyFrame(fighter.stateTime,false);
+			batcher.draw(keyFrame, fighter.position.x, fighter.position.y, 222, 222);
+			if(Assets.freezer.isAnimationFinished(fighter.stateTime) && !fighter.isfinished())
+			{
+				fighter.setfinished();
+				Littlefighter skill = new Littlefighter(1000,650,-200,1);
+				wind.add(skill);		
+			}			
+		}		
+		for (int i = 0; i < wind.size(); i++) 
+		{
+			Littlefighter fighter = wind.get(i);
+			TextureRegion keyFrame = Assets.wind.getKeyFrame(fighter.stateTime,false);
+			batcher.draw(keyFrame, fighter.position.x, fighter.position.y, 222, 222);
+			if(Assets.wind.isAnimationFinished(fighter.stateTime))
+			{
+				wind.remove(i);
+				freezer.remove(i);
+			}			
 		}	
 	}
 	
@@ -445,14 +484,16 @@ public class GameScreen implements Screen,InputProcessor {
 			dennis.add(fighter);	
 		    return true;
 		}
-		Soldier soldier = new Soldier(0,660,40,2,2);
-		soldier2s.add(soldier);
+		Soldier soldier = new Soldier(0,660,60,2,2);
+		soldier6s.add(soldier);
         return false;
 	}
 	@Override
 	public boolean touchUp(int screenX, int screenY, int pointer, int button) {
 		Soldier soldier = new Soldier(0,660,30,1,1);
-		soldier1s.add(soldier);				
+		soldier7s.add(soldier);		
+		Littlefighter fighter = new Littlefighter(1100,650,-50,1);
+		freezer.add(fighter);			
 		return false;
 	}
 	@Override

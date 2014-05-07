@@ -16,21 +16,33 @@
 
 package com.PDA.game;
 
-public class Littlefighter extends DynamicGameObject {
-
+public class Littlefighter extends DynamicGameObject
+{
 	float stateTime = 0;
 	float attack;
+	boolean finished = false;
 
-	public Littlefighter (float x, float y,float v,float a) {
+	public Littlefighter (float x, float y,float v,float a) 
+	{
 		super(x, y, 222, 222);
 		velocity.set(v, 0);
 		attack=a;
 	}
 
-	public void update (float delta) {
+	public void update (float delta)
+	{
 		position.add(velocity.x * delta, velocity.y * delta);
 		bounds.x = position.x;
 		bounds.y = position.y;
 		stateTime += delta;
 	}
+	
+	public void setfinished()
+	{
+		finished = true;
+		velocity.set(0,0);
+	}
+	
+	public boolean isfinished()
+	{return finished;}
 }

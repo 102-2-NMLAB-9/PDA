@@ -133,7 +133,7 @@ public class Assets {
 		new TextureRegion(items, 64, 192, 64, 16), new TextureRegion(items, 64, 208, 64, 16));
 		 */
 		
-		littlefighter = new Texture[10];
+		littlefighter = new Texture[100];
 		littlefighter[0] = loadTexture("data/a-1.png");
 		littlefighter[1] = loadTexture("data/a-2.png");
 		littlefighter[2] = loadTexture("data/a-3.png");
@@ -157,12 +157,13 @@ public class Assets {
 		littlefighter[5] = loadTexture("data/b-6.png");
 		littlefighter[6] = loadTexture("data/b-7.png");
 		littlefighter[7] = loadTexture("data/b-8.png");
-		littlefighter[8] = loadTexture("data/b-9.png");		
+		littlefighter[8] = loadTexture("data/b-9.png");
+		littlefighter[9] = loadTexture("data/b-10.png");				
 		freezer = new Animation(0.1f,new TextureRegion(littlefighter[0]),new TextureRegion(littlefighter[1]),
 				new TextureRegion(littlefighter[2]),new TextureRegion(littlefighter[3]),
 				new TextureRegion(littlefighter[4]),new TextureRegion(littlefighter[5]),
 				new TextureRegion(littlefighter[6]),new TextureRegion(littlefighter[7]),
-				new TextureRegion(littlefighter[8]));
+				new TextureRegion(littlefighter[8]),new TextureRegion(littlefighter[9]));
 		littlefighter[0] = loadTexture("data/wind-1.png");
 		littlefighter[1] = loadTexture("data/wind-2.png");
 		littlefighter[2] = loadTexture("data/wind-3.png");
@@ -171,13 +172,31 @@ public class Assets {
 		littlefighter[5] = loadTexture("data/wind-6.png");
 		littlefighter[6] = loadTexture("data/wind-7.png");
 		littlefighter[7] = loadTexture("data/wind-8.png");
-		littlefighter[8] = loadTexture("data/wind-9.png");	
-		littlefighter[9] = loadTexture("data/wind-10.png");
+		littlefighter[8] = loadTexture("data/wind-5.png");		
+		littlefighter[9] = loadTexture("data/wind-6.png");
+		littlefighter[10] = loadTexture("data/wind-7.png");
+		littlefighter[11] = loadTexture("data/wind-8.png");
+		littlefighter[12] = loadTexture("data/wind-5.png");		
+		littlefighter[13] = loadTexture("data/wind-6.png");
+		littlefighter[14] = loadTexture("data/wind-7.png");
+		littlefighter[15] = loadTexture("data/wind-8.png");
+		littlefighter[16] = loadTexture("data/wind-5.png");		
+		littlefighter[17] = loadTexture("data/wind-6.png");
+		littlefighter[18] = loadTexture("data/wind-7.png");
+		littlefighter[19] = loadTexture("data/wind-8.png");		
+		littlefighter[20] = loadTexture("data/wind-9.png");	
+		littlefighter[21] = loadTexture("data/wind-10.png");
 		wind = new Animation(0.1f,new TextureRegion(littlefighter[0]),new TextureRegion(littlefighter[1]),
 				new TextureRegion(littlefighter[2]),new TextureRegion(littlefighter[3]),
 				new TextureRegion(littlefighter[4]),new TextureRegion(littlefighter[5]),
 				new TextureRegion(littlefighter[6]),new TextureRegion(littlefighter[7]),
-				new TextureRegion(littlefighter[8]),new TextureRegion(littlefighter[9]));		
+				new TextureRegion(littlefighter[8]),new TextureRegion(littlefighter[9]),
+				new TextureRegion(littlefighter[10]),new TextureRegion(littlefighter[11]),
+				new TextureRegion(littlefighter[12]),new TextureRegion(littlefighter[13]),
+				new TextureRegion(littlefighter[14]),new TextureRegion(littlefighter[15]),
+				new TextureRegion(littlefighter[16]),new TextureRegion(littlefighter[17]),
+				new TextureRegion(littlefighter[18]),new TextureRegion(littlefighter[19]),
+				new TextureRegion(littlefighter[20]),new TextureRegion(littlefighter[21]));		
 		
 		movingsoldier = new Texture[8];
 		movingsoldier[0] = loadTexture("data/1-1.png");
