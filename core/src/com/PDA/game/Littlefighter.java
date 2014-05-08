@@ -22,10 +22,10 @@ public class Littlefighter extends DynamicGameObject
 	float attack;
 	boolean finished = false;
 
-	public Littlefighter (float x, float y,float v,float a) 
+	public Littlefighter (float x, float y,float v1,float v2,float a) 
 	{
 		super(x, y, 222, 222);
-		velocity.set(v, 0);
+		velocity.set(v1, v2);
 		attack=a;
 	}
 

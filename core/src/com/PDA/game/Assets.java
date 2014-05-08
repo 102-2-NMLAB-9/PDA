@@ -42,6 +42,11 @@ public class Assets {
     public static Animation bomb;
     public static Animation frozen;    
     public static Animation cannon;    
+    public static Animation john;    
+    public static Animation cut;      
+    public static Animation julian;    
+    public static Animation magic;  
+    public static Animation exp;
     public static Texture[] littlefighter;
 	public static Animation soldier1;
 	public static Animation soldier2;
@@ -239,6 +244,46 @@ public class Assets {
 		cannon = new Animation(0.15f,new TextureRegion(littlefighter[0]),new TextureRegion(littlefighter[1]),
 				new TextureRegion(littlefighter[2]),new TextureRegion(littlefighter[3]),
 				new TextureRegion(littlefighter[4]),new TextureRegion(littlefighter[5]));		
+		littlefighter[0] = loadTexture("data/e-1.png");
+		littlefighter[1] = loadTexture("data/e-2.png");
+		littlefighter[2] = loadTexture("data/e-3.png");
+		littlefighter[3] = loadTexture("data/e-4.png");
+		littlefighter[4] = loadTexture("data/e-5.png");		
+		littlefighter[5] = loadTexture("data/e-6.png");			
+		john = new Animation(0.1f,new TextureRegion(littlefighter[0]),new TextureRegion(littlefighter[1]),
+				new TextureRegion(littlefighter[2]),new TextureRegion(littlefighter[3]),
+				new TextureRegion(littlefighter[4]),new TextureRegion(littlefighter[5]));		
+		littlefighter[0] = loadTexture("data/cut-1.png");
+		littlefighter[1] = loadTexture("data/cut-2.png");
+		cut = new Animation(0.1f,new TextureRegion(littlefighter[0]),new TextureRegion(littlefighter[1]),
+				new TextureRegion(littlefighter[0]),new TextureRegion(littlefighter[1]),
+				new TextureRegion(littlefighter[0]),new TextureRegion(littlefighter[1]),
+				new TextureRegion(littlefighter[0]),new TextureRegion(littlefighter[1]),
+				new TextureRegion(littlefighter[0]),new TextureRegion(littlefighter[1]));						
+		littlefighter[0] = loadTexture("data/f-1.png");
+		littlefighter[1] = loadTexture("data/f-2.png");
+		littlefighter[2] = loadTexture("data/f-3.png");
+		littlefighter[3] = loadTexture("data/f-4.png");	
+		julian = new Animation(0.1f,new TextureRegion(littlefighter[0]),new TextureRegion(littlefighter[1]),
+				new TextureRegion(littlefighter[2]),new TextureRegion(littlefighter[1]),
+				new TextureRegion(littlefighter[2]),new TextureRegion(littlefighter[3]));		
+		littlefighter[0] = loadTexture("data/magic.png");
+		magic = new Animation(0.1f,new TextureRegion(littlefighter[0]),new TextureRegion(littlefighter[0]),
+				new TextureRegion(littlefighter[0]),new TextureRegion(littlefighter[0]),
+				new TextureRegion(littlefighter[0]),new TextureRegion(littlefighter[0]),
+				new TextureRegion(littlefighter[0]),new TextureRegion(littlefighter[0]),
+				new TextureRegion(littlefighter[0]),new TextureRegion(littlefighter[0]),
+				new TextureRegion(littlefighter[0]),new TextureRegion(littlefighter[0]),
+				new TextureRegion(littlefighter[0]),new TextureRegion(littlefighter[0]),
+				new TextureRegion(littlefighter[0]),new TextureRegion(littlefighter[0]),
+				new TextureRegion(littlefighter[0]),new TextureRegion(littlefighter[0]),
+				new TextureRegion(littlefighter[0]),new TextureRegion(littlefighter[0]));	
+		littlefighter[0] = loadTexture("data/exp-1.png");
+		littlefighter[1] = loadTexture("data/exp-2.png");
+		littlefighter[2] = loadTexture("data/exp-3.png");
+		littlefighter[3] = loadTexture("data/exp-4.png");	
+		exp = new Animation(0.1f,new TextureRegion(littlefighter[0]),new TextureRegion(littlefighter[1]),
+				new TextureRegion(littlefighter[2]),new TextureRegion(littlefighter[3]));			
 		
 		movingsoldier = new Texture[8];
 		movingsoldier[0] = loadTexture("data/1-1.png");
