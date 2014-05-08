@@ -580,9 +580,6 @@ public class GameScreen implements Screen,InputProcessor {
 		//firer.add(fighter);
 		Littlefighter fighter = new Littlefighter(1100,650,0,1);
 		frozen.add(fighter);		
-		//Littlefighter fighter = new Littlefighter(1100,650,-50,1);
-
-		freezer.add(fighter);
 		
 		if(screenX-x1 > 100) accelX = 10;
 		else if(screenY-y1 > 100) accelY = 10;
@@ -591,7 +588,7 @@ public class GameScreen implements Screen,InputProcessor {
 		game2048.update(accelX, accelY);
 		
 		int target = game2048.locate(screenX, screenY);
-		if(game2048.locate(x1, y1) == target) {
+		if(game2048.locate(x1, y1) == target && target >= 0) {
 			;
 		}
 		//freezer.add(fighter);			
