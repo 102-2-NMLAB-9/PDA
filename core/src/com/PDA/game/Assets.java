@@ -37,7 +37,11 @@ public class Assets {
 	
     public static Animation dennis;
     public static Animation freezer;
-    public static Animation wind;    
+    public static Animation wind; 
+    public static Animation firer;    
+    public static Animation bomb;
+    public static Animation frozen;    
+    public static Animation cannon;    
     public static Texture[] littlefighter;
 	public static Animation soldier1;
 	public static Animation soldier2;
@@ -197,6 +201,35 @@ public class Assets {
 				new TextureRegion(littlefighter[16]),new TextureRegion(littlefighter[17]),
 				new TextureRegion(littlefighter[18]),new TextureRegion(littlefighter[19]),
 				new TextureRegion(littlefighter[20]),new TextureRegion(littlefighter[21]));		
+		littlefighter[0] = loadTexture("data/c-1.png");
+		littlefighter[1] = loadTexture("data/c-2.png");
+		littlefighter[2] = loadTexture("data/c-3.png");
+		littlefighter[3] = loadTexture("data/c-4.png");
+		littlefighter[4] = loadTexture("data/c-5.png");		
+		littlefighter[5] = loadTexture("data/c-6.png");
+		firer = new Animation(0.1f,new TextureRegion(littlefighter[0]),new TextureRegion(littlefighter[1]),
+				new TextureRegion(littlefighter[2]),new TextureRegion(littlefighter[3]),
+				new TextureRegion(littlefighter[4]),new TextureRegion(littlefighter[5]));	
+		littlefighter[0] = loadTexture("data/bomb-1.png");
+		littlefighter[1] = loadTexture("data/bomb-2.png");
+		littlefighter[2] = loadTexture("data/bomb-3.png");
+		littlefighter[3] = loadTexture("data/bomb-4.png");
+		littlefighter[4] = loadTexture("data/bomb-5.png");		
+		littlefighter[5] = loadTexture("data/bomb-6.png");
+		littlefighter[6] = loadTexture("data/bomb-7.png");
+		littlefighter[7] = loadTexture("data/bomb-8.png");
+		littlefighter[8] = loadTexture("data/bomb-9.png");
+		littlefighter[9] = loadTexture("data/bomb-10.png");				
+		bomb = new Animation(0.1f,new TextureRegion(littlefighter[0]),new TextureRegion(littlefighter[1]),
+				new TextureRegion(littlefighter[2]),new TextureRegion(littlefighter[3]),
+				new TextureRegion(littlefighter[4]),new TextureRegion(littlefighter[5]),
+				new TextureRegion(littlefighter[6]),new TextureRegion(littlefighter[7]),
+				new TextureRegion(littlefighter[8]),new TextureRegion(littlefighter[9]));		
+		littlefighter[0] = loadTexture("data/d-1.png");
+		littlefighter[1] = loadTexture("data/d-2.png");
+		littlefighter[2] = loadTexture("data/d-3.png");
+		frozen = new Animation(0.1f,new TextureRegion(littlefighter[0]),new TextureRegion(littlefighter[1]),
+				new TextureRegion(littlefighter[2]),new TextureRegion(littlefighter[3]));			
 		
 		movingsoldier = new Texture[8];
 		movingsoldier[0] = loadTexture("data/1-1.png");

@@ -50,7 +50,9 @@ public class GameScreen implements Screen,InputProcessor {
 	List<Soldier> soldier16s;	
 	List<Littlefighter> dennis;
 	List<Littlefighter> freezer;
-	List<Littlefighter> wind;	
+	List<Littlefighter> wind;
+	List<Littlefighter> firer;
+	List<Littlefighter> bomb;		
 
 	public GameScreen (MyPDAGame game) {
 		this.game = game;
@@ -81,6 +83,8 @@ public class GameScreen implements Screen,InputProcessor {
 		this.dennis = new ArrayList<Littlefighter>();
 		this.freezer = new ArrayList<Littlefighter>();	
 		this.wind = new ArrayList<Littlefighter>();			
+		this.firer = new ArrayList<Littlefighter>();	
+		this.bomb = new ArrayList<Littlefighter>();			
 	}
 	
 	public void update (float delta) {
@@ -129,6 +133,18 @@ public class GameScreen implements Screen,InputProcessor {
 		for (int i = 0; i < len; i++) 
 		{
 			Littlefighter fighter = wind.get(i);
+			fighter.update(delta);
+		}
+		len = firer.size();
+		for (int i = 0; i < len; i++) 
+		{
+			Littlefighter fighter = firer.get(i);
+			fighter.update(delta);
+		}		
+		len = bomb.size();
+		for (int i = 0; i < len; i++) 
+		{
+			Littlefighter fighter = bomb.get(i);
 			fighter.update(delta);
 		}			
 	}
@@ -310,7 +326,30 @@ public class GameScreen implements Screen,InputProcessor {
 				wind.remove(i);
 				freezer.remove(i);
 			}			
-		}	
+		}
+		for (int i = 0; i < firer.size(); i++) 
+		{
+			Littlefighter fighter = firer.get(i);
+			TextureRegion keyFrame = Assets.firer.getKeyFrame(fighter.stateTime,false);
+			batcher.draw(keyFrame, fighter.position.x, fighter.position.y, 222, 222);
+			if(Assets.firer.isAnimationFinished(fighter.stateTime) && !fighter.isfinished())
+			{
+				fighter.setfinished();
+				Littlefighter skill = new Littlefighter(920,650,0,1);
+				bomb.add(skill);		
+			}			
+		}		
+		for (int i = 0; i < bomb.size(); i++) 
+		{
+			Littlefighter fighter = bomb.get(i);
+			TextureRegion keyFrame = Assets.bomb.getKeyFrame(fighter.stateTime,false);
+			batcher.draw(keyFrame, fighter.position.x, fighter.position.y, 350, 350);
+			if(Assets.bomb.isAnimationFinished(fighter.stateTime))
+			{
+				bomb.remove(i);
+				firer.remove(i);
+			}			
+		}			
 	}
 	
 	private void renderSoldiers () 
@@ -494,6 +533,8 @@ public class GameScreen implements Screen,InputProcessor {
 		soldier7s.add(soldier);		
 		Littlefighter fighter = new Littlefighter(1100,650,-50,1);
 		freezer.add(fighter);			
+		//Littlefighter fighter = new Littlefighter(1000,650,0,1);
+		//firer.add(fighter);			
 		return false;
 	}
 	@Override
