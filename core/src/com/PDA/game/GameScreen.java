@@ -51,7 +51,9 @@ public class GameScreen implements Screen,InputProcessor {
 	List<Soldier> soldier16s;	
 	List<Littlefighter> dennis;
 	List<Littlefighter> freezer;
-	List<Littlefighter> wind;	
+	List<Littlefighter> wind;
+	List<Littlefighter> firer;
+	List<Littlefighter> bomb;		
 
 	public GameScreen (MyPDAGame game) {
 		this.game = game;
@@ -82,6 +84,8 @@ public class GameScreen implements Screen,InputProcessor {
 		this.dennis = new ArrayList<Littlefighter>();
 		this.freezer = new ArrayList<Littlefighter>();	
 		this.wind = new ArrayList<Littlefighter>();			
+		this.firer = new ArrayList<Littlefighter>();	
+		this.bomb = new ArrayList<Littlefighter>();			
 	}
 	
 	public void update (float delta) {
@@ -98,19 +102,18 @@ public class GameScreen implements Screen,InputProcessor {
 		ApplicationType appType = Gdx.app.getType();
 		// should work also with Gdx.input.isPeripheralAvailable(Peripheral.Accelerometer)
 		
-		
+		accelX = 0;
+		accelY = 0;
 		if (appType == ApplicationType.Android || appType == ApplicationType.iOS) {
 			//accelX = Gdx.input.getAccelerometerY();
 			//accelY = Gdx.input.getAccelerometerX();
 		} else {
-			accelX = 0;
-			accelY = 0;
 			if (Gdx.input.isKeyPressed(Keys.DPAD_RIGHT)) accelX = 10f;
 			if (Gdx.input.isKeyPressed(Keys.DPAD_LEFT)) accelX = -10f;
 			if (Gdx.input.isKeyPressed(Keys.DPAD_DOWN)) accelY = 10f;
 			if (Gdx.input.isKeyPressed(Keys.DPAD_UP)) accelY = -10f;
 		}
-		//game2048.update(accelX, accelY);
+		game2048.update(accelX, accelY);
 		updateLittlefighters(delta);
 		updateSoldiers(delta);
 	}
@@ -133,6 +136,18 @@ public class GameScreen implements Screen,InputProcessor {
 		for (int i = 0; i < len; i++) 
 		{
 			Littlefighter fighter = wind.get(i);
+			fighter.update(delta);
+		}
+		len = firer.size();
+		for (int i = 0; i < len; i++) 
+		{
+			Littlefighter fighter = firer.get(i);
+			fighter.update(delta);
+		}		
+		len = bomb.size();
+		for (int i = 0; i < len; i++) 
+		{
+			Littlefighter fighter = bomb.get(i);
 			fighter.update(delta);
 		}			
 	}
@@ -301,7 +316,30 @@ public class GameScreen implements Screen,InputProcessor {
 				wind.remove(i);
 				freezer.remove(i);
 			}			
-		}	
+		}
+		for (int i = 0; i < firer.size(); i++) 
+		{
+			Littlefighter fighter = firer.get(i);
+			TextureRegion keyFrame = Assets.firer.getKeyFrame(fighter.stateTime,false);
+			batcher.draw(keyFrame, fighter.position.x, fighter.position.y, 222, 222);
+			if(Assets.firer.isAnimationFinished(fighter.stateTime) && !fighter.isfinished())
+			{
+				fighter.setfinished();
+				Littlefighter skill = new Littlefighter(920,650,0,1);
+				bomb.add(skill);		
+			}			
+		}		
+		for (int i = 0; i < bomb.size(); i++) 
+		{
+			Littlefighter fighter = bomb.get(i);
+			TextureRegion keyFrame = Assets.bomb.getKeyFrame(fighter.stateTime,false);
+			batcher.draw(keyFrame, fighter.position.x, fighter.position.y, 350, 350);
+			if(Assets.bomb.isAnimationFinished(fighter.stateTime))
+			{
+				bomb.remove(i);
+				firer.remove(i);
+			}			
+		}			
 	}
 	
 	private void renderSoldiers () 
@@ -479,10 +517,10 @@ public class GameScreen implements Screen,InputProcessor {
 		Soldier soldier = new Soldier(0,660,60,2,2);
 		soldier6s.add(soldier);
 		*/
-		if(game2048.locate(screenX, screenY) >= 0) {
+//		if(game2048.locate(screenX, screenY) >= 0) {
 			x1 = screenX;
 			y1 = screenY;
-		}
+//		}
 			
 			
         return false;
@@ -493,6 +531,7 @@ public class GameScreen implements Screen,InputProcessor {
 		Soldier soldier = new Soldier(0,660,30,1,1);
 		soldier7s.add(soldier);		
 		Littlefighter fighter = new Littlefighter(1100,650,-50,1);
+
 		freezer.add(fighter);
 		*/
 		
@@ -504,6 +543,9 @@ public class GameScreen implements Screen,InputProcessor {
 		
 		int target = game2048.locate(screenX, screenY);
 		
+		//freezer.add(fighter);			
+		//Littlefighter fighter = new Littlefighter(1000,650,0,1);
+		//firer.add(fighter);
 		return false;
 	}
 	@Override
