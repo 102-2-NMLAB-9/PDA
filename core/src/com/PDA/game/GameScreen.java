@@ -292,30 +292,14 @@ public class GameScreen implements Screen,InputProcessor {
 		
 		batcher.draw(Assets.doorRegion,1111,620,150,330);
 		renderSoldiers();
-<<<<<<< HEAD
 		renderLittlefighters(delta);
 		batcher.draw(Assets.testRegion, posx, posy, 300, 300);
-		batcher.draw(Assets.boxregion[0], 70, 70, 140, 140);
-		batcher.draw(Assets.boxregion[1], 215, 70, 140, 140);
-		batcher.draw(Assets.boxregion[2], 360, 70, 140, 140);
-		batcher.draw(Assets.boxregion[3], 505, 70, 140, 140);
-		batcher.draw(Assets.boxregion[4], 70, 215, 140, 140);
-		batcher.draw(Assets.boxregion[5], 215, 215, 140, 140);
-		batcher.draw(Assets.boxregion[6], 360, 215, 140, 140);
-		batcher.draw(Assets.boxregion[7], 505, 215, 140, 140);
-		batcher.draw(Assets.boxregion[8], 70, 360, 140, 140);
-		batcher.draw(Assets.boxregion[9], 215, 360, 140, 140);
-		batcher.draw(Assets.boxregion[10], 360, 360, 140, 140);
-		batcher.draw(Assets.boxregion[11], 505, 360, 140, 140);
-		batcher.draw(Assets.boxregion[12], 70, 505, 140, 140);
-		batcher.draw(Assets.boxregion[13], 215, 505, 140, 140);
-		batcher.draw(Assets.boxregion[14], 360, 505, 140, 140);
-		batcher.draw(Assets.boxregion[15], 505, 505, 140, 140);
-=======
-		renderLittlefighters();
+		batcher.draw(Assets.boxregion, 70, 70, 140, 140);
+
+//		renderLittlefighters();
 		//batcher.draw(Assets.testRegion, posx, posy, 300, 300);
 		batcher.draw(Assets.boxregion, 70, 70, 585, 585);
->>>>>>> 0b4992c93e94bc11c7306b2bfb192d87736f6053
+
 		batcher.end();
 		
 		game2048.draw();
@@ -616,7 +600,7 @@ public class GameScreen implements Screen,InputProcessor {
 		//freezer.add(fighter);			
 		//Littlefighter fighter = new Littlefighter(1000,650,0,1);
 		//firer.add(fighter);
->>>>>>> 0b4992c93e94bc11c7306b2bfb192d87736f6053
+
 		return false;
 	}
 	@Override
