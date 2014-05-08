@@ -52,20 +52,18 @@ public class GameBody {
 					int idx = 4*j+i;
 					if(status[idx] != 0) {
 						//Move
-						for(int k=i-1; k>=0; k--) {
-							int idx_tmp = 4*j+k;
-							if(status[idx_tmp] == 0) {
-								status[idx_tmp] = status[idx_tmp+1];
-								status[idx_tmp+1] = 0;
-								moved = true;
-							}
+						for(; idx > 4*j && status[idx-1] == 0; idx--) {
+							status[idx-1] = status[idx];
+							status[idx] = 0;
+							moved = true;
 						}
 						//Merge
-						if(i > 0 && status[idx] == status[idx-1] ) {
+						if( idx > 4*j && status[idx] == status[idx-1] ) {
 							if(!merged[idx-1]) {
 								status[idx-1]++;
 								status[idx] = 0;
 								merged[idx-1] = true;
+								moved = true;
 							}
 						}
 					}
@@ -77,20 +75,18 @@ public class GameBody {
 					int idx = 4*j+i;
 					if(status[idx] != 0) {
 						//Move
-						for(int k=i+1; k<4; k++) {
-							int idx_tmp = 4*j+k;
-							if(status[idx_tmp] == 0) {
-								status[idx_tmp] = status[idx_tmp-1];
-								status[idx_tmp-1] = 0;
-								moved = true;
-							}
+						for(; idx < 4*j+3 && status[idx+1] == 0; idx++) {
+							status[idx+1] = status[idx];
+							status[idx] = 0;
+							moved = true;
 						}
 						//Merge
-						if(i < 3 && status[idx] == status[idx+1]) {
+						if(idx < 4*j+3 && status[idx] == status[idx+1]) {
 							if(!merged[idx+1]) {
 								status[idx+1]++;
 								status[idx] = 0;
 								merged[idx+1] = true;
+								moved = true;
 							}
 						}
 					}
@@ -103,19 +99,20 @@ public class GameBody {
 					if(status[idx] != 0) {
 						//Move
 						for(int k=i-1; k>=0; k--) {
-							int idx_tmp = 4*k+j;
-							if(status[idx_tmp] == 0) {
-								status[idx_tmp] = status[idx_tmp+4];
-								status[idx_tmp+4] = 0;
+							idx -= 4;
+							if(status[idx] == 0) {
+								status[idx] = status[idx+4];
+								status[idx+4] = 0;
 								moved = true;
-							}
+							}else break;
 						}
 						//Merge
-						if(i > 0 && status[idx] == status[idx-4]) {
-							if(!merged[idx-4]) {
-								status[idx-4]++;
-								status[idx] = 0;
-								merged[idx-4] = true;
+						if(idx >= 0 && status[idx] == status[idx+4]) {
+							if(!merged[idx]) {
+								status[idx]++;
+								status[idx+4] = 0;
+								merged[idx] = true;
+								moved = true;
 							}
 						}
 					}
@@ -128,19 +125,20 @@ public class GameBody {
 					if(status[idx] != 0) {
 						//Move
 						for(int k=i+1; k<4; k++) {
-							int idx_tmp = 4*k+j;
-							if(status[idx_tmp] == 0) {
-								status[idx_tmp] = status[idx_tmp-4];
-								status[idx_tmp-4] = 0;
+							idx += 4;
+							if(status[idx] == 0) {
+								status[idx] = status[idx-4];
+								status[idx-4] = 0;
 								moved = true;
-							}
+							}else break;
 						}
 						//Merge
-						if(i < 3 && status[idx] == status[idx+4]) {
-							if(!merged[idx+4]) {
-								status[idx+4]++;
-								status[idx] = 0;
-								merged[idx+4] = true;
+						if(i < 16 && status[idx] == status[idx-4]) {
+							if(!merged[idx]) {
+								status[idx]++;
+								status[idx-4] = 0;
+								merged[idx] = true;
+								moved = true;
 							}
 						}
 					}
@@ -181,5 +179,14 @@ public class GameBody {
 	public void render(float accelX, float accelY) {
 		update(accelX, accelY);
 		draw();
+	}
+	
+	public int locate(int x, int y) {
+		for(int i=0; i<16; i++) {
+			if(characters[i].contains(x, y)) {
+				return i;
+			}
+		}
+		return -1;
 	}
 }

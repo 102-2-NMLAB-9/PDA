@@ -32,6 +32,7 @@ public class GameScreen implements Screen,InputProcessor {
 	float posx = 500;
 	float posy = 400;
 	float length = 300;
+	float x1, y1;
 	List<Soldier> soldier1s;
 	List<Soldier> soldier2s;
 	List<Soldier> soldier3s;
@@ -101,14 +102,16 @@ public class GameScreen implements Screen,InputProcessor {
 				return;
 			}
 		}
+		
 		ApplicationType appType = Gdx.app.getType();
 		// should work also with Gdx.input.isPeripheralAvailable(Peripheral.Accelerometer)
+		
+		accelX = 0;
+		accelY = 0;
 		if (appType == ApplicationType.Android || appType == ApplicationType.iOS) {
-			accelX = Gdx.input.getAccelerometerY();
-			accelY = Gdx.input.getAccelerometerX();
+			//accelX = Gdx.input.getAccelerometerY();
+			//accelY = Gdx.input.getAccelerometerX();
 		} else {
-			accelX = 0;
-			accelY = 0;
 			if (Gdx.input.isKeyPressed(Keys.DPAD_RIGHT)) accelX = 10f;
 			if (Gdx.input.isKeyPressed(Keys.DPAD_LEFT)) accelX = -10f;
 			if (Gdx.input.isKeyPressed(Keys.DPAD_DOWN)) accelY = 10f;
@@ -284,9 +287,12 @@ public class GameScreen implements Screen,InputProcessor {
 		else if (accelX < -5f) Assets.font.draw(batcher, "left", 0, 960);
 		else if (accelY > 5f) Assets.font.draw(batcher, "down", 0, 960);
 		else if (accelY < -5f) Assets.font.draw(batcher, "up", 0, 960);
-
+		accelX = accelY = 0;
+		
+		
 		batcher.draw(Assets.doorRegion,1111,620,150,330);
 		renderSoldiers();
+<<<<<<< HEAD
 		renderLittlefighters(delta);
 		batcher.draw(Assets.testRegion, posx, posy, 300, 300);
 		batcher.draw(Assets.boxregion[0], 70, 70, 140, 140);
@@ -305,6 +311,11 @@ public class GameScreen implements Screen,InputProcessor {
 		batcher.draw(Assets.boxregion[13], 215, 505, 140, 140);
 		batcher.draw(Assets.boxregion[14], 360, 505, 140, 140);
 		batcher.draw(Assets.boxregion[15], 505, 505, 140, 140);
+=======
+		renderLittlefighters();
+		//batcher.draw(Assets.testRegion, posx, posy, 300, 300);
+		batcher.draw(Assets.boxregion, 70, 70, 585, 585);
+>>>>>>> 0b4992c93e94bc11c7306b2bfb192d87736f6053
 		batcher.end();
 		
 		game2048.draw();
@@ -556,6 +567,7 @@ public class GameScreen implements Screen,InputProcessor {
 	@Override
 	public boolean touchDown(int screenX, int screenY, int pointer, int button) {
 		// TODO Auto-generated method stub
+		/*
 		if(screenX>=posx && screenX<=posx+length && 900-screenY>=posy && 900-screenY<=posy+length)
 		{
 			Littlefighter fighter = new Littlefighter(1150,650,-250,1);
@@ -564,18 +576,45 @@ public class GameScreen implements Screen,InputProcessor {
 		}
 		Soldier soldier = new Soldier(0,660,60,2,2);
 		soldier6s.add(soldier);
+		*/
+//		if(game2048.locate(screenX, screenY) >= 0) {
+			x1 = screenX;
+			y1 = screenY;
+//		}
+			
+			
         return false;
 	}
 	@Override
 	public boolean touchUp(int screenX, int screenY, int pointer, int button) {
+		/*
 		Soldier soldier = new Soldier(0,660,30,1,1);
 		soldier7s.add(soldier);		
+<<<<<<< HEAD
 		//Littlefighter fighter = new Littlefighter(1100,650,-50,1);
 		//freezer.add(fighter);			
 		//Littlefighter fighter = new Littlefighter(1000,650,0,1);
 		//firer.add(fighter);
 		Littlefighter fighter = new Littlefighter(1100,650,0,1);
 		frozen.add(fighter);		
+=======
+		Littlefighter fighter = new Littlefighter(1100,650,-50,1);
+
+		freezer.add(fighter);
+		*/
+		
+		if(screenX-x1 > 100) accelX = 10;
+		else if(screenY-y1 > 100) accelY = 10;
+		else if(screenX-x1 < -100) accelX = -10;
+		else if(screenY-y1 < -100) accelY = -10;
+		game2048.update(accelX, accelY);
+		
+		int target = game2048.locate(screenX, screenY);
+		
+		//freezer.add(fighter);			
+		//Littlefighter fighter = new Littlefighter(1000,650,0,1);
+		//firer.add(fighter);
+>>>>>>> 0b4992c93e94bc11c7306b2bfb192d87736f6053
 		return false;
 	}
 	@Override

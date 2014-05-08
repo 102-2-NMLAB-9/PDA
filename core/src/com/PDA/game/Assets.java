@@ -98,8 +98,8 @@ public class Assets {
 	public static TextureRegion gamesceneRegion;
 	public static Texture test;
 	public static TextureRegion testRegion;
-	public static Texture[] boxes;
-	public static TextureRegion[] boxregion;
+	public static Texture boxes;
+	public static TextureRegion boxregion;
 	public static Texture longWidth;
 	public static TextureRegion longWidthRegion;
 	
@@ -458,10 +458,8 @@ public class Assets {
 		testRegion = new TextureRegion(test);
 		longWidth = loadTexture("data/1B.jpg");
 		longWidthRegion = new TextureRegion(longWidth);
-		boxes = new Texture[16];
-		for(int i=0; i<16; ++i ) boxes[i] = loadTexture("data/cell.png");
-		boxregion = new TextureRegion[16];
-		for(int i=0; i<16; ++i) boxregion[i] = new TextureRegion(boxes[i]);
+		boxes = loadTexture("data/frame.png");
+		boxregion = new TextureRegion(boxes);
 		soldiers = new Texture[16];
 		soldiers[0] = loadTexture("data/1.png");
 		soldiers[1] = loadTexture("data/2.png");
