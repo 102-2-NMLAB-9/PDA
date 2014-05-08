@@ -229,7 +229,16 @@ public class Assets {
 		littlefighter[1] = loadTexture("data/d-2.png");
 		littlefighter[2] = loadTexture("data/d-3.png");
 		frozen = new Animation(0.1f,new TextureRegion(littlefighter[0]),new TextureRegion(littlefighter[1]),
-				new TextureRegion(littlefighter[2]),new TextureRegion(littlefighter[3]));			
+				new TextureRegion(littlefighter[2]));			
+		littlefighter[0] = loadTexture("data/cannon-1.png");
+		littlefighter[1] = loadTexture("data/cannon-2.png");
+		littlefighter[2] = loadTexture("data/cannon-3.png");
+		littlefighter[3] = loadTexture("data/cannon-4.png");
+		littlefighter[4] = loadTexture("data/cannon-5.png");		
+		littlefighter[5] = loadTexture("data/cannon-6.png");		
+		cannon = new Animation(0.15f,new TextureRegion(littlefighter[0]),new TextureRegion(littlefighter[1]),
+				new TextureRegion(littlefighter[2]),new TextureRegion(littlefighter[3]),
+				new TextureRegion(littlefighter[4]),new TextureRegion(littlefighter[5]));		
 		
 		movingsoldier = new Texture[8];
 		movingsoldier[0] = loadTexture("data/1-1.png");
