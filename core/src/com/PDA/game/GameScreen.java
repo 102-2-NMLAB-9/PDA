@@ -32,7 +32,7 @@ public class GameScreen implements Screen,InputProcessor {
 	float posx = 500;
 	float posy = 400;
 	float length = 300;
-	float x1, y1;
+	int x1, y1;
 	List<Soldier> soldier1s;
 	List<Soldier> soldier2s;
 	List<Soldier> soldier3s;
@@ -610,7 +610,9 @@ public class GameScreen implements Screen,InputProcessor {
 		game2048.update(accelX, accelY);
 		
 		int target = game2048.locate(screenX, screenY);
-		
+		if(game2048.locate(x1, y1) == target) {
+			;
+		}
 		//freezer.add(fighter);			
 		//Littlefighter fighter = new Littlefighter(1000,650,0,1);
 		//firer.add(fighter);
