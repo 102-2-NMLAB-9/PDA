@@ -551,7 +551,7 @@ public class GameScreen implements Screen,InputProcessor {
 	@Override
 	public boolean touchDown(int screenX, int screenY, int pointer, int button) {
 		// TODO Auto-generated method stub
-		/*
+		
 		if(screenX>=posx && screenX<=posx+length && 900-screenY>=posy && 900-screenY<=posy+length)
 		{
 			Littlefighter fighter = new Littlefighter(1150,650,-250,1);
@@ -560,7 +560,7 @@ public class GameScreen implements Screen,InputProcessor {
 		}
 		Soldier soldier = new Soldier(0,660,60,2,2);
 		soldier6s.add(soldier);
-		*/
+		
 //		if(game2048.locate(screenX, screenY) >= 0) {
 			x1 = screenX;
 			y1 = screenY;
@@ -571,21 +571,18 @@ public class GameScreen implements Screen,InputProcessor {
 	}
 	@Override
 	public boolean touchUp(int screenX, int screenY, int pointer, int button) {
-		/*
+		
 		Soldier soldier = new Soldier(0,660,30,1,1);
 		soldier7s.add(soldier);		
-<<<<<<< HEAD
 		//Littlefighter fighter = new Littlefighter(1100,650,-50,1);
 		//freezer.add(fighter);			
 		//Littlefighter fighter = new Littlefighter(1000,650,0,1);
 		//firer.add(fighter);
 		Littlefighter fighter = new Littlefighter(1100,650,0,1);
 		frozen.add(fighter);		
-=======
-		Littlefighter fighter = new Littlefighter(1100,650,-50,1);
+		//Littlefighter fighter = new Littlefighter(1100,650,-50,1);
 
 		freezer.add(fighter);
-		*/
 		
 		if(screenX-x1 > 100) accelX = 10;
 		else if(screenY-y1 > 100) accelY = 10;
