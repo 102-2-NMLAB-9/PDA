@@ -48,6 +48,8 @@ public class Assets {
     public static Animation magic;  
     public static Animation exp;
     public static Animation deep;
+    public static Animation henry;   
+    public static Animation louisEX;
     public static Texture[] littlefighter;
 	public static Animation soldier1;
 	public static Animation soldier2;
@@ -314,6 +316,21 @@ public class Assets {
 				new TextureRegion(littlefighter[14]),new TextureRegion(littlefighter[15]),
 				new TextureRegion(littlefighter[16]),new TextureRegion(littlefighter[17]),
 				new TextureRegion(littlefighter[18]));				
+		littlefighter[0] = loadTexture("data/h-1.png");
+		littlefighter[1] = loadTexture("data/h-2.png");
+		henry = new Animation(0.3f,new TextureRegion(littlefighter[0]),new TextureRegion(littlefighter[1]),
+				new TextureRegion(littlefighter[0]),new TextureRegion(littlefighter[1]),
+				new TextureRegion(littlefighter[0]),new TextureRegion(littlefighter[1]),
+				new TextureRegion(littlefighter[0]),new TextureRegion(littlefighter[1]),
+				new TextureRegion(littlefighter[0]),new TextureRegion(littlefighter[1]));	
+		littlefighter[0] = loadTexture("data/i-1.png");
+		littlefighter[1] = loadTexture("data/i-2.png");
+		littlefighter[2] = loadTexture("data/i-3.png");
+		littlefighter[3] = loadTexture("data/i-4.png");
+		littlefighter[4] = loadTexture("data/i-5.png");			
+		louisEX = new Animation(0.2f,new TextureRegion(littlefighter[0]),new TextureRegion(littlefighter[1]),
+				new TextureRegion(littlefighter[2]),new TextureRegion(littlefighter[3]),
+				new TextureRegion(littlefighter[4]));			
 		
 		
 		movingsoldier = new Texture[8];

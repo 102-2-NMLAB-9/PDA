@@ -61,7 +61,9 @@ public class GameScreen implements Screen,InputProcessor {
 	List<Littlefighter> julian;
 	List<Littlefighter> magic;
 	List<Littlefighter> exp;
-	List<Littlefighter> deep;		
+	List<Littlefighter> deep;
+	List<Littlefighter> henry;		
+	List<Littlefighter> louisEX;
 	int exp_times = 7;
 
 	public GameScreen (MyPDAGame game) {
@@ -102,7 +104,9 @@ public class GameScreen implements Screen,InputProcessor {
 		this.julian = new ArrayList<Littlefighter>();	
 		this.magic = new ArrayList<Littlefighter>();
 		this.exp = new ArrayList<Littlefighter>();
-		this.deep = new ArrayList<Littlefighter>();			
+		this.deep = new ArrayList<Littlefighter>();
+		this.henry = new ArrayList<Littlefighter>();
+		this.louisEX = new ArrayList<Littlefighter>();
 	}
 	
 	public void update (float delta) {
@@ -215,6 +219,18 @@ public class GameScreen implements Screen,InputProcessor {
 			Littlefighter fighter = deep.get(i);
 			fighter.update(delta);
 		}		
+		len = henry.size();
+		for (int i = 0; i < len; i++) 
+		{
+			Littlefighter fighter = henry.get(i);
+			fighter.update(delta);
+		}		
+		len = louisEX.size();
+		for (int i = 0; i < len; i++) 
+		{
+			Littlefighter fighter = louisEX.get(i);
+			fighter.update(delta);
+		}			
 	}
 	
 	private void updateSoldiers (float delta) 
@@ -505,6 +521,22 @@ public class GameScreen implements Screen,InputProcessor {
 			if(Assets.deep.isAnimationFinished(fighter.stateTime))
 			{deep.remove(i);}			
 		}			
+		for (int i = 0; i < henry.size(); i++) 
+		{
+			Littlefighter fighter = henry.get(i);
+			TextureRegion keyFrame = Assets.henry.getKeyFrame(fighter.stateTime,false);
+			batcher.draw(keyFrame, fighter.position.x, fighter.position.y, 150, 222);
+			if(Assets.henry.isAnimationFinished(fighter.stateTime))
+			{henry.remove(i);}			
+		}	
+		for (int i = 0; i < louisEX.size(); i++) 
+		{
+			Littlefighter fighter = louisEX.get(i);
+			TextureRegion keyFrame = Assets.louisEX.getKeyFrame(fighter.stateTime,false);
+			batcher.draw(keyFrame, fighter.position.x, fighter.position.y, 150, 222);
+			if(Assets.louisEX.isAnimationFinished(fighter.stateTime))
+			{louisEX.remove(i);}			
+		}			
 	}
 	
 	private void renderSoldiers () 
@@ -705,10 +737,14 @@ public class GameScreen implements Screen,InputProcessor {
 		//john.add(fighter);
 		//Littlefighter fighter = new Littlefighter(1150,650,-250,0,1);
 		//dennis.add(fighter);
-		Littlefighter fighter = new Littlefighter(1150,650,-300,0,1);
-		deep.add(fighter);		
+		//Littlefighter fighter = new Littlefighter(1150,650,-300,0,1);
+		//deep.add(fighter);		
 		//Littlefighter fighter = new Littlefighter(1100,650,0,0,1);
 		//julian.add(fighter);			
+		//Littlefighter fighter = new Littlefighter(1100,650,0,0,1);
+		//henry.add(fighter);		
+		Littlefighter fighter = new Littlefighter(1100,650,-500,0,1);
+		louisEX.add(fighter);				
 		
 		if(screenX-x1 > 100) accelX = 10;
 		else if(screenY-y1 > 100) accelY = 10;
