@@ -15,25 +15,26 @@ public class GameBody {
 		status = new int[16];
 		batcher = batch;
 		
+		int edge = 700;
 		Random rnd = new Random();
 		status[rnd.nextInt(16)] = 1;
 		
-		characters[0] = new Rectangle(70, 70, 140, 140);
-		characters[1] = new Rectangle(215, 70, 140, 140);
-		characters[2] = new Rectangle(360, 70, 140, 140);
-		characters[3] = new Rectangle(505, 70, 140, 140);
-		characters[4] = new Rectangle(70, 215, 140, 140);
-		characters[5] = new Rectangle(215, 215, 140, 140);
-		characters[6] = new Rectangle(360, 215, 140, 140);
-		characters[7] = new Rectangle(505, 215, 140, 140);
-		characters[8] = new Rectangle(70, 360, 140, 140);
-		characters[9] = new Rectangle(215, 360, 140, 140);
-		characters[10] = new Rectangle(360, 360, 140, 140);
-		characters[11] = new Rectangle(505, 360, 140, 140);
-		characters[12] = new Rectangle(70, 505, 140, 140);
-		characters[13] = new Rectangle(215, 505, 140, 140);
-		characters[14] = new Rectangle(360, 505, 140, 140);
-		characters[15] = new Rectangle(505, 505, 140, 140);
+		characters[0] = new Rectangle(70, edge-70, 140, 140);
+		characters[1] = new Rectangle(215, edge-70, 140, 140);
+		characters[2] = new Rectangle(360, edge-70, 140, 140);
+		characters[3] = new Rectangle(505, edge-70, 140, 140);
+		characters[4] = new Rectangle(70, edge-215, 140, 140);
+		characters[5] = new Rectangle(215, edge-215, 140, 140);
+		characters[6] = new Rectangle(360, edge-215, 140, 140);
+		characters[7] = new Rectangle(505, edge-215, 140, 140);
+		characters[8] = new Rectangle(70, edge-360, 140, 140);
+		characters[9] = new Rectangle(215, edge-360, 140, 140);
+		characters[10] = new Rectangle(360, edge-360, 140, 140);
+		characters[11] = new Rectangle(505, edge-360, 140, 140);
+		characters[12] = new Rectangle(70, edge-505, 140, 140);
+		characters[13] = new Rectangle(215, edge-505, 140, 140);
+		characters[14] = new Rectangle(360, edge-505, 140, 140);
+		characters[15] = new Rectangle(505, edge-505, 140, 140);
 	}
 	
 	public void update(float accelX, float accelY) {
@@ -183,7 +184,7 @@ public class GameBody {
 	
 	public int locate(int x, int y) {
 		for(int i=0; i<16; i++) {
-			if(characters[i].contains(x, y)) {
+			if(characters[i].contains((float)x, (float)y)) {
 				return i;
 			}
 		}

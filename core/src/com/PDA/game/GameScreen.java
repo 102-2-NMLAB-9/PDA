@@ -657,7 +657,7 @@ public class GameScreen implements Screen,InputProcessor {
 	public boolean touchDown(int screenX, int screenY, int pointer, int button) {
 		// TODO Auto-generated method stub
 		
-		if(screenX>=posx && screenX<=posx+length && 900-screenY>=posy && 900-screenY<=posy+length)
+/*		if(screenX>=posx && screenX<=posx+length && 900-screenY>=posy && 900-screenY<=posy+length)
 		{
 			//Littlefighter fighter = new Littlefighter(1150,650,-250,0,1);
 			//dennis.add(fighter);	
@@ -665,8 +665,9 @@ public class GameScreen implements Screen,InputProcessor {
 			exp.add(fighter);				
 		    return true;
 		}
-		Soldier soldier = new Soldier(0,660,60,2,2);
-		soldier6s.add(soldier);
+*/
+//		Soldier soldier = new Soldier(0,660,60,2,2);
+//		soldier6s.add(soldier);
 		
 //		if(game2048.locate(screenX, screenY) >= 0) {
 			x1 = screenX;
@@ -679,8 +680,8 @@ public class GameScreen implements Screen,InputProcessor {
 	@Override
 	public boolean touchUp(int screenX, int screenY, int pointer, int button) {
 		
-		Soldier soldier = new Soldier(0,660,30,1,1);
-		soldier7s.add(soldier);		
+//		Soldier soldier = new Soldier(0,660,30,1,1);
+//		soldier7s.add(soldier);		
 		//Littlefighter fighter = new Littlefighter(1100,650,-50,0,1);
 		//freezer.add(fighter);			
 		//Littlefighter fighter = new Littlefighter(1000,650,0,0,1);
@@ -689,8 +690,8 @@ public class GameScreen implements Screen,InputProcessor {
 		//frozen.add(fighter);		
 		//Littlefighter fighter = new Littlefighter(1100,650,0,0,1);
 		//john.add(fighter);
-		Littlefighter fighter = new Littlefighter(1100,650,0,0,1);
-		julian.add(fighter);			
+//		Littlefighter fighter = new Littlefighter(1100,650,0,0,1);
+//		julian.add(fighter);			
 		
 		if(screenX-x1 > 100) accelX = 10;
 		else if(screenY-y1 > 100) accelY = 10;
@@ -700,7 +701,26 @@ public class GameScreen implements Screen,InputProcessor {
 		
 		int target = game2048.locate(screenX, screenY);
 		if(game2048.locate(x1, y1) == target && target >= 0) {
-			;
+			Soldier soldier = new Soldier(0,660,30,1,1);
+			if(game2048.status[target] == 1) soldier1s.add(soldier);
+			else if(game2048.status[target] == 2) soldier2s.add(soldier);
+			else if(game2048.status[target] == 3) soldier3s.add(soldier);
+			else if(game2048.status[target] == 4) soldier4s.add(soldier);
+			else if(game2048.status[target] == 5) soldier5s.add(soldier);
+			else if(game2048.status[target] == 6) soldier6s.add(soldier);
+			else if(game2048.status[target] == 7) soldier7s.add(soldier);
+			else if(game2048.status[target] == 8) soldier8s.add(soldier);
+			else if(game2048.status[target] == 9) soldier9s.add(soldier);
+			else if(game2048.status[target] == 10) soldier10s.add(soldier);
+			else if(game2048.status[target] == 11) soldier11s.add(soldier);
+			else if(game2048.status[target] == 12) soldier12s.add(soldier);
+			else if(game2048.status[target] == 13) soldier13s.add(soldier);
+			else if(game2048.status[target] == 14) soldier14s.add(soldier);
+			else if(game2048.status[target] == 15) soldier15s.add(soldier);
+			else if(game2048.status[target] == 16) soldier16s.add(soldier);
+			game2048.status[target] = 0;
+			game2048.update(0, 0);
+			game2048.draw();
 		}
 
 
