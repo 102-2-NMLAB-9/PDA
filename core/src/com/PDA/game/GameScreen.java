@@ -60,7 +60,8 @@ public class GameScreen implements Screen,InputProcessor {
 	List<Littlefighter> cut;
 	List<Littlefighter> julian;
 	List<Littlefighter> magic;
-	List<Littlefighter> exp;	
+	List<Littlefighter> exp;
+	List<Littlefighter> deep;		
 	int exp_times = 7;
 
 	public GameScreen (MyPDAGame game) {
@@ -100,7 +101,8 @@ public class GameScreen implements Screen,InputProcessor {
 		this.cut = new ArrayList<Littlefighter>();	
 		this.julian = new ArrayList<Littlefighter>();	
 		this.magic = new ArrayList<Littlefighter>();
-		this.exp = new ArrayList<Littlefighter>();		
+		this.exp = new ArrayList<Littlefighter>();
+		this.deep = new ArrayList<Littlefighter>();			
 	}
 	
 	public void update (float delta) {
@@ -206,7 +208,13 @@ public class GameScreen implements Screen,InputProcessor {
 		{
 			Littlefighter fighter = exp.get(i);
 			fighter.update(delta);
-		}			
+		}	
+		len = deep.size();
+		for (int i = 0; i < len; i++) 
+		{
+			Littlefighter fighter = deep.get(i);
+			fighter.update(delta);
+		}		
 	}
 	
 	private void updateSoldiers (float delta) 
@@ -488,6 +496,14 @@ public class GameScreen implements Screen,InputProcessor {
 					exp_times=7;
 				}				
 			}			
+		}		
+		for (int i = 0; i < deep.size(); i++) 
+		{
+			Littlefighter fighter = deep.get(i);
+			TextureRegion keyFrame = Assets.deep.getKeyFrame(fighter.stateTime,false);
+			batcher.draw(keyFrame, fighter.position.x, fighter.position.y, 222, 222);
+			if(Assets.deep.isAnimationFinished(fighter.stateTime))
+			{deep.remove(i);}			
 		}			
 	}
 	
@@ -658,9 +674,7 @@ public class GameScreen implements Screen,InputProcessor {
 		// TODO Auto-generated method stub
 		
 		if(screenX>=posx && screenX<=posx+length && 900-screenY>=posy && 900-screenY<=posy+length)
-		{
-			//Littlefighter fighter = new Littlefighter(1150,650,-250,0,1);
-			//dennis.add(fighter);	
+		{	
 			Littlefighter fighter = new Littlefighter(850,650,0,0,1);
 			exp.add(fighter);				
 		    return true;
@@ -681,7 +695,7 @@ public class GameScreen implements Screen,InputProcessor {
 		
 		Soldier soldier = new Soldier(0,660,30,1,1);
 		soldier7s.add(soldier);		
-		//Littlefighter fighter = new Littlefighter(1100,650,-50,0,1);
+		//ittlefighter fighter = new Littlefighter(1100,650,-50,0,1);
 		//freezer.add(fighter);			
 		//Littlefighter fighter = new Littlefighter(1000,650,0,0,1);
 		//firer.add(fighter);
@@ -689,8 +703,12 @@ public class GameScreen implements Screen,InputProcessor {
 		//frozen.add(fighter);		
 		//Littlefighter fighter = new Littlefighter(1100,650,0,0,1);
 		//john.add(fighter);
-		Littlefighter fighter = new Littlefighter(1100,650,0,0,1);
-		julian.add(fighter);			
+		//Littlefighter fighter = new Littlefighter(1150,650,-250,0,1);
+		//dennis.add(fighter);
+		Littlefighter fighter = new Littlefighter(1150,650,-300,0,1);
+		deep.add(fighter);		
+		//Littlefighter fighter = new Littlefighter(1100,650,0,0,1);
+		//julian.add(fighter);			
 		
 		if(screenX-x1 > 100) accelX = 10;
 		else if(screenY-y1 > 100) accelY = 10;

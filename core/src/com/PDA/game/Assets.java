@@ -47,6 +47,7 @@ public class Assets {
     public static Animation julian;    
     public static Animation magic;  
     public static Animation exp;
+    public static Animation deep;
     public static Texture[] littlefighter;
 	public static Animation soldier1;
 	public static Animation soldier2;
@@ -284,6 +285,36 @@ public class Assets {
 		littlefighter[3] = loadTexture("data/exp-4.png");	
 		exp = new Animation(0.1f,new TextureRegion(littlefighter[0]),new TextureRegion(littlefighter[1]),
 				new TextureRegion(littlefighter[2]),new TextureRegion(littlefighter[3]));			
+		littlefighter[0] = loadTexture("data/g-1.png");
+		littlefighter[1] = loadTexture("data/g-2.png");
+		littlefighter[2] = loadTexture("data/g-3.png");
+		littlefighter[3] = loadTexture("data/g-4.png");
+		littlefighter[4] = loadTexture("data/g-5.png");		
+		littlefighter[5] = loadTexture("data/g-6.png");
+		littlefighter[6] = loadTexture("data/g-7.png");
+		littlefighter[7] = loadTexture("data/g-8.png");
+		littlefighter[8] = loadTexture("data/g-9.png");
+		littlefighter[9] = loadTexture("data/g-10.png");				
+		littlefighter[10] = loadTexture("data/g-11.png");
+		littlefighter[11] = loadTexture("data/g-12.png");
+		littlefighter[12] = loadTexture("data/g-13.png");
+		littlefighter[13] = loadTexture("data/g-14.png");
+		littlefighter[14] = loadTexture("data/g-15.png");		
+		littlefighter[15] = loadTexture("data/g-16.png");
+		littlefighter[16] = loadTexture("data/g-17.png");
+		littlefighter[17] = loadTexture("data/g-18.png");
+		littlefighter[18] = loadTexture("data/g-19.png");		
+		deep = new Animation(0.1f,new TextureRegion(littlefighter[0]),new TextureRegion(littlefighter[1]),
+				new TextureRegion(littlefighter[2]),new TextureRegion(littlefighter[3]),
+				new TextureRegion(littlefighter[4]),new TextureRegion(littlefighter[5]),
+				new TextureRegion(littlefighter[6]),new TextureRegion(littlefighter[7]),
+				new TextureRegion(littlefighter[8]),new TextureRegion(littlefighter[9]),
+				new TextureRegion(littlefighter[10]),new TextureRegion(littlefighter[11]),
+				new TextureRegion(littlefighter[12]),new TextureRegion(littlefighter[13]),
+				new TextureRegion(littlefighter[14]),new TextureRegion(littlefighter[15]),
+				new TextureRegion(littlefighter[16]),new TextureRegion(littlefighter[17]),
+				new TextureRegion(littlefighter[18]));				
+		
 		
 		movingsoldier = new Texture[8];
 		movingsoldier[0] = loadTexture("data/1-1.png");
