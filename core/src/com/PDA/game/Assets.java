@@ -50,6 +50,9 @@ public class Assets {
     public static Animation deep;
     public static Animation henry;   
     public static Animation louisEX;
+    public static Animation louis;
+    public static Animation rudolf;      
+	public static Animation monk;    
     public static Texture[] littlefighter;
 	public static Animation soldier1;
 	public static Animation soldier2;
@@ -331,6 +334,38 @@ public class Assets {
 		louisEX = new Animation(0.2f,new TextureRegion(littlefighter[0]),new TextureRegion(littlefighter[1]),
 				new TextureRegion(littlefighter[2]),new TextureRegion(littlefighter[3]),
 				new TextureRegion(littlefighter[4]));			
+		littlefighter[0] = loadTexture("data/j-1.png");
+		littlefighter[1] = loadTexture("data/j-2.png");
+		littlefighter[2] = loadTexture("data/j-3.png");
+		littlefighter[3] = loadTexture("data/j-4.png");
+		littlefighter[4] = loadTexture("data/j-5.png");			
+		littlefighter[5] = loadTexture("data/j-6.png");
+		littlefighter[6] = loadTexture("data/j-7.png");
+		littlefighter[7] = loadTexture("data/j-8.png");	
+		louis = new Animation(0.1f,new TextureRegion(littlefighter[0]),new TextureRegion(littlefighter[1]),
+				new TextureRegion(littlefighter[2]),new TextureRegion(littlefighter[3]),
+				new TextureRegion(littlefighter[4]),new TextureRegion(littlefighter[5]),
+				new TextureRegion(littlefighter[6]),new TextureRegion(littlefighter[7]));		
+		littlefighter[0] = loadTexture("data/k-1.png");
+		littlefighter[1] = loadTexture("data/k-2.png");
+		littlefighter[2] = loadTexture("data/k-3.png");
+		littlefighter[3] = loadTexture("data/k-4.png");
+		littlefighter[4] = loadTexture("data/k-5.png");			
+		rudolf = new Animation(0.15f,new TextureRegion(littlefighter[0]),new TextureRegion(littlefighter[1]),
+				new TextureRegion(littlefighter[2]),new TextureRegion(littlefighter[3]),
+				new TextureRegion(littlefighter[4]));		
+		littlefighter[0] = loadTexture("data/m-1.png");
+		littlefighter[1] = loadTexture("data/m-2.png");
+		littlefighter[2] = loadTexture("data/m-3.png");
+		littlefighter[3] = loadTexture("data/m-4.png");
+		littlefighter[4] = loadTexture("data/m-5.png");		
+		littlefighter[5] = loadTexture("data/m-6.png");
+		littlefighter[6] = loadTexture("data/m-7.png");		
+		littlefighter[7] = loadTexture("data/m-8.png");	
+		monk = new Animation(0.2f,new TextureRegion(littlefighter[0]),new TextureRegion(littlefighter[1]),
+				new TextureRegion(littlefighter[2]),new TextureRegion(littlefighter[3]),
+				new TextureRegion(littlefighter[4]),new TextureRegion(littlefighter[5]),
+				new TextureRegion(littlefighter[6]),new TextureRegion(littlefighter[7]));			
 		
 		
 		movingsoldier = new Texture[8];
