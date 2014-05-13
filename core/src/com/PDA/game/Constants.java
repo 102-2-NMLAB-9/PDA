@@ -9,4 +9,5 @@ public class Constants {
 	public static final int DECO = 4;
 	public static final int PRET = 5;
 	public static final int ATTACK = 6;
+	public static final int DEFENCE = 7;
 }
