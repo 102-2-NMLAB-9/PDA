@@ -64,7 +64,7 @@ public class GameScreen implements Screen,InputProcessor {
 	List<Littlefighter> deep;
 	List<Littlefighter> henry;		
 	List<Littlefighter> louisEX;
-	List<Littlefighter> woody;	
+	List<Littlefighter> louis;	
 	int exp_times = 7;
 
 	public GameScreen (MyPDAGame game) {
@@ -108,7 +108,7 @@ public class GameScreen implements Screen,InputProcessor {
 		this.deep = new ArrayList<Littlefighter>();
 		this.henry = new ArrayList<Littlefighter>();
 		this.louisEX = new ArrayList<Littlefighter>();
-		this.woody = new ArrayList<Littlefighter>();		
+		this.louis = new ArrayList<Littlefighter>();		
 	}
 	
 	public void update (float delta) {
@@ -233,10 +233,10 @@ public class GameScreen implements Screen,InputProcessor {
 			Littlefighter fighter = louisEX.get(i);
 			fighter.update(delta);
 		}			
-		len = woody.size();
+		len = louis.size();
 		for (int i = 0; i < len; i++) 
 		{
-			Littlefighter fighter = woody.get(i);
+			Littlefighter fighter = louis.get(i);
 			fighter.update(delta);
 		}		
 	}
@@ -545,13 +545,13 @@ public class GameScreen implements Screen,InputProcessor {
 			if(Assets.louisEX.isAnimationFinished(fighter.stateTime))
 			{louisEX.remove(i);}			
 		}	
-		for (int i = 0; i < woody.size(); i++) 
+		for (int i = 0; i < louis.size(); i++) 
 		{
-			Littlefighter fighter = woody.get(i);
-			TextureRegion keyFrame = Assets.woody.getKeyFrame(fighter.stateTime,false);
+			Littlefighter fighter = louis.get(i);
+			TextureRegion keyFrame = Assets.louis.getKeyFrame(fighter.stateTime,false);
 			batcher.draw(keyFrame, fighter.position.x, fighter.position.y, 150, 222);
-			if(Assets.woody.isAnimationFinished(fighter.stateTime))
-			{woody.remove(i);}			
+			if(Assets.louis.isAnimationFinished(fighter.stateTime))
+			{louis.remove(i);}			
 		}			
 	}
 	
@@ -766,7 +766,7 @@ public class GameScreen implements Screen,InputProcessor {
 		//Littlefighter fighter = new Littlefighter(1100,650,-500,0,1);
 		//louisEX.add(fighter);				
 		Littlefighter fighter = new Littlefighter(1100,650,-350,0,1);
-		woody.add(fighter);			
+		louis.add(fighter);			
 
 		
 		if(screenX-x1 > 100) accelX = 10;

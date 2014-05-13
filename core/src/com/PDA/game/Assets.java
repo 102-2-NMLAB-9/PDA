@@ -50,7 +50,7 @@ public class Assets {
     public static Animation deep;
     public static Animation henry;   
     public static Animation louisEX;
-    public static Animation woody;    
+    public static Animation louis;    
     public static Texture[] littlefighter;
 	public static Animation soldier1;
 	public static Animation soldier2;
@@ -340,7 +340,7 @@ public class Assets {
 		littlefighter[5] = loadTexture("data/j-6.png");
 		littlefighter[6] = loadTexture("data/j-7.png");
 		littlefighter[7] = loadTexture("data/j-8.png");	
-		woody = new Animation(0.2f,new TextureRegion(littlefighter[0]),new TextureRegion(littlefighter[1]),
+		louis = new Animation(0.1f,new TextureRegion(littlefighter[0]),new TextureRegion(littlefighter[1]),
 				new TextureRegion(littlefighter[2]),new TextureRegion(littlefighter[3]),
 				new TextureRegion(littlefighter[4]),new TextureRegion(littlefighter[5]),
 				new TextureRegion(littlefighter[6]),new TextureRegion(littlefighter[7]));			
