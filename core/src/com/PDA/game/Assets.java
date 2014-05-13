@@ -52,7 +52,11 @@ public class Assets {
     public static Animation louisEX;
     public static Animation louis;
     public static Animation rudolf;      
-	public static Animation monk;    
+	public static Animation monk;
+	public static Animation justin;
+	public static Animation knight;
+	public static Animation bat;
+	public static Animation beacon; 			
     public static Texture[] littlefighter;
 	public static Animation soldier1;
 	public static Animation soldier2;
@@ -365,7 +369,48 @@ public class Assets {
 		monk = new Animation(0.2f,new TextureRegion(littlefighter[0]),new TextureRegion(littlefighter[1]),
 				new TextureRegion(littlefighter[2]),new TextureRegion(littlefighter[3]),
 				new TextureRegion(littlefighter[4]),new TextureRegion(littlefighter[5]),
-				new TextureRegion(littlefighter[6]),new TextureRegion(littlefighter[7]));			
+				new TextureRegion(littlefighter[6]),new TextureRegion(littlefighter[7]));		
+		littlefighter[0] = loadTexture("data/n-1.png");
+		littlefighter[1] = loadTexture("data/n-2.png");
+		littlefighter[2] = loadTexture("data/n-3.png");
+		littlefighter[3] = loadTexture("data/n-4.png");
+		littlefighter[4] = loadTexture("data/n-5.png");		
+		littlefighter[5] = loadTexture("data/n-6.png");
+		littlefighter[6] = loadTexture("data/n-7.png");		
+		littlefighter[7] = loadTexture("data/n-8.png");
+		littlefighter[8] = loadTexture("data/n-9.png");			
+		justin = new Animation(0.1f,new TextureRegion(littlefighter[0]),new TextureRegion(littlefighter[1]),
+				new TextureRegion(littlefighter[2]),new TextureRegion(littlefighter[3]),
+				new TextureRegion(littlefighter[4]),new TextureRegion(littlefighter[5]),
+				new TextureRegion(littlefighter[6]),new TextureRegion(littlefighter[7]),
+		        new TextureRegion(littlefighter[8]));			
+		littlefighter[0] = loadTexture("data/o-1.png");
+		littlefighter[1] = loadTexture("data/o-2.png");
+		littlefighter[2] = loadTexture("data/o-3.png");
+		littlefighter[3] = loadTexture("data/o-4.png");
+		littlefighter[4] = loadTexture("data/o-5.png");		
+		littlefighter[5] = loadTexture("data/o-6.png");
+		littlefighter[6] = loadTexture("data/o-7.png");		
+		littlefighter[7] = loadTexture("data/o-8.png");
+		littlefighter[8] = loadTexture("data/o-9.png");
+		littlefighter[9] = loadTexture("data/o-10.png");			
+		knight = new Animation(0.15f,new TextureRegion(littlefighter[0]),new TextureRegion(littlefighter[1]),
+				new TextureRegion(littlefighter[2]),new TextureRegion(littlefighter[3]),
+				new TextureRegion(littlefighter[4]),new TextureRegion(littlefighter[5]),
+				new TextureRegion(littlefighter[6]),new TextureRegion(littlefighter[7]),
+		        new TextureRegion(littlefighter[8]),new TextureRegion(littlefighter[9]));	
+		littlefighter[0] = loadTexture("data/p-1.png");
+		littlefighter[1] = loadTexture("data/p-2.png");
+		littlefighter[2] = loadTexture("data/p-3.png");		
+		bat = new Animation(0.15f,new TextureRegion(littlefighter[0]),new TextureRegion(littlefighter[1]),
+				new TextureRegion(littlefighter[2]));			
+		littlefighter[0] = loadTexture("data/beacon-1.png");
+		littlefighter[1] = loadTexture("data/beacon-2.png");
+		littlefighter[2] = loadTexture("data/beacon-3.png");
+		littlefighter[3] = loadTexture("data/beacon-4.png");		
+		beacon = new Animation(0.4f,new TextureRegion(littlefighter[0]),new TextureRegion(littlefighter[1]),
+				new TextureRegion(littlefighter[2]),new TextureRegion(littlefighter[3]));			
+				
 		
 		
 		movingsoldier = new Texture[8];
