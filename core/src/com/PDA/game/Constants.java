@@ -8,4 +8,5 @@ public class Constants {
 	public static final int MESSAGE = 3;
 	public static final int DECO = 4;
 	public static final int PRET = 5;
+	public static final int ATTACK = 6;
 }
