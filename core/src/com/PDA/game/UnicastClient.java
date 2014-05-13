@@ -10,7 +10,6 @@ import java.util.Enumeration;
 import java.util.Set;
 
 import com.PDA.game.ChatWindow;
-import com.PDA.game.MainScreen;
 import com.PDA.game.MyPDAGame;
 import com.PDA.game.Constants;
 import com.PDA.game.MapPerso;
@@ -29,6 +28,8 @@ public class UnicastClient {
 	public String monIp;
 	public ChatWindow chatWindow;
 	private MapPerso<String, Test> joueurs;
+	boolean selection = false;
+	boolean type = false;
 
 	public UnicastClient(MyPDAGame g) {
 		// initialization
@@ -277,16 +278,29 @@ public class UnicastClient {
 	public void actionPret() {
 		String ip = dpr.getAddress().toString().replace('/', '\0').trim();
 		joueurs.get(ip).setPret(true);
+		if ( ip.equals(monIp) )
+		{
+			selection = true;
+		}
 		pretPourVagueSuivante(ip);
 	}
 	
 	public void pretPourVagueSuivante(final String ip) {
 		boolean pret = true;
+		int count = 0;
 		for (Test j : joueurs.values()) {
 			if (!j.estPret()) {
 				pret = false;
 				break;
 			}
+			count++;
+		}
+		if (selection)
+		{
+			if( count % 2 == 0 )
+				type = false;
+			else
+				type = true;
 		}
 		if (pret) {
 			game.currentVagueIndex = true;
@@ -298,7 +312,17 @@ public class UnicastClient {
 				public void run() {
 					if(game.currentVagueIndex == true){
 						game.currentVagueIndex = false;
-						game.setScreen(new MainScreen(game));
+						selection = false;
+						if (type)
+						{
+							game.setScreen(new GameScreen(game));
+							System.out.println(type);
+						}
+						else
+						{
+							game.setScreen(new GameScreen(game));
+							System.out.println(type);
+						}
 					}			
 				}
 			});
