@@ -46,7 +46,7 @@ public class UnicastClient {
 
 	public void lancerClient() throws IOException {
 		sendConnection(null, false);
-		chatWindow.addName(game.player.getNom() + " : "
+		chatWindow.addName("test" + " : "
 				+ game.count);
 		game.player.setName("test" + " : "
 				+ game.count);
@@ -180,7 +180,7 @@ public class UnicastClient {
 			game.playersConnected.add(p);
 			joueurs.put(ip, p);
 			//game.IP.add(ip);
-			this.chatWindow.addName(p.getNom() + " : " + game.count);
+			this.chatWindow.addName("test" + " : " + game.count);
 			game.count++;
 		}
 		if (action == Constants.CONNEXION)
