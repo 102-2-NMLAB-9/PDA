@@ -5,14 +5,15 @@ import static com.badlogic.gdx.scenes.scene2d.actions.Actions.moveTo;
 import static com.badlogic.gdx.scenes.scene2d.actions.Actions.sequence;
 
 import java.io.IOException;
+/*
 import java.net.InetAddress;
 import java.util.List;
+*/
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Interpolation;
-import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.actions.RepeatAction;
@@ -20,7 +21,10 @@ import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.ui.Window;
 import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
+/*
 import com.badlogic.gdx.utils.Scaling;
+import com.badlogic.gdx.math.Vector2;
+*/
 
 public class ChatScreen extends AbstractScreen {
 
@@ -163,8 +167,8 @@ public class ChatScreen extends AbstractScreen {
 		scrollingImage.setPosition(0, 0);
 		scrollingImage.setHeight(960);
 		RepeatAction ra = new RepeatAction();
-		ra.setAction(sequence(moveTo(0, 0), moveBy((int)(-scrollingImage.getWidth()*.6), 0, 20.0f, Interpolation.linear),
-				moveBy((int)(scrollingImage.getWidth()*.6), 0, 20.0f, Interpolation.linear)));
+		ra.setAction(sequence(moveTo(0, 0), moveBy((int)(-scrollingImage.getWidth()*.3), 0, 20.0f, Interpolation.linear),
+				moveBy((int)(scrollingImage.getWidth()*.3), 0, 20.0f, Interpolation.linear)));
 		ra.setCount(RepeatAction.FOREVER);
 		scrollingImage.addAction(ra);
 		return scrollingImage;

@@ -12,7 +12,6 @@ import java.util.Set;
 import com.PDA.game.ChatWindow;
 import com.PDA.game.MainScreen;
 import com.PDA.game.MyPDAGame;
-import com.PDA.game.Joueur;
 import com.PDA.game.Constants;
 import com.PDA.game.MapPerso;
 import com.PDA.game.Test;
@@ -29,13 +28,13 @@ public class UnicastClient {
 	private String ip;
 	public String monIp;
 	public ChatWindow chatWindow;
-	private MapPerso<String, Joueur> joueurs;
+	private MapPerso<String, Test> joueurs;
 
 	public UnicastClient(MyPDAGame g) {
 		// initialization
 		this.game = g;
 		chatWindow = g.cw;
-		joueurs = new MapPerso<String, Joueur>();
+		joueurs = new MapPerso<String, Test>();
 
 		monIp = this.getLocalIpAddress();
 		joueurs.put(monIp, game.player);
@@ -50,6 +49,8 @@ public class UnicastClient {
 				+ game.count);
 		game.player.setName(game.player.getNom() + " : "
 				+ game.count);
+		game.player.setNom(game.player.getNom() + "_"
+				+ game.count);
 		game.count++ ;
 	}
 
@@ -57,7 +58,7 @@ public class UnicastClient {
 			throws IOException {
 		byte[] data;
 
-		data = ((Joueur) this.game.player).getBytes();
+		data = (this.game.player).getBytes();
 
 		if (nouveau) {
 
@@ -163,7 +164,7 @@ public class UnicastClient {
 	private void actionTraiterNouveau(int action, byte[] data)
 			throws IOException {
 		System.out.println("NOUVEAU JOUEUR");
-		Joueur p = new Test();
+		Test p = new Test();
 		String pseudo;
 		pseudo = new String(data, 3, data[2]);
 		p.setNom(pseudo);
@@ -173,9 +174,11 @@ public class UnicastClient {
 
 			game.playersConnected.add(p);
 			joueurs.put(ip, p);
-			game.IP.add(ip);
+			//game.IP.add(ip);
 			this.chatWindow.addName(p.getNom() + " : " + game.count);
 			p.setName(p.getNom() + " : "
+					+ game.count);
+			p.setNom(game.player.getNom() + "_"
 					+ game.count);
 			game.count++;
 		}
@@ -229,11 +232,11 @@ public class UnicastClient {
 		sendToAll(data);
 	}	
 	
-	public MapPerso<String, Joueur> getJoueurs() {
+	public MapPerso<String, Test> getJoueurs() {
 		return joueurs;
 	}
 
-	public void setJoueurs(MapPerso<String, Joueur> joueurs) {
+	public void setJoueurs(MapPerso<String, Test> joueurs) {
 		this.joueurs = joueurs;
 	}
 
@@ -279,7 +282,7 @@ public class UnicastClient {
 	
 	public void pretPourVagueSuivante(final String ip) {
 		boolean pret = true;
-		for (Joueur j : joueurs.values()) {
+		for (Test j : joueurs.values()) {
 			if (!j.estPret()) {
 				pret = false;
 				break;
@@ -287,7 +290,7 @@ public class UnicastClient {
 		}
 		if (pret) {
 			game.currentVagueIndex = true;
-			for (Joueur j : joueurs.values()) {
+			for (Test j : joueurs.values()) {
 				j.setPret(false);
 			}
 

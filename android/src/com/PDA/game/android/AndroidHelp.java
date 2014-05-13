@@ -9,8 +9,10 @@ import android.net.Uri;
 import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
 import android.os.Handler;
+/*
 import android.view.Display;
 import android.view.WindowManager;
+*/
 import android.widget.Toast;
 
 import com.badlogic.gdx.scenes.scene2d.Stage;
@@ -64,15 +66,17 @@ public class AndroidHelp implements UITrick {
 
 	@Override
 	public int[] getScreenSize() {
-		/* First, get the Display from the WindowManager */
+		/*
+		// First, get the Display from the WindowManager
 		Display display = ((WindowManager) appContext.getSystemService(Context.WINDOW_SERVICE)).getDefaultDisplay();
 
-		/* Now we can retrieve all display-related infos */
+		// Now we can retrieve all display-related infos
 		int width = display.getWidth();
 		int height = display.getHeight();
 
-		int[] size = {width,height};
-		return size;
+		int[] size = {width,height}
+		*/
+		return null;
 	}
 
 	@Override
