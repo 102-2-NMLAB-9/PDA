@@ -182,6 +182,13 @@ public class GameBody {
 		draw();
 	}
 	
+	public int size() {
+		int number = 0;
+		for(int i=0; i<16; i++)
+			if(status[i] != 0) number++;
+		return number;
+	}
+	
 	public int locate(int x, int y) {
 		for(int i=0; i<16; i++) {
 			if(characters[i].contains((float)x, (float)y)) {
