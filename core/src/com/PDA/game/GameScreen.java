@@ -72,7 +72,7 @@ public class GameScreen implements Screen,InputProcessor {
 		guiCam = new OrthographicCamera(1280, 960);
 		guiCam.position.set(1280 / 2, 960 / 2, 0);
 		backBounds = new Rectangle(0, 0, 64, 64);
-		testBounds = new Rectangle(500, 400, 300, 300);
+//		testBounds = new Rectangle(500, 400, 300, 300);
 		touchPoint = new Vector3();
 		batcher = new SpriteBatch();
 		game2048 = new GameBody(batcher);
@@ -358,7 +358,7 @@ public class GameScreen implements Screen,InputProcessor {
 		batcher.draw(Assets.doorRegion,1111,620,150,330);
 		renderSoldiers();
 		renderLittlefighters(delta);
-		batcher.draw(Assets.testRegion, posx, posy, 300, 300);
+//		batcher.draw(Assets.testRegion, posx, posy, 300, 300);
 		batcher.draw(Assets.boxregion, 70, 70, 140, 140);
 
 //		renderLittlefighters();
@@ -787,8 +787,8 @@ public class GameScreen implements Screen,InputProcessor {
 	@Override
 	public boolean touchDragged(int screenX, int screenY, int pointer) {
 		// TODO Auto-generated method stub
-		posx=screenX-150;
-		posy=750-screenY;   
+//		posx=screenX-150;
+//		posy=750-screenY;   
 		return false;
 	}
 	@Override
