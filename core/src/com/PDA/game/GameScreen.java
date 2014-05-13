@@ -64,6 +64,7 @@ public class GameScreen implements Screen,InputProcessor {
 	List<Littlefighter> deep;
 	List<Littlefighter> henry;		
 	List<Littlefighter> louisEX;
+	List<Littlefighter> woody;	
 	int exp_times = 7;
 
 	public GameScreen (MyPDAGame game) {
@@ -107,6 +108,7 @@ public class GameScreen implements Screen,InputProcessor {
 		this.deep = new ArrayList<Littlefighter>();
 		this.henry = new ArrayList<Littlefighter>();
 		this.louisEX = new ArrayList<Littlefighter>();
+		this.woody = new ArrayList<Littlefighter>();		
 	}
 	
 	public void update (float delta) {
@@ -231,6 +233,12 @@ public class GameScreen implements Screen,InputProcessor {
 			Littlefighter fighter = louisEX.get(i);
 			fighter.update(delta);
 		}			
+		len = woody.size();
+		for (int i = 0; i < len; i++) 
+		{
+			Littlefighter fighter = woody.get(i);
+			fighter.update(delta);
+		}		
 	}
 	
 	private void updateSoldiers (float delta) 
@@ -536,6 +544,14 @@ public class GameScreen implements Screen,InputProcessor {
 			batcher.draw(keyFrame, fighter.position.x, fighter.position.y, 150, 222);
 			if(Assets.louisEX.isAnimationFinished(fighter.stateTime))
 			{louisEX.remove(i);}			
+		}	
+		for (int i = 0; i < woody.size(); i++) 
+		{
+			Littlefighter fighter = woody.get(i);
+			TextureRegion keyFrame = Assets.woody.getKeyFrame(fighter.stateTime,false);
+			batcher.draw(keyFrame, fighter.position.x, fighter.position.y, 150, 222);
+			if(Assets.woody.isAnimationFinished(fighter.stateTime))
+			{woody.remove(i);}			
 		}			
 	}
 	
@@ -747,8 +763,10 @@ public class GameScreen implements Screen,InputProcessor {
 		//julian.add(fighter);			
 		//Littlefighter fighter = new Littlefighter(1100,650,0,0,1);
 		//henry.add(fighter);		
-		Littlefighter fighter = new Littlefighter(1100,650,-500,0,1);
-		louisEX.add(fighter);				
+		//Littlefighter fighter = new Littlefighter(1100,650,-500,0,1);
+		//louisEX.add(fighter);				
+		Littlefighter fighter = new Littlefighter(1100,650,-350,0,1);
+		woody.add(fighter);			
 
 		
 		if(screenX-x1 > 100) accelX = 10;
