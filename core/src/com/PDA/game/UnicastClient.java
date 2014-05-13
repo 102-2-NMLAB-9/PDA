@@ -169,6 +169,10 @@ public class UnicastClient {
 		String pseudo;
 		pseudo = new String(data, 3, data[2]);
 		p.setNom(pseudo);
+		p.setName("test" + " : "
+				+ game.count);
+		p.setNom("test" + "_"
+				+ game.count);
 		ip = dpr.getAddress().toString().replace('/', '\0').trim();
 		if (ip.length() > 0 && !joueurs.containsKey(ip)
 				&& !ip.equals("127.0.0.1")) {
@@ -177,10 +181,6 @@ public class UnicastClient {
 			joueurs.put(ip, p);
 			//game.IP.add(ip);
 			this.chatWindow.addName(p.getNom() + " : " + game.count);
-			p.setName("test" + " : "
-					+ game.count);
-			p.setNom("test" + "_"
-					+ game.count);
 			game.count++;
 		}
 		if (action == Constants.CONNEXION)
