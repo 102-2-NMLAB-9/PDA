@@ -48,9 +48,9 @@ public class UnicastClient {
 		sendConnection(null, false);
 		chatWindow.addName(game.player.getNom() + " : "
 				+ game.count);
-		game.player.setName(game.player.getNom() + " : "
+		game.player.setName("test" + " : "
 				+ game.count);
-		game.player.setNom(game.player.getNom() + "_"
+		game.player.setNom("test" + "_"
 				+ game.count);
 		game.count++ ;
 	}
@@ -177,9 +177,9 @@ public class UnicastClient {
 			joueurs.put(ip, p);
 			//game.IP.add(ip);
 			this.chatWindow.addName(p.getNom() + " : " + game.count);
-			p.setName(p.getNom() + " : "
+			p.setName("test" + " : "
 					+ game.count);
-			p.setNom(game.player.getNom() + "_"
+			p.setNom("test" + "_"
 					+ game.count);
 			game.count++;
 		}
