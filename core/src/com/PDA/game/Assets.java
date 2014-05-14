@@ -74,7 +74,24 @@ public class Assets {
 	public static Animation soldier14;
 	public static Animation soldier15;
 	public static Animation soldier16;
-	public static Texture[] movingsoldier;	
+	public static Texture[] movingsoldier;
+	public static Animation dead_soldier1;
+	public static Animation dead_soldier2;
+	public static Animation dead_soldier3;
+	public static Animation dead_soldier4;
+	public static Animation dead_soldier5;
+	public static Animation dead_soldier6;
+	public static Animation dead_soldier7;
+	public static Animation dead_soldier8;
+	public static Animation dead_soldier9;
+	public static Animation dead_soldier10;
+	public static Animation dead_soldier11;
+	public static Animation dead_soldier12;	
+	public static Animation dead_soldier13;
+	public static Animation dead_soldier14;
+	public static Animation dead_soldier15;
+	public static Animation dead_soldier16;	
+	public static Texture[] dead_soldier;
 	public static Texture door;
 	public static TextureRegion doorRegion;	
 	
@@ -614,6 +631,162 @@ public class Assets {
 				new TextureRegion(movingsoldier[2]),new TextureRegion(movingsoldier[3]),
 				new TextureRegion(movingsoldier[4]),new TextureRegion(movingsoldier[5]),
 				new TextureRegion(movingsoldier[6]),new TextureRegion(movingsoldier[7]));		
+		dead_soldier = new Texture[10];
+		dead_soldier[0] = loadTexture("data/die1-1.png");
+		dead_soldier[1] = loadTexture("data/die1-2.png");
+		dead_soldier[2] = loadTexture("data/die1-3.png");
+		dead_soldier[3] = loadTexture("data/die1-4.png");
+		dead_soldier[4] = loadTexture("data/die1-5.png");
+		dead_soldier[5] = loadTexture("data/die1-6.png");		
+		dead_soldier1 = new Animation(0.2f,new TextureRegion(dead_soldier[0]),new TextureRegion(dead_soldier[1]),
+				new TextureRegion(dead_soldier[2]),new TextureRegion(dead_soldier[3]),
+				new TextureRegion(dead_soldier[4]),new TextureRegion(dead_soldier[5]));		
+		dead_soldier[0] = loadTexture("data/die2-1.png");
+		dead_soldier[1] = loadTexture("data/die2-2.png");
+		dead_soldier[2] = loadTexture("data/die2-3.png");
+		dead_soldier[3] = loadTexture("data/die2-4.png");
+		dead_soldier[4] = loadTexture("data/die2-5.png");
+		dead_soldier[5] = loadTexture("data/die2-6.png");		
+		dead_soldier2 = new Animation(0.2f,new TextureRegion(dead_soldier[0]),new TextureRegion(dead_soldier[1]),
+				new TextureRegion(dead_soldier[2]),new TextureRegion(dead_soldier[3]),
+				new TextureRegion(dead_soldier[4]),new TextureRegion(dead_soldier[5]));				
+		dead_soldier[0] = loadTexture("data/die3-1.png");
+		dead_soldier[1] = loadTexture("data/die3-2.png");
+		dead_soldier[2] = loadTexture("data/die3-3.png");
+		dead_soldier[3] = loadTexture("data/die3-4.png");
+		dead_soldier[4] = loadTexture("data/die3-5.png");
+		dead_soldier[5] = loadTexture("data/die3-6.png");		
+		dead_soldier3 = new Animation(0.2f,new TextureRegion(dead_soldier[0]),new TextureRegion(dead_soldier[1]),
+				new TextureRegion(dead_soldier[2]),new TextureRegion(dead_soldier[3]),
+				new TextureRegion(dead_soldier[4]),new TextureRegion(dead_soldier[5]));				
+		dead_soldier[0] = loadTexture("data/die4-1.png");
+		dead_soldier[1] = loadTexture("data/die4-2.png");
+		dead_soldier[2] = loadTexture("data/die4-3.png");
+		dead_soldier[3] = loadTexture("data/die4-4.png");
+		dead_soldier[4] = loadTexture("data/die4-5.png");	
+		dead_soldier4 = new Animation(0.2f,new TextureRegion(dead_soldier[0]),new TextureRegion(dead_soldier[1]),
+				new TextureRegion(dead_soldier[2]),new TextureRegion(dead_soldier[3]),
+				new TextureRegion(dead_soldier[4]));			
+		dead_soldier[0] = loadTexture("data/die5-1.png");
+		dead_soldier[1] = loadTexture("data/die5-2.png");
+		dead_soldier[2] = loadTexture("data/die5-3.png");
+		dead_soldier[3] = loadTexture("data/die5-4.png");
+		dead_soldier[4] = loadTexture("data/die5-5.png");	
+		dead_soldier[5] = loadTexture("data/die5-6.png");
+		dead_soldier[6] = loadTexture("data/die5-7.png");
+		dead_soldier[7] = loadTexture("data/die5-8.png");
+		dead_soldier[8] = loadTexture("data/die5-9.png");		
+		dead_soldier5 = new Animation(0.2f,new TextureRegion(dead_soldier[0]),new TextureRegion(dead_soldier[1]),
+				new TextureRegion(dead_soldier[2]),new TextureRegion(dead_soldier[3]),
+				new TextureRegion(dead_soldier[4]),new TextureRegion(dead_soldier[5]),
+				new TextureRegion(dead_soldier[6]),new TextureRegion(dead_soldier[7]),
+				new TextureRegion(dead_soldier[8]));			
+		dead_soldier[0] = loadTexture("data/die6-1.png");
+		dead_soldier[1] = loadTexture("data/die6-2.png");
+		dead_soldier[2] = loadTexture("data/die6-3.png");
+		dead_soldier[3] = loadTexture("data/die6-4.png");
+		dead_soldier[4] = loadTexture("data/die6-5.png");
+		dead_soldier[5] = loadTexture("data/die6-6.png");		
+		dead_soldier6 = new Animation(0.2f,new TextureRegion(dead_soldier[0]),new TextureRegion(dead_soldier[1]),
+				new TextureRegion(dead_soldier[2]),new TextureRegion(dead_soldier[3]),
+				new TextureRegion(dead_soldier[4]),new TextureRegion(dead_soldier[5]));	
+		dead_soldier[0] = loadTexture("data/die7-1.png");
+		dead_soldier[1] = loadTexture("data/die7-2.png");
+		dead_soldier[2] = loadTexture("data/die7-3.png");
+		dead_soldier[3] = loadTexture("data/die7-4.png");
+		dead_soldier[4] = loadTexture("data/die7-5.png");
+		dead_soldier[5] = loadTexture("data/die7-6.png");		
+		dead_soldier7 = new Animation(0.2f,new TextureRegion(dead_soldier[0]),new TextureRegion(dead_soldier[1]),
+				new TextureRegion(dead_soldier[2]),new TextureRegion(dead_soldier[3]),
+				new TextureRegion(dead_soldier[4]),new TextureRegion(dead_soldier[5]));			
+		dead_soldier[0] = loadTexture("data/die8-1.png");
+		dead_soldier[1] = loadTexture("data/die8-2.png");
+		dead_soldier[2] = loadTexture("data/die8-3.png");
+		dead_soldier[3] = loadTexture("data/die8-4.png");
+		dead_soldier[4] = loadTexture("data/die8-5.png");
+		dead_soldier[5] = loadTexture("data/die8-6.png");		
+		dead_soldier8 = new Animation(0.2f,new TextureRegion(dead_soldier[0]),new TextureRegion(dead_soldier[1]),
+				new TextureRegion(dead_soldier[2]),new TextureRegion(dead_soldier[3]),
+				new TextureRegion(dead_soldier[4]),new TextureRegion(dead_soldier[5]));		
+		dead_soldier[0] = loadTexture("data/die9-1.png");
+		dead_soldier[1] = loadTexture("data/die9-2.png");
+		dead_soldier[2] = loadTexture("data/die9-3.png");
+		dead_soldier[3] = loadTexture("data/die9-4.png");
+		dead_soldier[4] = loadTexture("data/die9-5.png");	
+		dead_soldier[5] = loadTexture("data/die9-6.png");
+		dead_soldier[6] = loadTexture("data/die9-7.png");
+		dead_soldier[7] = loadTexture("data/die9-8.png");
+		dead_soldier9 = new Animation(0.2f,new TextureRegion(dead_soldier[0]),new TextureRegion(dead_soldier[1]),
+				new TextureRegion(dead_soldier[2]),new TextureRegion(dead_soldier[3]),
+				new TextureRegion(dead_soldier[4]),new TextureRegion(dead_soldier[5]),
+				new TextureRegion(dead_soldier[6]),new TextureRegion(dead_soldier[7]));		
+		dead_soldier[0] = loadTexture("data/die10-1.png");
+		dead_soldier[1] = loadTexture("data/die10-2.png");
+		dead_soldier[2] = loadTexture("data/die10-3.png");
+		dead_soldier[3] = loadTexture("data/die10-4.png");
+		dead_soldier[4] = loadTexture("data/die10-5.png");
+		dead_soldier[5] = loadTexture("data/die10-6.png");		
+		dead_soldier10 = new Animation(0.2f,new TextureRegion(dead_soldier[0]),new TextureRegion(dead_soldier[1]),
+				new TextureRegion(dead_soldier[2]),new TextureRegion(dead_soldier[3]),
+				new TextureRegion(dead_soldier[4]),new TextureRegion(dead_soldier[5]));				
+		dead_soldier[0] = loadTexture("data/die11-1.png");
+		dead_soldier[1] = loadTexture("data/die11-2.png");
+		dead_soldier[2] = loadTexture("data/die11-3.png");
+		dead_soldier[3] = loadTexture("data/die11-4.png");
+		dead_soldier[4] = loadTexture("data/die11-5.png");
+		dead_soldier[5] = loadTexture("data/die11-6.png");		
+		dead_soldier11 = new Animation(0.2f,new TextureRegion(dead_soldier[0]),new TextureRegion(dead_soldier[1]),
+				new TextureRegion(dead_soldier[2]),new TextureRegion(dead_soldier[3]),
+				new TextureRegion(dead_soldier[4]),new TextureRegion(dead_soldier[5]));				
+		dead_soldier[0] = loadTexture("data/die12-1.png");
+		dead_soldier[1] = loadTexture("data/die12-2.png");
+		dead_soldier[2] = loadTexture("data/die12-3.png");
+		dead_soldier[3] = loadTexture("data/die12-4.png");
+		dead_soldier[4] = loadTexture("data/die12-5.png");	
+		dead_soldier[5] = loadTexture("data/die12-6.png");
+		dead_soldier[6] = loadTexture("data/die12-7.png");
+		dead_soldier[7] = loadTexture("data/die12-8.png");
+		dead_soldier[8] = loadTexture("data/die12-9.png");		
+		dead_soldier12 = new Animation(0.2f,new TextureRegion(dead_soldier[0]),new TextureRegion(dead_soldier[1]),
+				new TextureRegion(dead_soldier[2]),new TextureRegion(dead_soldier[3]),
+				new TextureRegion(dead_soldier[4]),new TextureRegion(dead_soldier[5]),
+				new TextureRegion(dead_soldier[6]),new TextureRegion(dead_soldier[7]),		
+				new TextureRegion(dead_soldier[8]));
+		dead_soldier[0] = loadTexture("data/die13-1.png");
+		dead_soldier[1] = loadTexture("data/die13-2.png");
+		dead_soldier[2] = loadTexture("data/die13-3.png");
+		dead_soldier[3] = loadTexture("data/die13-4.png");
+		dead_soldier[4] = loadTexture("data/die13-5.png");
+		dead_soldier[5] = loadTexture("data/die13-6.png");		
+		dead_soldier13 = new Animation(0.2f,new TextureRegion(dead_soldier[0]),new TextureRegion(dead_soldier[1]),
+				new TextureRegion(dead_soldier[2]),new TextureRegion(dead_soldier[3]),
+				new TextureRegion(dead_soldier[4]),new TextureRegion(dead_soldier[5]));			
+		dead_soldier[0] = loadTexture("data/die14-1.png");
+		dead_soldier[1] = loadTexture("data/die14-2.png");
+		dead_soldier[2] = loadTexture("data/die14-3.png");
+		dead_soldier[3] = loadTexture("data/die14-4.png");
+		dead_soldier[4] = loadTexture("data/die14-5.png");	
+		dead_soldier14 = new Animation(0.2f,new TextureRegion(dead_soldier[0]),new TextureRegion(dead_soldier[1]),
+				new TextureRegion(dead_soldier[2]),new TextureRegion(dead_soldier[3]),
+				new TextureRegion(dead_soldier[4]));	
+		dead_soldier[0] = loadTexture("data/die15-1.png");
+		dead_soldier[1] = loadTexture("data/die15-2.png");
+		dead_soldier[2] = loadTexture("data/die15-3.png");
+		dead_soldier[3] = loadTexture("data/die15-4.png");
+		dead_soldier[4] = loadTexture("data/die15-5.png");
+		dead_soldier[5] = loadTexture("data/die15-6.png");		
+		dead_soldier15 = new Animation(0.2f,new TextureRegion(dead_soldier[0]),new TextureRegion(dead_soldier[1]),
+				new TextureRegion(dead_soldier[2]),new TextureRegion(dead_soldier[3]),
+				new TextureRegion(dead_soldier[4]),new TextureRegion(dead_soldier[5]));			
+		dead_soldier[0] = loadTexture("data/die16-1.png");
+		dead_soldier[1] = loadTexture("data/die16-2.png");
+		dead_soldier[2] = loadTexture("data/die16-3.png");
+		dead_soldier[3] = loadTexture("data/die16-4.png");
+		dead_soldier[4] = loadTexture("data/die16-5.png");
+		dead_soldier[5] = loadTexture("data/die16-6.png");		
+		dead_soldier16 = new Animation(0.2f,new TextureRegion(dead_soldier[0]),new TextureRegion(dead_soldier[1]),
+				new TextureRegion(dead_soldier[2]),new TextureRegion(dead_soldier[3]),
+				new TextureRegion(dead_soldier[4]),new TextureRegion(dead_soldier[5]));			
 		
 		door = loadTexture("data/door.png");
 		doorRegion = new TextureRegion(door);		

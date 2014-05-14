@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
+import java.lang.String;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.InputProcessor;
@@ -51,6 +52,22 @@ public class GameScreen implements Screen,InputProcessor {
 	List<Soldier> soldier14s;
 	List<Soldier> soldier15s;
 	List<Soldier> soldier16s;	
+	List<Soldier> dead_soldier1s;
+	List<Soldier> dead_soldier2s;
+	List<Soldier> dead_soldier3s;
+	List<Soldier> dead_soldier4s;		
+	List<Soldier> dead_soldier5s;
+	List<Soldier> dead_soldier6s;
+	List<Soldier> dead_soldier7s;
+	List<Soldier> dead_soldier8s;		
+	List<Soldier> dead_soldier9s;
+	List<Soldier> dead_soldier10s;
+	List<Soldier> dead_soldier11s;
+	List<Soldier> dead_soldier12s;		
+	List<Soldier> dead_soldier13s;
+	List<Soldier> dead_soldier14s;
+	List<Soldier> dead_soldier15s;
+	List<Soldier> dead_soldier16s;		
 	List<Littlefighter> dennis;
 	List<Littlefighter> freezer;
 	List<Littlefighter> wind;
@@ -73,7 +90,8 @@ public class GameScreen implements Screen,InputProcessor {
 	List<Littlefighter> knight;
 	List<Littlefighter> bat;
 	List<Littlefighter> beacon;	
-	int exp_times = 7;
+	int exp_times = 7, runtime = 10;
+	String run_time;
 	Timer timer = new Timer();
 
 	public GameScreen (MyPDAGame game) {
@@ -84,11 +102,15 @@ public class GameScreen implements Screen,InputProcessor {
 		backBounds = new Rectangle(0, 0, 64, 64);
 		
 		timer.scheduleAtFixedRate(new TimerTask() {
-            int i = 10;
             public void run() {
-                System.out.println(i--);
-                if (i< 0)
+                System.out.println(runtime--);
+                run_time = runtime/60 + ": ";
+                if(runtime%60 < 10) run_time += "0"; 
+                run_time += runtime%60;
+                if (runtime <= 0) {
                     timer.cancel();
+                    // new a screen
+                }
             }
         }, 0, 1000);
 
@@ -112,6 +134,22 @@ public class GameScreen implements Screen,InputProcessor {
 		this.soldier14s = new ArrayList<Soldier>();
 		this.soldier15s = new ArrayList<Soldier>();
 		this.soldier16s = new ArrayList<Soldier>();
+		this.dead_soldier1s = new ArrayList<Soldier>();
+		this.dead_soldier2s = new ArrayList<Soldier>();
+		this.dead_soldier3s = new ArrayList<Soldier>();	
+		this.dead_soldier4s = new ArrayList<Soldier>();			
+		this.dead_soldier5s = new ArrayList<Soldier>();
+		this.dead_soldier6s = new ArrayList<Soldier>();
+		this.dead_soldier7s = new ArrayList<Soldier>();	
+		this.dead_soldier8s = new ArrayList<Soldier>();	
+		this.dead_soldier9s = new ArrayList<Soldier>();
+		this.dead_soldier10s = new ArrayList<Soldier>();
+		this.dead_soldier11s = new ArrayList<Soldier>();	
+		this.dead_soldier12s = new ArrayList<Soldier>();	
+		this.dead_soldier13s = new ArrayList<Soldier>();
+		this.dead_soldier14s = new ArrayList<Soldier>();
+		this.dead_soldier15s = new ArrayList<Soldier>();	
+		this.dead_soldier16s = new ArrayList<Soldier>();			
 		this.dennis = new ArrayList<Littlefighter>();
 		this.freezer = new ArrayList<Littlefighter>();	
 		this.wind = new ArrayList<Littlefighter>();			
@@ -399,6 +437,102 @@ public class GameScreen implements Screen,InputProcessor {
 			Soldier soldier = soldier16s.get(i);
 			soldier.update(delta);
 		}
+		len = dead_soldier1s.size();
+		for (int i = 0; i < len; i++) 
+		{
+			Soldier soldier = dead_soldier1s.get(i);
+			soldier.update(delta);
+		}		
+		len = dead_soldier2s.size();
+		for (int i = 0; i < len; i++) 
+		{
+			Soldier soldier = dead_soldier2s.get(i);
+			soldier.update(delta);
+		}		
+		len = dead_soldier3s.size();
+		for (int i = 0; i < len; i++) 
+		{
+			Soldier soldier = dead_soldier3s.get(i);
+			soldier.update(delta);
+		}		
+		len = dead_soldier4s.size();
+		for (int i = 0; i < len; i++) 
+		{
+			Soldier soldier = dead_soldier4s.get(i);
+			soldier.update(delta);
+		}		
+		len = dead_soldier5s.size();
+		for (int i = 0; i < len; i++) 
+		{
+			Soldier soldier = dead_soldier5s.get(i);
+			soldier.update(delta);
+		}		
+		len = dead_soldier6s.size();
+		for (int i = 0; i < len; i++) 
+		{
+			Soldier soldier = dead_soldier6s.get(i);
+			soldier.update(delta);
+		}		
+		len = dead_soldier7s.size();
+		for (int i = 0; i < len; i++) 
+		{
+			Soldier soldier = dead_soldier7s.get(i);
+			soldier.update(delta);
+		}		
+		len = dead_soldier8s.size();
+		for (int i = 0; i < len; i++) 
+		{
+			Soldier soldier = dead_soldier8s.get(i);
+			soldier.update(delta);
+		}		
+		len = dead_soldier9s.size();
+		for (int i = 0; i < len; i++) 
+		{
+			Soldier soldier = dead_soldier9s.get(i);
+			soldier.update(delta);
+		}		
+		len = dead_soldier10s.size();
+		for (int i = 0; i < len; i++) 
+		{
+			Soldier soldier = dead_soldier10s.get(i);
+			soldier.update(delta);
+		}		
+		len = dead_soldier11s.size();
+		for (int i = 0; i < len; i++) 
+		{
+			Soldier soldier = dead_soldier11s.get(i);
+			soldier.update(delta);
+		}		
+		len = dead_soldier12s.size();
+		for (int i = 0; i < len; i++) 
+		{
+			Soldier soldier = dead_soldier12s.get(i);
+			soldier.update(delta);
+		}		
+		len = dead_soldier13s.size();
+		for (int i = 0; i < len; i++) 
+		{
+			Soldier soldier = dead_soldier13s.get(i);
+			soldier.update(delta);
+		}		
+		len = dead_soldier14s.size();
+		for (int i = 0; i < len; i++) 
+		{
+			Soldier soldier = dead_soldier14s.get(i);
+			soldier.update(delta);
+		}		
+		len = dead_soldier15s.size();
+		for (int i = 0; i < len; i++) 
+		{
+			Soldier soldier = dead_soldier15s.get(i);
+			soldier.update(delta);
+		}		
+		len = dead_soldier16s.size();
+		for (int i = 0; i < len; i++) 
+		{
+			Soldier soldier = dead_soldier16s.get(i);
+			soldier.update(delta);
+		}				
 	}
 
 	public void draw (float delta) {
@@ -422,6 +556,7 @@ public class GameScreen implements Screen,InputProcessor {
 		else if (accelY < -5f) Assets.font.draw(batcher, "up", 0, 960);
 		accelX = accelY = 0;
 		
+		Assets.font.draw(batcher, run_time, 1000, 600);
 		
 		batcher.draw(Assets.doorRegion,1111,620,150,330);
 		renderSoldiers();
@@ -668,120 +803,443 @@ public class GameScreen implements Screen,InputProcessor {
 	
 	private void renderSoldiers () 
 	{
-		int len = soldier1s.size();
-		for (int i = 0; i < len; i++) 
+		for (int i = 0; i < soldier1s.size(); i++) 
 		{
 			Soldier soldier = soldier1s.get(i);
 			TextureRegion keyFrame = Assets.soldier1.getKeyFrame(soldier.stateTime, true);
 			batcher.draw(keyFrame, soldier.position.x, soldier.position.y, 222, 222);
+			if(soldier.isdead())
+			{
+				Soldier dead_soldier = new Soldier(soldier.position.x,soldier.position.y,0,0,0);
+				soldier1s.remove(i);				
+				dead_soldier1s.add(dead_soldier);
+			}
 		}
-		len = soldier2s.size();
-		for (int i = 0; i < len; i++) 
+		for (int i = 0; i < dead_soldier1s.size(); i++) 
+		{
+			Soldier soldier = dead_soldier1s.get(i);
+			TextureRegion keyFrame = Assets.dead_soldier1.getKeyFrame(soldier.stateTime, false);
+			batcher.draw(keyFrame, soldier.position.x, soldier.position.y, 222, 222);
+			if(Assets.dead_soldier1.isAnimationFinished(soldier.stateTime))
+			{
+				dead_soldier1s.remove(i);
+			}
+		}		
+		for (int i = 0; i < soldier2s.size(); i++) 
 		{
 			Soldier soldier = soldier2s.get(i);
 			TextureRegion keyFrame = Assets.soldier2.getKeyFrame(soldier.stateTime, true);
 			batcher.draw(keyFrame, soldier.position.x, soldier.position.y, 222, 222);
-		}		
-		len = soldier3s.size();
-		for (int i = 0; i < len; i++) 
+			if(soldier.isdead())
+			{
+				Soldier dead_soldier = new Soldier(soldier.position.x,soldier.position.y,0,0,0);
+				soldier2s.remove(i);				
+				dead_soldier2s.add(dead_soldier);
+			}
+		}
+		for (int i = 0; i < dead_soldier2s.size(); i++) 
+		{
+			Soldier soldier = dead_soldier2s.get(i);
+			TextureRegion keyFrame = Assets.dead_soldier2.getKeyFrame(soldier.stateTime, false);
+			batcher.draw(keyFrame, soldier.position.x, soldier.position.y, 222, 222);
+			if(Assets.dead_soldier2.isAnimationFinished(soldier.stateTime))
+			{
+				dead_soldier2s.remove(i);
+			}
+		}	
+		for (int i = 0; i < soldier3s.size(); i++) 
 		{
 			Soldier soldier = soldier3s.get(i);
 			TextureRegion keyFrame = Assets.soldier3.getKeyFrame(soldier.stateTime, true);
 			batcher.draw(keyFrame, soldier.position.x, soldier.position.y, 222, 222);
-		}		
-		len = soldier4s.size();
-		for (int i = 0; i < len; i++) 
+			if(soldier.isdead())
+			{
+				Soldier dead_soldier = new Soldier(soldier.position.x,soldier.position.y,0,0,0);
+				soldier3s.remove(i);				
+				dead_soldier3s.add(dead_soldier);
+			}
+		}
+		for (int i = 0; i < dead_soldier3s.size(); i++) 
+		{
+			Soldier soldier = dead_soldier3s.get(i);
+			TextureRegion keyFrame = Assets.dead_soldier3.getKeyFrame(soldier.stateTime, false);
+			batcher.draw(keyFrame, soldier.position.x, soldier.position.y, 222, 222);
+			if(Assets.dead_soldier3.isAnimationFinished(soldier.stateTime))
+			{
+				dead_soldier3s.remove(i);
+			}
+		}			
+		for (int i = 0; i < soldier4s.size(); i++) 
 		{
 			Soldier soldier = soldier4s.get(i);
 			TextureRegion keyFrame = Assets.soldier4.getKeyFrame(soldier.stateTime, true);
 			batcher.draw(keyFrame, soldier.position.x, soldier.position.y, 222, 222);
-		}		
-		len = soldier5s.size();
-		for (int i = 0; i < len; i++) 
+			if(soldier.isdead())
+			{
+				Soldier dead_soldier = new Soldier(soldier.position.x,soldier.position.y,0,0,0);
+				soldier4s.remove(i);				
+				dead_soldier4s.add(dead_soldier);
+			}
+		}
+		for (int i = 0; i < dead_soldier4s.size(); i++) 
+		{
+			Soldier soldier = dead_soldier4s.get(i);
+			TextureRegion keyFrame = Assets.dead_soldier4.getKeyFrame(soldier.stateTime, false);
+			batcher.draw(keyFrame, soldier.position.x, soldier.position.y, 222, 222);
+			if(Assets.dead_soldier4.isAnimationFinished(soldier.stateTime))
+			{
+				dead_soldier4s.remove(i);
+			}
+		}	
+		for (int i = 0; i < soldier5s.size(); i++) 
 		{
 			Soldier soldier = soldier5s.get(i);
 			TextureRegion keyFrame = Assets.soldier5.getKeyFrame(soldier.stateTime, true);
 			batcher.draw(keyFrame, soldier.position.x, soldier.position.y, 222, 222);
-			
+			if(soldier.isdead())
+			{
+				Soldier dead_soldier = new Soldier(soldier.position.x,soldier.position.y,0,0,0);
+				soldier5s.remove(i);				
+				dead_soldier5s.add(dead_soldier);
+			}
+		}
+		for (int i = 0; i < dead_soldier5s.size(); i++) 
+		{
+			Soldier soldier = dead_soldier5s.get(i);
+			TextureRegion keyFrame = Assets.dead_soldier5.getKeyFrame(soldier.stateTime, false);
+			batcher.draw(keyFrame, soldier.position.x, soldier.position.y, 222, 222);
+			if(Assets.dead_soldier5.isAnimationFinished(soldier.stateTime))
+			{
+				dead_soldier5s.remove(i);
+			}
 		}			
-		len = soldier6s.size();
-		for (int i = 0; i < len; i++) 
+		for (int i = 0; i < soldier6s.size(); i++) 
 		{
 			Soldier soldier = soldier6s.get(i);
 			TextureRegion keyFrame = Assets.soldier6.getKeyFrame(soldier.stateTime, true);
 			batcher.draw(keyFrame, soldier.position.x, soldier.position.y, 222, 222);
-		}		
-		len = soldier7s.size();
-		for (int i = 0; i < len; i++) 
+			if(soldier.isdead())
+			{
+				Soldier dead_soldier = new Soldier(soldier.position.x,soldier.position.y,0,0,0);
+				soldier6s.remove(i);				
+				dead_soldier6s.add(dead_soldier);
+			}
+		}
+		for (int i = 0; i < dead_soldier6s.size(); i++) 
+		{
+			Soldier soldier = dead_soldier6s.get(i);
+			TextureRegion keyFrame = Assets.dead_soldier6.getKeyFrame(soldier.stateTime, false);
+			batcher.draw(keyFrame, soldier.position.x, soldier.position.y, 222, 222);
+			if(Assets.dead_soldier6.isAnimationFinished(soldier.stateTime))
+			{
+				dead_soldier6s.remove(i);
+			}
+		}			
+		for (int i = 0; i < soldier7s.size(); i++) 
 		{
 			Soldier soldier = soldier7s.get(i);
 			TextureRegion keyFrame = Assets.soldier7.getKeyFrame(soldier.stateTime, true);
 			batcher.draw(keyFrame, soldier.position.x, soldier.position.y, 222, 222);
-		}		
-		len = soldier8s.size();
-		for (int i = 0; i < len; i++) 
+			if(soldier.isdead())
+			{
+				Soldier dead_soldier = new Soldier(soldier.position.x,soldier.position.y,0,0,0);
+				soldier7s.remove(i);				
+				dead_soldier7s.add(dead_soldier);
+			}
+		}
+		for (int i = 0; i < dead_soldier7s.size(); i++) 
+		{
+			Soldier soldier = dead_soldier7s.get(i);
+			TextureRegion keyFrame = Assets.dead_soldier7.getKeyFrame(soldier.stateTime, false);
+			batcher.draw(keyFrame, soldier.position.x, soldier.position.y, 222, 222);
+			if(Assets.dead_soldier7.isAnimationFinished(soldier.stateTime))
+			{
+				dead_soldier7s.remove(i);
+			}
+		}			
+		for (int i = 0; i < soldier8s.size(); i++) 
 		{
 			Soldier soldier = soldier8s.get(i);
 			TextureRegion keyFrame = Assets.soldier8.getKeyFrame(soldier.stateTime, true);
 			batcher.draw(keyFrame, soldier.position.x, soldier.position.y, 222, 222);
-		}		
-		len = soldier9s.size();
-		for (int i = 0; i < len; i++) 
+			if(soldier.isdead())
+			{
+				Soldier dead_soldier = new Soldier(soldier.position.x,soldier.position.y,0,0,0);
+				soldier8s.remove(i);				
+				dead_soldier8s.add(dead_soldier);
+			}
+		}
+		for (int i = 0; i < dead_soldier8s.size(); i++) 
+		{
+			Soldier soldier = dead_soldier8s.get(i);
+			TextureRegion keyFrame = Assets.dead_soldier8.getKeyFrame(soldier.stateTime, false);
+			batcher.draw(keyFrame, soldier.position.x, soldier.position.y, 222, 222);
+			if(Assets.dead_soldier8.isAnimationFinished(soldier.stateTime))
+			{
+				dead_soldier8s.remove(i);
+			}
+		}			
+		for (int i = 0; i < soldier9s.size(); i++) 
 		{
 			Soldier soldier = soldier9s.get(i);
 			TextureRegion keyFrame = Assets.soldier9.getKeyFrame(soldier.stateTime, true);
 			batcher.draw(keyFrame, soldier.position.x, soldier.position.y, 222, 222);
+			if(soldier.isdead())
+			{
+				Soldier dead_soldier = new Soldier(soldier.position.x,soldier.position.y,0,0,0);
+				soldier9s.remove(i);				
+				dead_soldier9s.add(dead_soldier);
+			}
 		}
-		len = soldier10s.size();
-		for (int i = 0; i < len; i++) 
+		for (int i = 0; i < dead_soldier9s.size(); i++) 
+		{
+			Soldier soldier = dead_soldier9s.get(i);
+			TextureRegion keyFrame = Assets.dead_soldier9.getKeyFrame(soldier.stateTime, false);
+			batcher.draw(keyFrame, soldier.position.x, soldier.position.y, 222, 222);
+			if(Assets.dead_soldier9.isAnimationFinished(soldier.stateTime))
+			{
+				dead_soldier9s.remove(i);
+			}
+		}			
+		for (int i = 0; i < soldier10s.size(); i++) 
 		{
 			Soldier soldier = soldier10s.get(i);
 			TextureRegion keyFrame = Assets.soldier10.getKeyFrame(soldier.stateTime, true);
 			batcher.draw(keyFrame, soldier.position.x, soldier.position.y, 222, 222);
-		}		
-		len = soldier11s.size();
-		for (int i = 0; i < len; i++) 
+			if(soldier.isdead())
+			{
+				Soldier dead_soldier = new Soldier(soldier.position.x,soldier.position.y,0,0,0);
+				soldier10s.remove(i);				
+				dead_soldier10s.add(dead_soldier);
+			}
+		}
+		for (int i = 0; i < dead_soldier10s.size(); i++) 
+		{
+			Soldier soldier = dead_soldier10s.get(i);
+			TextureRegion keyFrame = Assets.dead_soldier10.getKeyFrame(soldier.stateTime, false);
+			batcher.draw(keyFrame, soldier.position.x, soldier.position.y, 222, 222);
+			if(Assets.dead_soldier10.isAnimationFinished(soldier.stateTime))
+			{
+				dead_soldier10s.remove(i);
+			}
+		}			
+		for (int i = 0; i < soldier11s.size(); i++) 
 		{
 			Soldier soldier = soldier11s.get(i);
 			TextureRegion keyFrame = Assets.soldier11.getKeyFrame(soldier.stateTime, true);
 			batcher.draw(keyFrame, soldier.position.x, soldier.position.y, 222, 222);
-			
+			if(soldier.isdead())
+			{
+				Soldier dead_soldier = new Soldier(soldier.position.x,soldier.position.y,0,0,0);
+				soldier11s.remove(i);				
+				dead_soldier11s.add(dead_soldier);
+			}
+		}
+		for (int i = 0; i < dead_soldier11s.size(); i++) 
+		{
+			Soldier soldier = dead_soldier11s.get(i);
+			TextureRegion keyFrame = Assets.dead_soldier11.getKeyFrame(soldier.stateTime, false);
+			batcher.draw(keyFrame, soldier.position.x, soldier.position.y, 222, 222);
+			if(Assets.dead_soldier11.isAnimationFinished(soldier.stateTime))
+			{
+				dead_soldier11s.remove(i);
+			}
 		}			
-		len = soldier12s.size();
-		for (int i = 0; i < len; i++) 
+		for (int i = 0; i < soldier12s.size(); i++) 
 		{
 			Soldier soldier = soldier12s.get(i);
 			TextureRegion keyFrame = Assets.soldier12.getKeyFrame(soldier.stateTime, true);
 			batcher.draw(keyFrame, soldier.position.x, soldier.position.y, 222, 222);
-		}		
-		len = soldier13s.size();
-		for (int i = 0; i < len; i++) 
+			if(soldier.isdead())
+			{
+				Soldier dead_soldier = new Soldier(soldier.position.x,soldier.position.y,0,0,0);
+				soldier12s.remove(i);				
+				dead_soldier12s.add(dead_soldier);
+			}
+		}
+		for (int i = 0; i < dead_soldier12s.size(); i++) 
+		{
+			Soldier soldier = dead_soldier12s.get(i);
+			TextureRegion keyFrame = Assets.dead_soldier12.getKeyFrame(soldier.stateTime, false);
+			batcher.draw(keyFrame, soldier.position.x, soldier.position.y, 222, 222);
+			if(Assets.dead_soldier12.isAnimationFinished(soldier.stateTime))
+			{
+				dead_soldier12s.remove(i);
+			}
+		}			
+		for (int i = 0; i < soldier13s.size(); i++) 
 		{
 			Soldier soldier = soldier13s.get(i);
 			TextureRegion keyFrame = Assets.soldier13.getKeyFrame(soldier.stateTime, true);
 			batcher.draw(keyFrame, soldier.position.x, soldier.position.y, 222, 222);
-		}		
-		len = soldier14s.size();
-		for (int i = 0; i < len; i++) 
+			if(soldier.isdead())
+			{
+				Soldier dead_soldier = new Soldier(soldier.position.x,soldier.position.y,0,0,0);
+				soldier13s.remove(i);				
+				dead_soldier13s.add(dead_soldier);
+			}
+		}
+		for (int i = 0; i < dead_soldier13s.size(); i++) 
+		{
+			Soldier soldier = dead_soldier13s.get(i);
+			TextureRegion keyFrame = Assets.dead_soldier13.getKeyFrame(soldier.stateTime, false);
+			batcher.draw(keyFrame, soldier.position.x, soldier.position.y, 222, 222);
+			if(Assets.dead_soldier13.isAnimationFinished(soldier.stateTime))
+			{
+				dead_soldier13s.remove(i);
+			}
+		}			
+		for (int i = 0; i < soldier14s.size(); i++) 
 		{
 			Soldier soldier = soldier14s.get(i);
 			TextureRegion keyFrame = Assets.soldier14.getKeyFrame(soldier.stateTime, true);
 			batcher.draw(keyFrame, soldier.position.x, soldier.position.y, 222, 222);
-		}		
-		len = soldier15s.size();
-		for (int i = 0; i < len; i++) 
+			if(soldier.isdead())
+			{
+				Soldier dead_soldier = new Soldier(soldier.position.x,soldier.position.y,0,0,0);
+				soldier14s.remove(i);				
+				dead_soldier14s.add(dead_soldier);
+			}
+		}
+		for (int i = 0; i < dead_soldier14s.size(); i++) 
+		{
+			Soldier soldier = dead_soldier14s.get(i);
+			TextureRegion keyFrame = Assets.dead_soldier14.getKeyFrame(soldier.stateTime, false);
+			batcher.draw(keyFrame, soldier.position.x, soldier.position.y, 222, 222);
+			if(Assets.dead_soldier14.isAnimationFinished(soldier.stateTime))
+			{
+				dead_soldier14s.remove(i);
+			}
+		}	
+		for (int i = 0; i < soldier15s.size(); i++) 
 		{
 			Soldier soldier = soldier15s.get(i);
 			TextureRegion keyFrame = Assets.soldier15.getKeyFrame(soldier.stateTime, true);
 			batcher.draw(keyFrame, soldier.position.x, soldier.position.y, 222, 222);
-		}		
-		len = soldier16s.size();
-		for (int i = 0; i < len; i++) 
+			if(soldier.isdead())
+			{
+				Soldier dead_soldier = new Soldier(soldier.position.x,soldier.position.y,0,0,0);
+				soldier15s.remove(i);				
+				dead_soldier15s.add(dead_soldier);
+			}
+		}
+		for (int i = 0; i < dead_soldier15s.size(); i++) 
+		{
+			Soldier soldier = dead_soldier15s.get(i);
+			TextureRegion keyFrame = Assets.dead_soldier15.getKeyFrame(soldier.stateTime, false);
+			batcher.draw(keyFrame, soldier.position.x, soldier.position.y, 222, 222);
+			if(Assets.dead_soldier15.isAnimationFinished(soldier.stateTime))
+			{
+				dead_soldier15s.remove(i);
+			}
+		}			
+		for (int i = 0; i < soldier16s.size(); i++) 
 		{
 			Soldier soldier = soldier16s.get(i);
 			TextureRegion keyFrame = Assets.soldier16.getKeyFrame(soldier.stateTime, true);
 			batcher.draw(keyFrame, soldier.position.x, soldier.position.y, 222, 222);
+			if(soldier.isdead())
+			{
+				Soldier dead_soldier = new Soldier(soldier.position.x,soldier.position.y,0,0,0);
+				soldier16s.remove(i);				
+				dead_soldier16s.add(dead_soldier);
+			}
+		}
+		for (int i = 0; i < dead_soldier16s.size(); i++) 
+		{
+			Soldier soldier = dead_soldier16s.get(i);
+			TextureRegion keyFrame = Assets.dead_soldier16.getKeyFrame(soldier.stateTime, false);
+			batcher.draw(keyFrame, soldier.position.x, soldier.position.y, 222, 222);
+			if(Assets.dead_soldier16.isAnimationFinished(soldier.stateTime))
+			{
+				dead_soldier16s.remove(i);
+			}
 		}			
+	}
+	
+	private void attackSoldiers(int a)
+	{
+		for (int i = 0; i < soldier1s.size(); i++) 
+		{
+			Soldier soldier = soldier1s.get(i);
+            soldier.attacked(a);
+		}
+		for (int i = 0; i < soldier2s.size(); i++) 
+		{
+			Soldier soldier = soldier2s.get(i);
+            soldier.attacked(a);	
+		}		
+		for (int i = 0; i < soldier3s.size(); i++) 
+		{
+			Soldier soldier = soldier3s.get(i);
+            soldier.attacked(a);				
+		}		
+		for (int i = 0; i < soldier4s.size(); i++) 
+		{
+			Soldier soldier = soldier4s.get(i);
+            soldier.attacked(a);			
+		}		
+		for (int i = 0; i < soldier5s.size(); i++) 
+		{
+			Soldier soldier = soldier5s.get(i);
+            soldier.attacked(a);		
+			
+		}			
+		for (int i = 0; i < soldier6s.size(); i++) 
+		{
+			Soldier soldier = soldier6s.get(i);
+            soldier.attacked(a);	
+		}		
+		for (int i = 0; i < soldier7s.size(); i++) 
+		{
+			Soldier soldier = soldier7s.get(i);
+            soldier.attacked(a);			
+		}		
+		for (int i = 0; i < soldier8s.size(); i++) 
+		{
+			Soldier soldier = soldier8s.get(i);
+            soldier.attacked(a);			
+		}		
+		for (int i = 0; i < soldier9s.size(); i++) 
+		{
+			Soldier soldier = soldier9s.get(i);
+            soldier.attacked(a);			
+		}
+		for (int i = 0; i < soldier10s.size(); i++) 
+		{
+			Soldier soldier = soldier10s.get(i);
+            soldier.attacked(a);			
+		}		
+		for (int i = 0; i < soldier11s.size(); i++) 
+		{
+			Soldier soldier = soldier11s.get(i);
+            soldier.attacked(a);					
+		}			
+		for (int i = 0; i < soldier12s.size(); i++) 
+		{
+			Soldier soldier = soldier12s.get(i);
+            soldier.attacked(a);			
+		}		
+		for (int i = 0; i <  soldier13s.size(); i++) 
+		{
+			Soldier soldier = soldier13s.get(i);
+            soldier.attacked(a);				
+		}		
+		for (int i = 0; i < soldier14s.size(); i++) 
+		{
+			Soldier soldier = soldier14s.get(i);
+            soldier.attacked(a);			
+		}		
+		for (int i = 0; i < soldier15s.size(); i++) 
+		{
+			Soldier soldier = soldier15s.get(i);
+            soldier.attacked(a);			
+		}		
+		for (int i = 0; i < soldier16s.size(); i++) 
+		{
+			Soldier soldier = soldier16s.get(i);
+            soldier.attacked(a);		
+		}				
 	}
 
 	@Override
@@ -851,7 +1309,8 @@ public class GameScreen implements Screen,InputProcessor {
 			
 		Littlefighter fighter1 = new Littlefighter(1100,650,0,0,1);
 		john.add(fighter1);
-		Littlefighter fighter2 = new Littlefighter(1100,650,-600,0,1);
+        attackSoldiers(fighter1.attack());	
+		/*Littlefighter fighter2 = new Littlefighter(1100,650,-600,0,1);
 		rudolf.add(fighter2);
 		Littlefighter fighter3 = new Littlefighter(1100,650,-350,0,1);
 		louis.add(fighter3);
@@ -880,7 +1339,7 @@ public class GameScreen implements Screen,InputProcessor {
 		Littlefighter fighter15 = new Littlefighter(1100,650,-500,0,1);
 		louisEX.add(fighter15);							
 		Littlefighter fighter16 = new Littlefighter(1100,650,-150,0,1);
-		knight.add(fighter16);			
+		knight.add(fighter16);		*/	
 
 		
 		if(screenX-x1 > 100) accelX = 10;
@@ -891,7 +1350,7 @@ public class GameScreen implements Screen,InputProcessor {
 		
 		int target = game2048.locate(screenX, screenY);
 		if(game2048.locate(x1, y1) == target && target >= 0 && game2048.size() > 1) {
-			Soldier soldier = new Soldier(0,660,30,1,1);
+			Soldier soldier = new Soldier(0,660,30,3,1);
 			if(game2048.status[target] == 1) soldier1s.add(soldier);
 			else if(game2048.status[target] == 2) soldier2s.add(soldier);
 			else if(game2048.status[target] == 3) soldier3s.add(soldier);
