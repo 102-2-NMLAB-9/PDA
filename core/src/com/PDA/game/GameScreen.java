@@ -1,6 +1,5 @@
 package com.PDA.game;
 
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,7 +15,7 @@ import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector3;
 
-
+//Bug: desktop and android have different positionX and positionY. Problem1: rectangle; Problem2: gdx.input.getX() and screenX
 
 public class GameScreen implements Screen,InputProcessor {
 	MyPDAGame game;
@@ -415,9 +414,6 @@ public class GameScreen implements Screen,InputProcessor {
 		batcher.draw(Assets.doorRegion,1111,620,150,330);
 		renderSoldiers();
 		renderLittlefighters(delta);
-//		batcher.draw(Assets.testRegion, posx, posy, 300, 300);
-
-//		renderLittlefighters();
 		//batcher.draw(Assets.testRegion, posx, posy, 300, 300);
 		batcher.draw(Assets.boxregion, 70, 70, 585, 585);
 
@@ -825,16 +821,10 @@ public class GameScreen implements Screen,InputProcessor {
 		// TODO Auto-generated method stub
 		
 /*		if(screenX>=posx && screenX<=posx+length && 900-screenY>=posy && 900-screenY<=posy+length)
-		{
-			//Littlefighter fighter = new Littlefighter(1150,650,-250,0,1);
-			//dennis.add(fighter);	
-			Littlefighter fighter = new Littlefighter(850,650,0,0,1);
-			exp.add(fighter);				
+		{			
 		    return true;
 		}
 */
-//		Soldier soldier = new Soldier(0,660,60,2,2);
-//		soldier6s.add(soldier);
 		
 //		if(game2048.locate(screenX, screenY) >= 0) {
 			x1 = screenX;
@@ -846,40 +836,39 @@ public class GameScreen implements Screen,InputProcessor {
 	}
 	@Override
 	public boolean touchUp(int screenX, int screenY, int pointer, int button) {
-		
-
-//		Soldier soldier = new Soldier(0,660,30,1,1);
-//		soldier7s.add(soldier);		
-		//Littlefighter fighter = new Littlefighter(1100,650,-50,0,1);
-		//freezer.add(fighter);			
-		//Littlefighter fighter = new Littlefighter(1000,650,0,0,1);
-		//firer.add(fighter);
-		//Littlefighter fighter = new Littlefighter(1100,650,0,0,1);
-		//frozen.add(fighter);		
-		//Littlefighter fighter = new Littlefighter(1100,650,0,0,1);
-		//john.add(fighter);
-		//Littlefighter fighter = new Littlefighter(1150,650,-250,0,1);
-		//dennis.add(fighter);
-		//Littlefighter fighter = new Littlefighter(1150,650,-300,0,1);
-		//deep.add(fighter);		
-		//Littlefighter fighter = new Littlefighter(1100,650,0,0,1);
-		//julian.add(fighter);			
-		//Littlefighter fighter = new Littlefighter(1100,650,0,0,1);
-		//henry.add(fighter);		
-		//Littlefighter fighter = new Littlefighter(1100,650,-500,0,1);
-		//louisEX.add(fighter);				
-		//Littlefighter fighter = new Littlefighter(1100,650,-350,0,1);
-		//louis.add(fighter);		
-		//Littlefighter fighter = new Littlefighter(1100,650,-600,0,1);
-		//rudolf.add(fighter);
-		//Littlefighter fighter = new Littlefighter(1100,650,0,0,1);
-		//monk.add(fighter);	
-		//Littlefighter fighter = new Littlefighter(1100,650,-400,0,1);
-		//justin.add(fighter);
-		//Littlefighter fighter = new Littlefighter(1100,650,-150,0,1);
-		//knight.add(fighter);	
-		Littlefighter fighter = new Littlefighter(1100,650,0,0,1);
-		bat.add(fighter);		
+			
+		Littlefighter fighter1 = new Littlefighter(1100,650,0,0,1);
+		john.add(fighter1);
+		Littlefighter fighter2 = new Littlefighter(1100,650,-600,0,1);
+		rudolf.add(fighter2);
+		Littlefighter fighter3 = new Littlefighter(1100,650,-350,0,1);
+		louis.add(fighter3);
+		Littlefighter fighter4 = new Littlefighter(1150,650,-300,0,1);
+		deep.add(fighter4);
+		Littlefighter fighter5 = new Littlefighter(1100,650,-50,0,1);
+		freezer.add(fighter5);	
+		Littlefighter fighter6 = new Littlefighter(1100,650,-400,0,1);
+		justin.add(fighter6);
+		Littlefighter fighter7 = new Littlefighter(1000,650,0,0,1);
+		firer.add(fighter7);
+		Littlefighter fighter8 = new Littlefighter(1100,650,0,0,1);
+		julian.add(fighter8);	
+		Littlefighter fighter9 = new Littlefighter(1100,650,0,0,1);
+		monk.add(fighter9);
+		Littlefighter fighter10 = new Littlefighter(1100,650,0,0,1);
+		bat.add(fighter10);	
+		Littlefighter fighter11 = new Littlefighter(1100,650,0,0,1);
+		henry.add(fighter11);
+		Littlefighter fighter12 = new Littlefighter(1100,650,0,0,1);
+		frozen.add(fighter12);	
+		Littlefighter fighter13 = new Littlefighter(850,650,0,0,1);
+		exp.add(fighter13);	
+		Littlefighter fighter14 = new Littlefighter(1150,650,-250,0,1);
+		dennis.add(fighter14);						
+		Littlefighter fighter15 = new Littlefighter(1100,650,-500,0,1);
+		louisEX.add(fighter15);							
+		Littlefighter fighter16 = new Littlefighter(1100,650,-150,0,1);
+		knight.add(fighter16);			
 
 		
 		if(screenX-x1 > 100) accelX = 10;
