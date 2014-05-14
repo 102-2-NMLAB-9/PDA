@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
+import java.lang.String;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.InputProcessor;
@@ -73,7 +74,8 @@ public class GameScreen implements Screen,InputProcessor {
 	List<Littlefighter> knight;
 	List<Littlefighter> bat;
 	List<Littlefighter> beacon;	
-	int exp_times = 7;
+	int exp_times = 7, runtime = 10;
+	String run_time;
 	Timer timer = new Timer();
 
 	public GameScreen (MyPDAGame game) {
@@ -84,11 +86,15 @@ public class GameScreen implements Screen,InputProcessor {
 		backBounds = new Rectangle(0, 0, 64, 64);
 		
 		timer.scheduleAtFixedRate(new TimerTask() {
-            int i = 10;
             public void run() {
-                System.out.println(i--);
-                if (i< 0)
+                System.out.println(runtime--);
+                run_time = runtime/60 + ": ";
+                if(runtime%60 < 10) run_time += "0"; 
+                run_time += runtime%60;
+                if (runtime <= 0) {
                     timer.cancel();
+                    // new a screen
+                }
             }
         }, 0, 1000);
 
@@ -422,6 +428,7 @@ public class GameScreen implements Screen,InputProcessor {
 		else if (accelY < -5f) Assets.font.draw(batcher, "up", 0, 960);
 		accelX = accelY = 0;
 		
+		Assets.font.draw(batcher, run_time, 1000, 600);
 		
 		batcher.draw(Assets.doorRegion,1111,620,150,330);
 		renderSoldiers();
