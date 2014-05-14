@@ -425,10 +425,12 @@ public class Defencer implements Screen,InputProcessor {
 		batcher.draw(Assets.up, 900, 270, 180, 180);
 		batcher.draw(Assets.down, 900, 70, 180, 180);
 		
+		/*
 		if (accelX > 5f) Assets.font.draw(batcher, "right", 0, 960);
 		else if (accelX < -5f) Assets.font.draw(batcher, "left", 0, 960);
 		else if (accelY > 5f) Assets.font.draw(batcher, "down", 0, 960);
 		else if (accelY < -5f) Assets.font.draw(batcher, "up", 0, 960);
+		*/
 		accelX = accelY = 0;
 		
 		
