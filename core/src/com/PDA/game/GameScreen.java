@@ -2,6 +2,9 @@ package com.PDA.game;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Timer;
+import java.util.TimerTask;
+import java.lang.String;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.InputProcessor;
@@ -87,7 +90,9 @@ public class GameScreen implements Screen,InputProcessor {
 	List<Littlefighter> knight;
 	List<Littlefighter> bat;
 	List<Littlefighter> beacon;	
-	int exp_times = 7;
+	int exp_times = 7, runtime = 10;
+	String run_time;
+	Timer timer = new Timer();
 
 	public GameScreen (MyPDAGame game) {
 		this.game = game;
@@ -95,6 +100,19 @@ public class GameScreen implements Screen,InputProcessor {
 		guiCam = new OrthographicCamera(1280, 960);
 		guiCam.position.set(1280 / 2, 960 / 2, 0);
 		backBounds = new Rectangle(0, 0, 64, 64);
+		
+		timer.scheduleAtFixedRate(new TimerTask() {
+            public void run() {
+                System.out.println(runtime--);
+                run_time = runtime/60 + ": ";
+                if(runtime%60 < 10) run_time += "0"; 
+                run_time += runtime%60;
+                if (runtime <= 0) {
+                    timer.cancel();
+                    // new a screen
+                }
+            }
+        }, 0, 1000);
 
 //		testBounds = new Rectangle(500, 400, 300, 300);
 		touchPoint = new Vector3();
@@ -538,6 +556,7 @@ public class GameScreen implements Screen,InputProcessor {
 		else if (accelY < -5f) Assets.font.draw(batcher, "up", 0, 960);
 		accelX = accelY = 0;
 		
+		Assets.font.draw(batcher, run_time, 1000, 600);
 		
 		batcher.draw(Assets.doorRegion,1111,620,150,330);
 		renderSoldiers();
@@ -1330,7 +1349,7 @@ public class GameScreen implements Screen,InputProcessor {
 		game2048.update(accelX, accelY);
 		
 		int target = game2048.locate(screenX, screenY);
-		if(game2048.locate(x1, y1) == target && target >= 0) {
+		if(game2048.locate(x1, y1) == target && target >= 0 && game2048.size() > 1) {
 			Soldier soldier = new Soldier(0,660,30,3,1);
 			if(game2048.status[target] == 1) soldier1s.add(soldier);
 			else if(game2048.status[target] == 2) soldier2s.add(soldier);
