@@ -191,7 +191,8 @@ public class GameScreen implements Screen,InputProcessor {
 		accelX = 0;
 		accelY = 0;
 		if (appType == ApplicationType.Android || appType == ApplicationType.iOS) {
-			;
+			accelX = Gdx.input.getAccelerometerX();
+			accelY = Gdx.input.getAccelerometerY();
 		} else {
 			if (Gdx.input.isKeyPressed(Keys.DPAD_RIGHT)) accelX = 10f;
 			if (Gdx.input.isKeyPressed(Keys.DPAD_LEFT)) accelX = -10f;
@@ -550,10 +551,12 @@ public class GameScreen implements Screen,InputProcessor {
 		batcher.begin();
 		batcher.draw(Assets.back, 0, 0, 64, 64);
 		
+		/*
 		if (accelX > 5f) Assets.font.draw(batcher, "right", 0, 960);
 		else if (accelX < -5f) Assets.font.draw(batcher, "left", 0, 960);
 		else if (accelY > 5f) Assets.font.draw(batcher, "down", 0, 960);
 		else if (accelY < -5f) Assets.font.draw(batcher, "up", 0, 960);
+		*/
 		accelX = accelY = 0;
 		
 		Assets.font.draw(batcher, run_time, 1000, 600);
