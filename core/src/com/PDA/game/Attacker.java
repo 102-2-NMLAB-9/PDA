@@ -24,7 +24,7 @@ public class Attacker implements Screen,InputProcessor {
 
 	OrthographicCamera guiCam;
 	SpriteBatch batcher;
-	Rectangle backBounds;
+//	Rectangle backBounds;
 //	Rectangle testBounds;
 	Rectangle upbounds;
 	Rectangle leftbounds;
@@ -84,7 +84,7 @@ public class Attacker implements Screen,InputProcessor {
 		Gdx.input.setInputProcessor(this);
 		guiCam = new OrthographicCamera(1280, 960);
 		guiCam.position.set(1280 / 2, 960 / 2, 0);
-		backBounds = new Rectangle(0, 0, 64, 64);
+//		backBounds = new Rectangle(0, 0, 64, 64);
 //		testBounds = new Rectangle(500, 400, 300, 300);
 		upbounds = new Rectangle(900, 270, 180, 180);
 		leftbounds = new Rectangle(700, 70, 180, 180);
@@ -146,11 +146,13 @@ public class Attacker implements Screen,InputProcessor {
 		if (Gdx.input.justTouched()) {
 			guiCam.unproject(touchPoint.set(Gdx.input.getX(), Gdx.input.getY(), 0));
 
+			/*
 			if (backBounds.contains(touchPoint.x, touchPoint.y)) {
 				Assets.playSound(Assets.clickSound);
 				game.setScreen(new MainScreen(game));
 				return;
 			}
+			*/
 		}
 		
 		ApplicationType appType = Gdx.app.getType();
@@ -430,7 +432,7 @@ public class Attacker implements Screen,InputProcessor {
 
 		batcher.enableBlending();
 		batcher.begin();
-		batcher.draw(Assets.back, 0, 0, 64, 64);
+//		batcher.draw(Assets.back, 0, 0, 64, 64);
 		batcher.draw(Assets.right, 1100, 70, 180, 180);
 		batcher.draw(Assets.left, 700, 70, 180, 180);
 		batcher.draw(Assets.up, 900, 270, 180, 180);
