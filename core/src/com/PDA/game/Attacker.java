@@ -24,6 +24,11 @@ public class Attacker implements Screen,InputProcessor {
 	SpriteBatch batcher;
 	Rectangle backBounds;
 	Rectangle testBounds;
+	Rectangle upbounds;
+	Rectangle leftbounds;
+	Rectangle rightbounds;
+	Rectangle downbounds;
+	
 	Vector3 touchPoint;
 	float accelX = 0;
 	float accelY = 0;
@@ -55,6 +60,11 @@ public class Attacker implements Screen,InputProcessor {
 		guiCam.position.set(1280 / 2, 960 / 2, 0);
 		backBounds = new Rectangle(0, 0, 64, 64);
 //		testBounds = new Rectangle(500, 400, 300, 300);
+		upbounds = new Rectangle(900, 270, 180, 180);
+		leftbounds = new Rectangle(700, 70, 180, 180);
+		rightbounds = new Rectangle(1100, 70, 180, 180);
+		downbounds = new Rectangle(900, 70, 180, 180);
+		
 		touchPoint = new Vector3();
 		batcher = new SpriteBatch();
 		game2048 = new GameBody(batcher);
@@ -93,8 +103,17 @@ public class Attacker implements Screen,InputProcessor {
 		accelX = 0;
 		accelY = 0;
 		if (appType == ApplicationType.Android || appType == ApplicationType.iOS) {
-			//accelX = Gdx.input.getAccelerometerY();
-			//accelY = Gdx.input.getAccelerometerX();
+			if(Gdx.input.justTouched()) {
+				if(upbounds.contains(touchPoint.x, touchPoint.y)) {
+					accelY = -10f;
+				}else if(leftbounds.contains(touchPoint.x, touchPoint.y)) {
+					accelX = -10f;
+				}else if(rightbounds.contains(touchPoint.x, touchPoint.y)) {
+					accelX = 10f;
+				}else if(downbounds.contains(touchPoint.x, touchPoint.y)) {
+					accelY = 10f;
+				}
+			}
 		} else {
 			if (Gdx.input.isKeyPressed(Keys.DPAD_RIGHT)) accelX = 10f;
 			if (Gdx.input.isKeyPressed(Keys.DPAD_LEFT)) accelX = -10f;
@@ -219,6 +238,10 @@ public class Attacker implements Screen,InputProcessor {
 		batcher.enableBlending();
 		batcher.begin();
 		batcher.draw(Assets.back, 0, 0, 64, 64);
+		batcher.draw(Assets.right, 1100, 70, 180, 180);
+		batcher.draw(Assets.left, 700, 70, 180, 180);
+		batcher.draw(Assets.up, 900, 270, 180, 180);
+		batcher.draw(Assets.down, 900, 70, 180, 180);
 		
 		if (accelX > 5f) Assets.font.draw(batcher, "right", 0, 960);
 		else if (accelX < -5f) Assets.font.draw(batcher, "left", 0, 960);

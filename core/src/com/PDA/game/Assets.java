@@ -117,6 +117,14 @@ public class Assets {
 	public static TextureRegion boxregion;
 	public static Texture longWidth;
 	public static TextureRegion longWidthRegion;
+	public static Texture down;
+	public static TextureRegion downregion;
+	public static Texture left;
+	public static TextureRegion leftregion;
+	public static Texture right;
+	public static TextureRegion rightregion;
+	public static Texture up;
+	public static TextureRegion upregion;
 	
 	public static Texture loadTexture (String file) {
 		return new Texture(Gdx.files.internal(file));
@@ -633,6 +641,15 @@ public class Assets {
 		longWidthRegion = new TextureRegion(longWidth);
 		boxes = loadTexture("data/frame.png");
 		boxregion = new TextureRegion(boxes);
+		down = loadTexture("data/down.png");
+		downregion = new TextureRegion(down);
+		left = loadTexture("data/left.png");
+		leftregion = new TextureRegion(left);
+		right = loadTexture("data/right.png");
+		rightregion = new TextureRegion(right);
+		up = loadTexture("data/up.png");
+		upregion = new TextureRegion(up);
+		
 		soldiers = new Texture[16];
 		soldiers[0] = loadTexture("data/1.png");
 		soldiers[1] = loadTexture("data/2.png");

@@ -25,7 +25,8 @@ public class GameScreen implements Screen,InputProcessor {
 	OrthographicCamera guiCam;
 	SpriteBatch batcher;
 	Rectangle backBounds;
-	Rectangle testBounds;
+//	Rectangle testBounds;
+
 	Vector3 touchPoint;
 	float accelX = 0;
 	float accelY = 0;
@@ -79,6 +80,7 @@ public class GameScreen implements Screen,InputProcessor {
 		guiCam = new OrthographicCamera(1280, 960);
 		guiCam.position.set(1280 / 2, 960 / 2, 0);
 		backBounds = new Rectangle(0, 0, 64, 64);
+
 //		testBounds = new Rectangle(500, 400, 300, 300);
 		touchPoint = new Vector3();
 		batcher = new SpriteBatch();
@@ -140,8 +142,7 @@ public class GameScreen implements Screen,InputProcessor {
 		accelX = 0;
 		accelY = 0;
 		if (appType == ApplicationType.Android || appType == ApplicationType.iOS) {
-			//accelX = Gdx.input.getAccelerometerY();
-			//accelY = Gdx.input.getAccelerometerX();
+			;
 		} else {
 			if (Gdx.input.isKeyPressed(Keys.DPAD_RIGHT)) accelX = 10f;
 			if (Gdx.input.isKeyPressed(Keys.DPAD_LEFT)) accelX = -10f;
@@ -415,7 +416,6 @@ public class GameScreen implements Screen,InputProcessor {
 		renderSoldiers();
 		renderLittlefighters(delta);
 //		batcher.draw(Assets.testRegion, posx, posy, 300, 300);
-		batcher.draw(Assets.boxregion, 70, 70, 140, 140);
 
 //		renderLittlefighters();
 		//batcher.draw(Assets.testRegion, posx, posy, 300, 300);
