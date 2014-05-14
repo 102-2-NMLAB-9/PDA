@@ -878,7 +878,7 @@ public class GameScreen implements Screen,InputProcessor {
 		game2048.update(accelX, accelY);
 		
 		int target = game2048.locate(screenX, screenY);
-		if(game2048.locate(x1, y1) == target && target >= 0) {
+		if(game2048.locate(x1, y1) == target && target >= 0 && game2048.size() > 1) {
 			Soldier soldier = new Soldier(0,660,30,1,1);
 			if(game2048.status[target] == 1) soldier1s.add(soldier);
 			else if(game2048.status[target] == 2) soldier2s.add(soldier);
