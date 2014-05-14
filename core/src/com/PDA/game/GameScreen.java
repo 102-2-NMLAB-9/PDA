@@ -2,6 +2,8 @@ package com.PDA.game;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.InputProcessor;
@@ -72,6 +74,7 @@ public class GameScreen implements Screen,InputProcessor {
 	List<Littlefighter> bat;
 	List<Littlefighter> beacon;	
 	int exp_times = 7;
+	Timer timer = new Timer();
 
 	public GameScreen (MyPDAGame game) {
 		this.game = game;
@@ -79,6 +82,15 @@ public class GameScreen implements Screen,InputProcessor {
 		guiCam = new OrthographicCamera(1280, 960);
 		guiCam.position.set(1280 / 2, 960 / 2, 0);
 		backBounds = new Rectangle(0, 0, 64, 64);
+		
+		timer.scheduleAtFixedRate(new TimerTask() {
+            int i = 10;
+            public void run() {
+                System.out.println(i--);
+                if (i< 0)
+                    timer.cancel();
+            }
+        }, 0, 1000);
 
 //		testBounds = new Rectangle(500, 400, 300, 300);
 		touchPoint = new Vector3();

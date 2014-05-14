@@ -3,6 +3,8 @@ package com.PDA.game;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.InputProcessor;
@@ -75,6 +77,7 @@ public class Attacker implements Screen,InputProcessor {
 	List<Littlefighter> bat;
 	List<Littlefighter> beacon;	
 	int exp_times = 7;
+	Timer timer = new Timer();
 
 	public Attacker (MyPDAGame game) {
 		this.game = game;
@@ -87,6 +90,14 @@ public class Attacker implements Screen,InputProcessor {
 		leftbounds = new Rectangle(700, 70, 180, 180);
 		rightbounds = new Rectangle(1100, 70, 180, 180);
 		downbounds = new Rectangle(900, 70, 180, 180);
+		timer.scheduleAtFixedRate(new TimerTask() {
+            int i = 300;
+            public void run() {
+                System.out.println(i--);
+                if (i< 0)
+                    timer.cancel();
+            }
+        }, 0, 1000);
 		
 		touchPoint = new Vector3();
 		batcher = new SpriteBatch();
