@@ -29,6 +29,7 @@ public class UnicastClient {
 	public ChatWindow chatWindow;
 	private MapPerso<String, Test> joueurs;
 	private Attacker attack;
+	private Defencer defence;
 	boolean selection = false;
 	boolean type = false;
 
@@ -148,7 +149,16 @@ public class UnicastClient {
 			actionPret();
 			break;
 		case Constants.ATTACK:
-			attack.drawAttack((int)data[1]);
+			if (type)
+				attack.drawAttack((int)data[1]);
+			else
+				defence.drawAttack((int)data[1]);
+			break;
+		case Constants.DEFENCE:
+			if (type)
+				attack.drawDefence((int)data[1]);
+			else
+				defence.drawDefence((int)data[1]);
 			break;
 		default:
 			System.err.println("[UNICASTClient-DEFAULT]:Action non reconnue : "
@@ -317,15 +327,16 @@ public class UnicastClient {
 					if(game.currentVagueIndex == true){
 						game.currentVagueIndex = false;
 						selection = false;
-						attack = new Attacker(game);
 						if (type)
 						{
+							attack = new Attacker(game);
 							game.setScreen(attack);
 							System.out.println(type);
 						}
 						else
 						{
-							game.setScreen(attack);
+							defence = new Defencer(game);
+							game.setScreen(defence);
 							System.out.println(type);
 						}
 					}			
@@ -339,6 +350,13 @@ public class UnicastClient {
 	public void sendAttack( int number ) throws IOException {
 		byte data[] = new byte[2];
 		data[0] = (byte) Constants.ATTACK;
+		data[1] = (byte) number;
+		sendToAll(data);
+	}
+	
+	public void sendDefence( int number ) throws IOException {
+		byte data[] = new byte[2];
+		data[0] = (byte) Constants.DEFENCE;
 		data[1] = (byte) number;
 		sendToAll(data);
 	}

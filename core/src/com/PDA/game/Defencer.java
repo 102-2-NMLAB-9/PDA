@@ -16,7 +16,7 @@ import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector3;
 
-public class Attacker implements Screen,InputProcessor {
+public class Defencer implements Screen,InputProcessor {
 	MyPDAGame game;
 	GameBody game2048;
 
@@ -76,7 +76,7 @@ public class Attacker implements Screen,InputProcessor {
 	List<Littlefighter> beacon;	
 	int exp_times = 7;
 
-	public Attacker (MyPDAGame game) {
+	public Defencer (MyPDAGame game) {
 		this.game = game;
 		Gdx.input.setInputProcessor(this);
 		guiCam = new OrthographicCamera(1280, 960);
@@ -869,7 +869,7 @@ public class Attacker implements Screen,InputProcessor {
 			if(game2048.status[target] == 1)
 			{
 				try {
-					game.mc.sendAttack(1);
+					game.mc.sendDefence(1);
 				} catch (IOException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
@@ -878,7 +878,7 @@ public class Attacker implements Screen,InputProcessor {
 			else if(game2048.status[target] == 2)
 			{
 				try {
-					game.mc.sendAttack(2);
+					game.mc.sendDefence(2);
 				} catch (IOException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
@@ -887,7 +887,7 @@ public class Attacker implements Screen,InputProcessor {
 			else if(game2048.status[target] == 3)
 			{
 				try {
-					game.mc.sendAttack(3);
+					game.mc.sendDefence(3);
 				} catch (IOException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
@@ -896,7 +896,7 @@ public class Attacker implements Screen,InputProcessor {
 			else if(game2048.status[target] == 4)
 			{
 				try {
-					game.mc.sendAttack(4);
+					game.mc.sendDefence(4);
 				} catch (IOException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
@@ -905,7 +905,7 @@ public class Attacker implements Screen,InputProcessor {
 			else if(game2048.status[target] == 5)
 			{
 				try {
-					game.mc.sendAttack(5);
+					game.mc.sendDefence(5);
 				} catch (IOException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
@@ -914,7 +914,7 @@ public class Attacker implements Screen,InputProcessor {
 			else if(game2048.status[target] == 6)
 			{
 				try {
-					game.mc.sendAttack(6);
+					game.mc.sendDefence(6);
 				} catch (IOException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
@@ -923,7 +923,7 @@ public class Attacker implements Screen,InputProcessor {
 			else if(game2048.status[target] == 7)
 			{
 				try {
-					game.mc.sendAttack(7);
+					game.mc.sendDefence(7);
 				} catch (IOException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
@@ -932,7 +932,7 @@ public class Attacker implements Screen,InputProcessor {
 			else if(game2048.status[target] == 8)
 			{
 				try {
-					game.mc.sendAttack(8);
+					game.mc.sendDefence(8);
 				} catch (IOException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
@@ -941,7 +941,7 @@ public class Attacker implements Screen,InputProcessor {
 			else if(game2048.status[target] == 9)
 			{
 				try {
-					game.mc.sendAttack(9);
+					game.mc.sendDefence(9);
 				} catch (IOException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
@@ -950,7 +950,7 @@ public class Attacker implements Screen,InputProcessor {
 			else if(game2048.status[target] == 10)
 			{
 				try {
-					game.mc.sendAttack(10);
+					game.mc.sendDefence(10);
 				} catch (IOException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
@@ -959,7 +959,7 @@ public class Attacker implements Screen,InputProcessor {
 			else if(game2048.status[target] == 11)
 			{
 				try {
-					game.mc.sendAttack(11);
+					game.mc.sendDefence(11);
 				} catch (IOException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
@@ -968,7 +968,7 @@ public class Attacker implements Screen,InputProcessor {
 			else if(game2048.status[target] == 12)
 			{
 				try {
-					game.mc.sendAttack(12);
+					game.mc.sendDefence(12);
 				} catch (IOException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
@@ -977,7 +977,7 @@ public class Attacker implements Screen,InputProcessor {
 			else if(game2048.status[target] == 13)
 			{
 				try {
-					game.mc.sendAttack(13);
+					game.mc.sendDefence(13);
 				} catch (IOException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
@@ -986,7 +986,7 @@ public class Attacker implements Screen,InputProcessor {
 			else if(game2048.status[target] == 14)
 			{
 				try {
-					game.mc.sendAttack(14);
+					game.mc.sendDefence(14);
 				} catch (IOException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
@@ -995,7 +995,7 @@ public class Attacker implements Screen,InputProcessor {
 			else if(game2048.status[target] == 15)
 			{
 				try {
-					game.mc.sendAttack(15);
+					game.mc.sendDefence(15);
 				} catch (IOException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
@@ -1004,7 +1004,7 @@ public class Attacker implements Screen,InputProcessor {
 			else if(game2048.status[target] == 16)
 			{
 				try {
-					game.mc.sendAttack(16);
+					game.mc.sendDefence(16);
 				} catch (IOException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
