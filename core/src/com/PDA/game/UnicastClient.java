@@ -305,9 +305,9 @@ public class UnicastClient {
 		for (Test j : joueurs.values()) {
 			if (!j.estPret()) {
 				pret = false;
-				break;
 			}
-			count++;
+			else
+				count++;
 		}
 		if (selection)
 		{
@@ -316,6 +316,7 @@ public class UnicastClient {
 			else
 				type = true;
 		}
+		selection = false;
 		if (pret) {
 			game.currentVagueIndex = true;
 			for (Test j : joueurs.values()) {
@@ -326,7 +327,6 @@ public class UnicastClient {
 				public void run() {
 					if(game.currentVagueIndex == true){
 						game.currentVagueIndex = false;
-						selection = false;
 						if (type)
 						{
 							attack = new Attacker(game);
