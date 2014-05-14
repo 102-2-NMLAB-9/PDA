@@ -76,7 +76,8 @@ public class Attacker implements Screen,InputProcessor {
 	List<Littlefighter> knight;
 	List<Littlefighter> bat;
 	List<Littlefighter> beacon;	
-	int exp_times = 7;
+	int exp_times = 7, runtime;
+	String run_time;
 	Timer timer = new Timer();
 
 	public Attacker (MyPDAGame game) {
@@ -91,11 +92,15 @@ public class Attacker implements Screen,InputProcessor {
 		rightbounds = new Rectangle(1100, 70, 180, 180);
 		downbounds = new Rectangle(900, 70, 180, 180);
 		timer.scheduleAtFixedRate(new TimerTask() {
-            int i = 300;
             public void run() {
-                System.out.println(i--);
-                if (i< 0)
+                System.out.println(runtime--);
+                run_time = runtime/60 + ": ";
+                if(runtime%60 < 10) run_time += "0"; 
+                run_time += runtime%60;
+                if (runtime <= 0) {
                     timer.cancel();
+                    // new a screen
+                }
             }
         }, 0, 1000);
 		
