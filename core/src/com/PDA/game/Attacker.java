@@ -1611,52 +1611,52 @@ public class Attacker implements Screen,InputProcessor {
 		}
 		else if(number == 2)
 		{
-			Littlefighter fighter2 = new Littlefighter(1100,650,-600,0,1);
+			Littlefighter fighter2 = new Littlefighter(1100,650,-600,0,3);
 			rudolf.add(fighter2);
 		}
 		else if(number == 3)
 		{
-			Littlefighter fighter3 = new Littlefighter(1100,650,-350,0,1);
+			Littlefighter fighter3 = new Littlefighter(1100,650,-350,0,9);
 			louis.add(fighter3);
 		}
 		else if(number == 4)
 		{
-			Littlefighter fighter4 = new Littlefighter(1150,650,-300,0,1);
+			Littlefighter fighter4 = new Littlefighter(1150,650,-300,0,27);
 			deep.add(fighter4);
 		}
 		else if(number == 5)
 		{
-			Littlefighter fighter5 = new Littlefighter(1100,650,-50,0,1);
+			Littlefighter fighter5 = new Littlefighter(1100,650,-50,0,0);
 			freezer.add(fighter5);
 		}
 		else if(number == 6)
 		{
-			Littlefighter fighter6 = new Littlefighter(1100,650,-400,0,1);
+			Littlefighter fighter6 = new Littlefighter(1100,650,-400,0,400);
 			justin.add(fighter6);
 		}
 		else if(number == 7)
 		{
-			Littlefighter fighter7 = new Littlefighter(1000,650,0,0,1);
+			Littlefighter fighter7 = new Littlefighter(1000,650,0,0,729);
 			firer.add(fighter7);
 		}
 		else if(number == 8)
 		{
-			Littlefighter fighter8 = new Littlefighter(1100,650,0,0,1);
+			Littlefighter fighter8 = new Littlefighter(1100,650,0,0,0);
 			julian.add(fighter8);
 		}
 		else if(number == 9)
 		{
-			Littlefighter fighter9 = new Littlefighter(1100,650,0,0,1);
+			Littlefighter fighter9 = new Littlefighter(1100,650,0,0,0);
 			bat.add(fighter9);
 		}
 		else if(number == 10)
 		{
-			Littlefighter fighter10 = new Littlefighter(1100,650,0,0,1);
+			Littlefighter fighter10 = new Littlefighter(850,650,0,0,7000);
 			frozen.add(fighter10);
 		}
 		else if(number == 11)
 		{
-			Littlefighter fighter11 = new Littlefighter(850,650,0,0,1);
+			Littlefighter fighter11 = new Littlefighter(1100,650,0,0,0);
 			exp.add(fighter11);
 		}
 		else if(number == 12)
