@@ -590,7 +590,7 @@ public class GameScreen implements Screen,InputProcessor {
 			if(Assets.freezer.isAnimationFinished(fighter.stateTime) && !fighter.isfinished())
 			{
 				fighter.setfinished();
-				Littlefighter skill = new Littlefighter(1000,650,-200,0,1);
+				Littlefighter skill = new Littlefighter(1000,650,-200,0,81);
 				wind.add(skill);		
 			}			
 		}		
@@ -599,6 +599,7 @@ public class GameScreen implements Screen,InputProcessor {
 			Littlefighter fighter = wind.get(i);
 			TextureRegion keyFrame = Assets.wind.getKeyFrame(fighter.stateTime,false);
 			batcher.draw(keyFrame, fighter.position.x, fighter.position.y, 222, 222);
+	        attackSoldiers(fighter.attack,fighter.position.x);				
 			if(Assets.wind.isAnimationFinished(fighter.stateTime))
 			{
 				wind.remove(i);
@@ -610,6 +611,7 @@ public class GameScreen implements Screen,InputProcessor {
 			Littlefighter fighter = firer.get(i);
 			TextureRegion keyFrame = Assets.firer.getKeyFrame(fighter.stateTime,false);
 			batcher.draw(keyFrame, fighter.position.x, fighter.position.y, 222, 222);
+	        attackSoldiers(fighter.attack,fighter.position.x-75);				
 			if(Assets.firer.isAnimationFinished(fighter.stateTime) && !fighter.isfinished())
 			{
 				fighter.setfinished();
@@ -636,7 +638,7 @@ public class GameScreen implements Screen,InputProcessor {
 			if(Assets.frozen.isAnimationFinished(fighter.stateTime) && !fighter.isfinished())
 			{
 				fighter.setfinished();
-				Littlefighter skill = new Littlefighter(1110,650,-1300,0,1);
+				Littlefighter skill = new Littlefighter(1110,650,-1300,0,40000);
 				cannon.add(skill);		
 			}			
 		}		
@@ -645,6 +647,7 @@ public class GameScreen implements Screen,InputProcessor {
 			Littlefighter fighter = cannon.get(i);
 			TextureRegion keyFrame = Assets.cannon.getKeyFrame(fighter.stateTime,false);
 			batcher.draw(keyFrame, fighter.position.x, fighter.position.y,23*(fighter.stateTime/delta),222);
+	        attackSoldiers(fighter.attack,fighter.position.x);				
 			if(Assets.cannon.isAnimationFinished(fighter.stateTime))
 			{
 				cannon.remove(i);
@@ -668,6 +671,7 @@ public class GameScreen implements Screen,InputProcessor {
 			Littlefighter fighter = cut.get(i);
 			TextureRegion keyFrame = Assets.cut.getKeyFrame(fighter.stateTime,false);
 			batcher.draw(keyFrame, fighter.position.x, fighter.position.y+200,222,50);
+	        attackSoldiers(fighter.attack,fighter.position.x);				
 			if(Assets.cut.isAnimationFinished(fighter.stateTime))
 			{
 				cut.remove(i);
@@ -682,7 +686,7 @@ public class GameScreen implements Screen,InputProcessor {
 			if(Assets.julian.isAnimationFinished(fighter.stateTime) && !fighter.isfinished())
 			{
 				fighter.setfinished();
-				Littlefighter skill = new Littlefighter(1000,650,-500,0,1);
+				Littlefighter skill = new Littlefighter(1000,650,-500,0,900);
 				magic.add(skill);		
 			}			
 		}		
@@ -691,6 +695,7 @@ public class GameScreen implements Screen,InputProcessor {
 			Littlefighter fighter = magic.get(i);
 			TextureRegion keyFrame = Assets.magic.getKeyFrame(fighter.stateTime,false);
 			batcher.draw(keyFrame, fighter.position.x, fighter.position.y,222,222);
+	        attackSoldiers(fighter.attack,fighter.position.x);	
 			if(Assets.magic.isAnimationFinished(fighter.stateTime))
 			{
 				magic.remove(i);
@@ -702,11 +707,12 @@ public class GameScreen implements Screen,InputProcessor {
 			Littlefighter fighter = exp.get(i);
 			TextureRegion keyFrame = Assets.exp.getKeyFrame(fighter.stateTime,false);
 			batcher.draw(keyFrame, fighter.position.x, fighter.position.y, 333, 333);
+	        attackSoldiers(fighter.attack,fighter.position.x);				
 			if(Assets.exp.isAnimationFinished(fighter.stateTime) && exp_times>0)
 			{			
 				exp.remove(fighter);
 				exp_times--;
-				Littlefighter temp = new Littlefighter(850-150*(7-exp_times),650,0,0,1);					
+				Littlefighter temp = new Littlefighter(850-150*(7-exp_times),650,0,0,5000);					
 				exp.add(temp);
 				if(exp_times==0)
 				{
@@ -720,6 +726,7 @@ public class GameScreen implements Screen,InputProcessor {
 			Littlefighter fighter = deep.get(i);
 			TextureRegion keyFrame = Assets.deep.getKeyFrame(fighter.stateTime,false);
 			batcher.draw(keyFrame, fighter.position.x, fighter.position.y, 222, 222);
+	        attackSoldiers(fighter.attack,fighter.position.x);				
 			if(Assets.deep.isAnimationFinished(fighter.stateTime))
 			{deep.remove(i);}			
 		}			
@@ -744,6 +751,7 @@ public class GameScreen implements Screen,InputProcessor {
 			Littlefighter fighter = louis.get(i);
 			TextureRegion keyFrame = Assets.louis.getKeyFrame(fighter.stateTime,false);
 			batcher.draw(keyFrame, fighter.position.x, fighter.position.y, 180, 222);
+	        attackSoldiers(fighter.attack,fighter.position.x);				
 			if(Assets.louis.isAnimationFinished(fighter.stateTime))
 			{louis.remove(i);}			
 		}			
@@ -752,6 +760,7 @@ public class GameScreen implements Screen,InputProcessor {
 			Littlefighter fighter = rudolf.get(i);
 			TextureRegion keyFrame = Assets.rudolf.getKeyFrame(fighter.stateTime,false);
 			batcher.draw(keyFrame, fighter.position.x, fighter.position.y, 180, 222);
+	        attackSoldiers(fighter.attack,fighter.position.x);				
 			if(Assets.rudolf.isAnimationFinished(fighter.stateTime))
 			{rudolf.remove(i);}			
 		}			
@@ -768,6 +777,7 @@ public class GameScreen implements Screen,InputProcessor {
 			Littlefighter fighter = justin.get(i);
 			TextureRegion keyFrame = Assets.justin.getKeyFrame(fighter.stateTime,false);
 			batcher.draw(keyFrame, fighter.position.x, fighter.position.y, 180, 222);
+	        attackSoldiers(fighter.attack,fighter.position.x);				
 			if(Assets.justin.isAnimationFinished(fighter.stateTime))
 			{justin.remove(i);}			
 		}			
@@ -787,7 +797,7 @@ public class GameScreen implements Screen,InputProcessor {
 			if(Assets.bat.isAnimationFinished(fighter.stateTime) && !fighter.isfinished())
 			{
 				fighter.setfinished();
-				Littlefighter skill = new Littlefighter(1110,650,-1300,0,1);
+				Littlefighter skill = new Littlefighter(1110,650,-1300,0,2500);
 				beacon.add(skill);					
 			}			
 		}		
@@ -796,6 +806,7 @@ public class GameScreen implements Screen,InputProcessor {
 			Littlefighter fighter = beacon.get(i);
 			TextureRegion keyFrame = Assets.beacon.getKeyFrame(fighter.stateTime,false);
 			batcher.draw(keyFrame, fighter.position.x, fighter.position.y,22*(fighter.stateTime/delta),222);
+	        attackSoldiers(fighter.attack,fighter.position.x);				
 			if(Assets.beacon.isAnimationFinished(fighter.stateTime))
 			{
 				bat.remove(i);					
@@ -813,7 +824,7 @@ public class GameScreen implements Screen,InputProcessor {
 			batcher.draw(keyFrame, soldier.position.x, soldier.position.y, 222, 222);
 			if(soldier.isdead())
 			{
-				Soldier dead_soldier = new Soldier(soldier.position.x,soldier.position.y,0,0,0);
+				Soldier dead_soldier = new Soldier(soldier.position.x,soldier.position.y,0,0,0,0);
 				soldier1s.remove(i);				
 				dead_soldier1s.add(dead_soldier);
 			}
@@ -835,7 +846,7 @@ public class GameScreen implements Screen,InputProcessor {
 			batcher.draw(keyFrame, soldier.position.x, soldier.position.y, 222, 222);
 			if(soldier.isdead())
 			{
-				Soldier dead_soldier = new Soldier(soldier.position.x,soldier.position.y,0,0,0);
+				Soldier dead_soldier = new Soldier(soldier.position.x,soldier.position.y,0,0,0,0);
 				soldier2s.remove(i);				
 				dead_soldier2s.add(dead_soldier);
 			}
@@ -857,7 +868,7 @@ public class GameScreen implements Screen,InputProcessor {
 			batcher.draw(keyFrame, soldier.position.x, soldier.position.y, 222, 222);
 			if(soldier.isdead())
 			{
-				Soldier dead_soldier = new Soldier(soldier.position.x,soldier.position.y,0,0,0);
+				Soldier dead_soldier = new Soldier(soldier.position.x,soldier.position.y,0,0,0,0);
 				soldier3s.remove(i);				
 				dead_soldier3s.add(dead_soldier);
 			}
@@ -879,7 +890,7 @@ public class GameScreen implements Screen,InputProcessor {
 			batcher.draw(keyFrame, soldier.position.x, soldier.position.y, 222, 222);
 			if(soldier.isdead())
 			{
-				Soldier dead_soldier = new Soldier(soldier.position.x,soldier.position.y,0,0,0);
+				Soldier dead_soldier = new Soldier(soldier.position.x,soldier.position.y,0,0,0,0);
 				soldier4s.remove(i);				
 				dead_soldier4s.add(dead_soldier);
 			}
@@ -901,7 +912,7 @@ public class GameScreen implements Screen,InputProcessor {
 			batcher.draw(keyFrame, soldier.position.x, soldier.position.y, 222, 222);
 			if(soldier.isdead())
 			{
-				Soldier dead_soldier = new Soldier(soldier.position.x,soldier.position.y,0,0,0);
+				Soldier dead_soldier = new Soldier(soldier.position.x,soldier.position.y,0,0,0,0);
 				soldier5s.remove(i);				
 				dead_soldier5s.add(dead_soldier);
 			}
@@ -923,7 +934,7 @@ public class GameScreen implements Screen,InputProcessor {
 			batcher.draw(keyFrame, soldier.position.x, soldier.position.y, 222, 222);
 			if(soldier.isdead())
 			{
-				Soldier dead_soldier = new Soldier(soldier.position.x,soldier.position.y,0,0,0);
+				Soldier dead_soldier = new Soldier(soldier.position.x,soldier.position.y,0,0,0,0);
 				soldier6s.remove(i);				
 				dead_soldier6s.add(dead_soldier);
 			}
@@ -945,7 +956,7 @@ public class GameScreen implements Screen,InputProcessor {
 			batcher.draw(keyFrame, soldier.position.x, soldier.position.y, 222, 222);
 			if(soldier.isdead())
 			{
-				Soldier dead_soldier = new Soldier(soldier.position.x,soldier.position.y,0,0,0);
+				Soldier dead_soldier = new Soldier(soldier.position.x,soldier.position.y,0,0,0,0);
 				soldier7s.remove(i);				
 				dead_soldier7s.add(dead_soldier);
 			}
@@ -967,7 +978,7 @@ public class GameScreen implements Screen,InputProcessor {
 			batcher.draw(keyFrame, soldier.position.x, soldier.position.y, 222, 222);
 			if(soldier.isdead())
 			{
-				Soldier dead_soldier = new Soldier(soldier.position.x,soldier.position.y,0,0,0);
+				Soldier dead_soldier = new Soldier(soldier.position.x,soldier.position.y,0,0,0,0);
 				soldier8s.remove(i);				
 				dead_soldier8s.add(dead_soldier);
 			}
@@ -989,7 +1000,7 @@ public class GameScreen implements Screen,InputProcessor {
 			batcher.draw(keyFrame, soldier.position.x, soldier.position.y, 222, 222);
 			if(soldier.isdead())
 			{
-				Soldier dead_soldier = new Soldier(soldier.position.x,soldier.position.y,0,0,0);
+				Soldier dead_soldier = new Soldier(soldier.position.x,soldier.position.y,0,0,0,0);
 				soldier9s.remove(i);				
 				dead_soldier9s.add(dead_soldier);
 			}
@@ -1011,7 +1022,7 @@ public class GameScreen implements Screen,InputProcessor {
 			batcher.draw(keyFrame, soldier.position.x, soldier.position.y, 222, 222);
 			if(soldier.isdead())
 			{
-				Soldier dead_soldier = new Soldier(soldier.position.x,soldier.position.y,0,0,0);
+				Soldier dead_soldier = new Soldier(soldier.position.x,soldier.position.y,0,0,0,0);
 				soldier10s.remove(i);				
 				dead_soldier10s.add(dead_soldier);
 			}
@@ -1033,7 +1044,7 @@ public class GameScreen implements Screen,InputProcessor {
 			batcher.draw(keyFrame, soldier.position.x, soldier.position.y, 222, 222);
 			if(soldier.isdead())
 			{
-				Soldier dead_soldier = new Soldier(soldier.position.x,soldier.position.y,0,0,0);
+				Soldier dead_soldier = new Soldier(soldier.position.x,soldier.position.y,0,0,0,0);
 				soldier11s.remove(i);				
 				dead_soldier11s.add(dead_soldier);
 			}
@@ -1055,7 +1066,7 @@ public class GameScreen implements Screen,InputProcessor {
 			batcher.draw(keyFrame, soldier.position.x, soldier.position.y, 222, 222);
 			if(soldier.isdead())
 			{
-				Soldier dead_soldier = new Soldier(soldier.position.x,soldier.position.y,0,0,0);
+				Soldier dead_soldier = new Soldier(soldier.position.x,soldier.position.y,0,0,0,0);
 				soldier12s.remove(i);				
 				dead_soldier12s.add(dead_soldier);
 			}
@@ -1077,7 +1088,7 @@ public class GameScreen implements Screen,InputProcessor {
 			batcher.draw(keyFrame, soldier.position.x, soldier.position.y, 222, 222);
 			if(soldier.isdead())
 			{
-				Soldier dead_soldier = new Soldier(soldier.position.x,soldier.position.y,0,0,0);
+				Soldier dead_soldier = new Soldier(soldier.position.x,soldier.position.y,0,0,0,0);
 				soldier13s.remove(i);				
 				dead_soldier13s.add(dead_soldier);
 			}
@@ -1099,7 +1110,7 @@ public class GameScreen implements Screen,InputProcessor {
 			batcher.draw(keyFrame, soldier.position.x, soldier.position.y, 222, 222);
 			if(soldier.isdead())
 			{
-				Soldier dead_soldier = new Soldier(soldier.position.x,soldier.position.y,0,0,0);
+				Soldier dead_soldier = new Soldier(soldier.position.x,soldier.position.y,0,0,0,0);
 				soldier14s.remove(i);				
 				dead_soldier14s.add(dead_soldier);
 			}
@@ -1121,7 +1132,7 @@ public class GameScreen implements Screen,InputProcessor {
 			batcher.draw(keyFrame, soldier.position.x, soldier.position.y, 222, 222);
 			if(soldier.isdead())
 			{
-				Soldier dead_soldier = new Soldier(soldier.position.x,soldier.position.y,0,0,0);
+				Soldier dead_soldier = new Soldier(soldier.position.x,soldier.position.y,0,0,0,0);
 				soldier15s.remove(i);				
 				dead_soldier15s.add(dead_soldier);
 			}
@@ -1143,7 +1154,7 @@ public class GameScreen implements Screen,InputProcessor {
 			batcher.draw(keyFrame, soldier.position.x, soldier.position.y, 222, 222);
 			if(soldier.isdead())
 			{
-				Soldier dead_soldier = new Soldier(soldier.position.x,soldier.position.y,0,0,0);
+				Soldier dead_soldier = new Soldier(soldier.position.x,soldier.position.y,0,0,0,0);
 				soldier16s.remove(i);				
 				dead_soldier16s.add(dead_soldier);
 			}
@@ -1160,88 +1171,88 @@ public class GameScreen implements Screen,InputProcessor {
 		}			
 	}
 	
-	private void attackSoldiers(int a)
+	private void attackSoldiers(float a,float x)
 	{
 		for (int i = 0; i < soldier1s.size(); i++) 
 		{
 			Soldier soldier = soldier1s.get(i);
-            soldier.attacked(a);
+            soldier.attacked(a,x);
 		}
 		for (int i = 0; i < soldier2s.size(); i++) 
 		{
 			Soldier soldier = soldier2s.get(i);
-            soldier.attacked(a);	
+            soldier.attacked(a,x);
 		}		
 		for (int i = 0; i < soldier3s.size(); i++) 
 		{
 			Soldier soldier = soldier3s.get(i);
-            soldier.attacked(a);				
+            soldier.attacked(a,x);				
 		}		
 		for (int i = 0; i < soldier4s.size(); i++) 
 		{
 			Soldier soldier = soldier4s.get(i);
-            soldier.attacked(a);			
+            soldier.attacked(a,x);				
 		}		
 		for (int i = 0; i < soldier5s.size(); i++) 
 		{
 			Soldier soldier = soldier5s.get(i);
-            soldier.attacked(a);		
+            soldier.attacked(a,x);	
 			
 		}			
 		for (int i = 0; i < soldier6s.size(); i++) 
 		{
 			Soldier soldier = soldier6s.get(i);
-            soldier.attacked(a);	
+            soldier.attacked(a,x);
 		}		
 		for (int i = 0; i < soldier7s.size(); i++) 
 		{
 			Soldier soldier = soldier7s.get(i);
-            soldier.attacked(a);			
+            soldier.attacked(a,x);		
 		}		
 		for (int i = 0; i < soldier8s.size(); i++) 
 		{
 			Soldier soldier = soldier8s.get(i);
-            soldier.attacked(a);			
+            soldier.attacked(a,x);		
 		}		
 		for (int i = 0; i < soldier9s.size(); i++) 
 		{
 			Soldier soldier = soldier9s.get(i);
-            soldier.attacked(a);			
+            soldier.attacked(a,x);		
 		}
 		for (int i = 0; i < soldier10s.size(); i++) 
 		{
 			Soldier soldier = soldier10s.get(i);
-            soldier.attacked(a);			
+            soldier.attacked(a,x);	
 		}		
 		for (int i = 0; i < soldier11s.size(); i++) 
 		{
 			Soldier soldier = soldier11s.get(i);
-            soldier.attacked(a);					
+            soldier.attacked(a,x);						
 		}			
 		for (int i = 0; i < soldier12s.size(); i++) 
 		{
 			Soldier soldier = soldier12s.get(i);
-            soldier.attacked(a);			
+            soldier.attacked(a,x);			
 		}		
 		for (int i = 0; i <  soldier13s.size(); i++) 
 		{
 			Soldier soldier = soldier13s.get(i);
-            soldier.attacked(a);				
+            soldier.attacked(a,x);				
 		}		
 		for (int i = 0; i < soldier14s.size(); i++) 
 		{
 			Soldier soldier = soldier14s.get(i);
-            soldier.attacked(a);			
+            soldier.attacked(a,x);	
 		}		
 		for (int i = 0; i < soldier15s.size(); i++) 
 		{
 			Soldier soldier = soldier15s.get(i);
-            soldier.attacked(a);			
+            soldier.attacked(a,x);
 		}		
 		for (int i = 0; i < soldier16s.size(); i++) 
 		{
 			Soldier soldier = soldier16s.get(i);
-            soldier.attacked(a);		
+            soldier.attacked(a,x);	
 		}				
 	}
 
@@ -1310,39 +1321,38 @@ public class GameScreen implements Screen,InputProcessor {
 	@Override
 	public boolean touchUp(int screenX, int screenY, int pointer, int button) {
 			
-		Littlefighter fighter1 = new Littlefighter(1100,650,0,0,1);
-		john.add(fighter1);
-        attackSoldiers(fighter1.attack());	
-		/*Littlefighter fighter2 = new Littlefighter(1100,650,-600,0,1);
-		rudolf.add(fighter2);
-		Littlefighter fighter3 = new Littlefighter(1100,650,-350,0,1);
-		louis.add(fighter3);
-		Littlefighter fighter4 = new Littlefighter(1150,650,-300,0,1);
-		deep.add(fighter4);
-		Littlefighter fighter5 = new Littlefighter(1100,650,-50,0,1);
-		freezer.add(fighter5);	
-		Littlefighter fighter6 = new Littlefighter(1100,650,-400,0,1);
-		justin.add(fighter6);
-		Littlefighter fighter7 = new Littlefighter(1000,650,0,0,1);
-		firer.add(fighter7);
-		Littlefighter fighter8 = new Littlefighter(1100,650,0,0,1);
-		julian.add(fighter8);	
-		Littlefighter fighter9 = new Littlefighter(1100,650,0,0,1);
-		monk.add(fighter9);
-		Littlefighter fighter10 = new Littlefighter(1100,650,0,0,1);
-		bat.add(fighter10);	
-		Littlefighter fighter11 = new Littlefighter(1100,650,0,0,1);
-		henry.add(fighter11);
-		Littlefighter fighter12 = new Littlefighter(1100,650,0,0,1);
-		frozen.add(fighter12);	
-		Littlefighter fighter13 = new Littlefighter(850,650,0,0,1);
-		exp.add(fighter13);	
-		Littlefighter fighter14 = new Littlefighter(1150,650,-250,0,1);
-		dennis.add(fighter14);						
-		Littlefighter fighter15 = new Littlefighter(1100,650,-500,0,1);
-		louisEX.add(fighter15);							
-		Littlefighter fighter16 = new Littlefighter(1100,650,-150,0,1);
-		knight.add(fighter16);		*/	
+		//Littlefighter fighter1 = new Littlefighter(1100,650,0,0,1);
+		//john.add(fighter1);
+		//Littlefighter fighter2 = new Littlefighter(1100,650,-600,0,3);
+		//rudolf.add(fighter2);
+		//Littlefighter fighter3 = new Littlefighter(1100,650,-350,0,9);
+		//louis.add(fighter3);
+		//Littlefighter fighter4 = new Littlefighter(1150,650,-300,0,27);
+		//deep.add(fighter4);
+		//Littlefighter fighter5 = new Littlefighter(1100,650,-50,0,0);
+		//freezer.add(fighter5);	
+		//Littlefighter fighter6 = new Littlefighter(1100,650,-400,0,400);
+		//justin.add(fighter6);
+		//Littlefighter fighter7 = new Littlefighter(1000,650,0,0,729);
+		//firer.add(fighter7);
+		//Littlefighter fighter8 = new Littlefighter(1100,650,0,0,0);
+		//julian.add(fighter8);	
+		//Littlefighter fighter9 = new Littlefighter(1100,650,0,0,0);
+		//bat.add(fighter10);	
+		//Littlefighter fighter10 = new Littlefighter(850,650,0,0,7000);
+		//exp.add(fighter10);			
+		Littlefighter fighter11 = new Littlefighter(1100,650,0,0,0);
+		frozen.add(fighter11);	
+		//Littlefighter fighter12 = new Littlefighter(1150,650,-250,0,1);
+		//dennis.add(fighter12);						
+		//Littlefighter fighter13 = new Littlefighter(1100,650,-500,0,1);
+		//louisEX.add(fighter13);							
+		//Littlefighter fighter14 = new Littlefighter(1100,650,-150,0,1);
+		//knight.add(fighter14);			
+		//Littlefighter fighter15 = new Littlefighter(1100,650,0,0,1);
+		//monk.add(fighter15);	
+		//Littlefighter fighter16 = new Littlefighter(1100,650,0,0,1);
+		//henry.add(fighter16);		
 
 		
 		if(screenX-x1 > 100) accelX = 10;
@@ -1353,23 +1363,86 @@ public class GameScreen implements Screen,InputProcessor {
 		
 		int target = game2048.locate(screenX, screenY);
 		if(game2048.locate(x1, y1) == target && target >= 0 && game2048.size() > 1) {
-			Soldier soldier = new Soldier(0,660,30,3,1);
-			if(game2048.status[target] == 1) soldier1s.add(soldier);
-			else if(game2048.status[target] == 2) soldier2s.add(soldier);
-			else if(game2048.status[target] == 3) soldier3s.add(soldier);
-			else if(game2048.status[target] == 4) soldier4s.add(soldier);
-			else if(game2048.status[target] == 5) soldier5s.add(soldier);
-			else if(game2048.status[target] == 6) soldier6s.add(soldier);
-			else if(game2048.status[target] == 7) soldier7s.add(soldier);
-			else if(game2048.status[target] == 8) soldier8s.add(soldier);
-			else if(game2048.status[target] == 9) soldier9s.add(soldier);
-			else if(game2048.status[target] == 10) soldier10s.add(soldier);
-			else if(game2048.status[target] == 11) soldier11s.add(soldier);
-			else if(game2048.status[target] == 12) soldier12s.add(soldier);
-			else if(game2048.status[target] == 13) soldier13s.add(soldier);
-			else if(game2048.status[target] == 14) soldier14s.add(soldier);
-			else if(game2048.status[target] == 15) soldier15s.add(soldier);
-			else if(game2048.status[target] == 16) soldier16s.add(soldier);
+			if(game2048.status[target] == 1) 
+			{
+				Soldier soldier = new Soldier(0,660,90,100,1,1);				
+				soldier1s.add(soldier);			
+			}
+			else if(game2048.status[target] == 2)
+			{
+				Soldier soldier = new Soldier(0,660,90,400,1,3);				
+				soldier2s.add(soldier);
+			}			
+			else if(game2048.status[target] == 3)
+			{
+				Soldier soldier = new Soldier(0,660,90,1600,1,9);				
+				soldier3s.add(soldier);
+			}	
+			else if(game2048.status[target] == 4)
+			{
+				Soldier soldier = new Soldier(0,660,120,6400,1,27);				
+				soldier4s.add(soldier);
+			}	
+			else if(game2048.status[target] == 5)
+			{
+				Soldier soldier = new Soldier(0,660,150,25600,1,81);				
+				soldier5s.add(soldier);
+			}			
+			else if(game2048.status[target] == 6)
+			{
+				Soldier soldier = new Soldier(0,660,180,65000,1,400);				
+				soldier6s.add(soldier);
+			}	
+			else if(game2048.status[target] == 7)
+			{
+				Soldier soldier = new Soldier(0,660,210,140000,1,729);				
+				soldier7s.add(soldier);
+			}		
+			else if(game2048.status[target] == 8)
+			{
+				Soldier soldier = new Soldier(0,660,240,250000,1,900);				
+				soldier8s.add(soldier);
+			}			
+			else if(game2048.status[target] == 9)
+			{
+				Soldier soldier = new Soldier(0,660,270,600000,1,2500);				
+				soldier9s.add(soldier);
+			}	
+			else if(game2048.status[target] == 10)
+			{
+				Soldier soldier = new Soldier(0,660,300,2000000,1,7000);				
+				soldier10s.add(soldier);
+			}	
+			else if(game2048.status[target] == 11)
+			{
+				Soldier soldier = new Soldier(0,660,330,4200000,1,40000);				
+				soldier11s.add(soldier);
+			}			
+			else if(game2048.status[target] == 12)
+			{
+				Soldier soldier = new Soldier(0,660,360,3,1,1);				
+				soldier12s.add(soldier);
+			}	
+			else if(game2048.status[target] == 13)
+			{
+				Soldier soldier = new Soldier(0,660,390,3,1,1);				
+				soldier13s.add(soldier);
+			}				
+			else if(game2048.status[target] == 14)
+			{
+				Soldier soldier = new Soldier(0,660,420,3,1,1);				
+				soldier14s.add(soldier);
+			}			
+			else if(game2048.status[target] == 15)
+			{
+				Soldier soldier = new Soldier(0,660,450,3,1,1);				
+				soldier15s.add(soldier);
+			}	
+			else if(game2048.status[target] == 16)
+			{
+				Soldier soldier = new Soldier(0,660,480,3,1,1);				
+				soldier16s.add(soldier);
+			}				
 			game2048.status[target] = 0;
 			game2048.update(0, 0);
 			game2048.draw();

@@ -19,10 +19,10 @@ package com.PDA.game;
 public class Littlefighter extends DynamicGameObject
 {
 	float stateTime = 0;
-	int attack;
+	float attack;
 	boolean finished = false;
 
-	public Littlefighter (float x, float y,float v1,float v2,int a) 
+	public Littlefighter (float x, float y,float v1,float v2,float a) 
 	{
 		super(x, y, 222, 222);
 		velocity.set(v1, v2);
@@ -45,7 +45,5 @@ public class Littlefighter extends DynamicGameObject
 	
 	public boolean isfinished()
 	{return finished;}
-	
-	public int attack()
-	{return attack;}
+
 }

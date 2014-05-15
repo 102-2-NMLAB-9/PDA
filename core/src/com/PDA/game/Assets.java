@@ -374,6 +374,7 @@ public class Assets {
 		louis = new Animation(0.1f,new TextureRegion(littlefighter[0]),new TextureRegion(littlefighter[1]),
 				new TextureRegion(littlefighter[2]),new TextureRegion(littlefighter[3]),
 				new TextureRegion(littlefighter[4]),new TextureRegion(littlefighter[5]),
+				new TextureRegion(littlefighter[6]),new TextureRegion(littlefighter[5]),
 				new TextureRegion(littlefighter[6]),new TextureRegion(littlefighter[7]));		
 		littlefighter[0] = loadTexture("data/k-1.png");
 		littlefighter[1] = loadTexture("data/k-2.png");

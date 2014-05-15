@@ -1058,7 +1058,7 @@ public class Attacker implements Screen,InputProcessor {
 	
 	public void drawAttack( int number )
 	{
-		Soldier soldier = new Soldier(0,660,30,3,1);
+		Soldier soldier = new Soldier(0,660,30,3,1,1);
 		if(number == 1) soldier1s.add(soldier);
 		else if(number == 2) soldier2s.add(soldier);
 		else if(number == 3) soldier3s.add(soldier);

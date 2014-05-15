@@ -19,16 +19,18 @@ package com.PDA.game;
 public class Soldier extends DynamicGameObject {
 
 	float stateTime = 0;
-	int blood;
-	int attack;
+	float blood;
+	float attack;
+	float defense;
 	float original_velocity;
 
-	public Soldier (float x, float y,float v,int b,int a) 
+	public Soldier (float x, float y,float v,float b,float a,float d) 
 	{
 		super(x, y, 222, 222);
 		velocity.set(v, 0);
 		blood=b;
 		attack=a;
+		defense=d;
 		original_velocity=v;
 	}
 
@@ -55,10 +57,16 @@ public class Soldier extends DynamicGameObject {
 		return false;
 	}	
 	
-	public void attacked(int a)
+	public void attacked(float a,float x)
 	{
-       blood -= a;
-	   velocity.x = original_velocity;       
-       //position.x -= x;       
+		if(position.x >= x)
+	    {
+			blood -= a;
+		    if(a>=defense)
+		    {
+		    	velocity.x = original_velocity;   
+				position.x = x;
+		    }
+		} 
 	}		
 }
