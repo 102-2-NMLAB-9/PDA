@@ -16,7 +16,7 @@ import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector3;
 
-public class Defencer implements Screen,InputProcessor {
+public class Defenser implements Screen,InputProcessor {
 	MyPDAGame game;
 	GameBody game2048;
 
@@ -76,7 +76,7 @@ public class Defencer implements Screen,InputProcessor {
 	List<Littlefighter> beacon;	
 	int exp_times = 7;
 
-	public Defencer (MyPDAGame game) {
+	public Defenser (MyPDAGame game) {
 		this.game = game;
 		Gdx.input.setInputProcessor(this);
 		guiCam = new OrthographicCamera(1280, 960);

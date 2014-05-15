@@ -29,7 +29,7 @@ public class UnicastClient {
 	public ChatWindow chatWindow;
 	private MapPerso<String, Test> joueurs;
 	private Attacker attack;
-	private Defencer defence;
+	private Defenser defence;
 	boolean selection = false;
 	boolean type = false;
 
@@ -335,7 +335,7 @@ public class UnicastClient {
 						}
 						else
 						{
-							defence = new Defencer(game);
+							defence = new Defenser(game);
 							game.setScreen(defence);
 							System.out.println(type);
 						}
