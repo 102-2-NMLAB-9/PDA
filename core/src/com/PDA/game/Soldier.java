@@ -34,19 +34,21 @@ public class Soldier extends DynamicGameObject {
 		original_velocity=v;
 	}
 
-	public void update (float delta) 
+	public boolean update (float delta) 
 	{
 		position.add(velocity.x * delta, velocity.y * delta);
 		bounds.x = position.x;
 		bounds.y = position.y;
-		if (position.x > 960) 
+		if (position.x >= 960) 
 		{
 			position.x = 960;
 			velocity.x = 0;
+            return true;
 		}
 		/*if(velocity.x != 0)
 		{stateTime += delta;}*/
 		stateTime += delta;
+		return false;
 	}
 	
 	public boolean isdead()

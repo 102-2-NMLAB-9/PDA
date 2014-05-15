@@ -95,6 +95,7 @@ public class Attacker implements Screen,InputProcessor {
 	int exp_times = 7, runtime = 300;
 	String run_time;
 	Timer timer = new Timer();
+	int tower_blood = 0;	
 
 	public Attacker (MyPDAGame game) {
 		this.game = game;
@@ -362,97 +363,161 @@ public class Attacker implements Screen,InputProcessor {
 		for (int i = 0; i < len; i++) 
 		{
 			Soldier soldier = soldier1s.get(i);
-			soldier.update(delta);
+			if(soldier.update(delta))
+			{
+				tower_blood++;
+				soldier1s.remove(i);
+			}
 		}
 		len = soldier2s.size();
 		for (int i = 0; i < len; i++) 
 		{
 			Soldier soldier = soldier2s.get(i);
-			soldier.update(delta);
+			if(soldier.update(delta))
+			{
+				tower_blood++;
+				soldier1s.remove(i);
+			}
 		}	
 		len = soldier3s.size();
 		for (int i = 0; i < len; i++) 
 		{
 			Soldier soldier = soldier3s.get(i);
-			soldier.update(delta);
+			if(soldier.update(delta))
+			{
+				tower_blood++;
+				soldier1s.remove(i);
+			}
 		}		
 		len = soldier4s.size();
 		for (int i = 0; i < len; i++) 
 		{
 			Soldier soldier = soldier4s.get(i);
-			soldier.update(delta);
+			if(soldier.update(delta))
+			{
+				tower_blood++;
+				soldier1s.remove(i);
+			}
 		}	
 		len = soldier5s.size();
 		for (int i = 0; i < len; i++) 
 		{
 			Soldier soldier = soldier5s.get(i);
-			soldier.update(delta);
+			if(soldier.update(delta))
+			{
+				tower_blood++;
+				soldier1s.remove(i);
+			}
 		}			
 		len = soldier6s.size();
 		for (int i = 0; i < len; i++) 
 		{
 			Soldier soldier = soldier6s.get(i);
-			soldier.update(delta);
+			if(soldier.update(delta))
+			{
+				tower_blood++;
+				soldier1s.remove(i);
+			}
 		}	
 		len = soldier7s.size();
 		for (int i = 0; i < len; i++) 
 		{
 			Soldier soldier = soldier7s.get(i);
-			soldier.update(delta);
+			if(soldier.update(delta))
+			{
+				tower_blood++;
+				soldier1s.remove(i);
+			}
 		}			
 		len = soldier8s.size();
 		for (int i = 0; i < len; i++) 
 		{
 			Soldier soldier = soldier8s.get(i);
-			soldier.update(delta);
+			if(soldier.update(delta))
+			{
+				tower_blood++;
+				soldier1s.remove(i);
+			}
 		}	
 		len = soldier9s.size();
 		for (int i = 0; i < len; i++) 
 		{
 			Soldier soldier = soldier9s.get(i);
-			soldier.update(delta);
+			if(soldier.update(delta))
+			{
+				tower_blood++;
+				soldier1s.remove(i);
+			}
 		}		
 		len = soldier10s.size();
 		for (int i = 0; i < len; i++) 
 		{
 			Soldier soldier = soldier10s.get(i);
-			soldier.update(delta);
+			if(soldier.update(delta))
+			{
+				tower_blood++;
+				soldier1s.remove(i);
+			}
 		}	
 		len = soldier11s.size();
 		for (int i = 0; i < len; i++) 
 		{
 			Soldier soldier = soldier11s.get(i);
-			soldier.update(delta);
+			if(soldier.update(delta))
+			{
+				tower_blood++;
+				soldier1s.remove(i);
+			}
 		}			
 		len = soldier12s.size();
 		for (int i = 0; i < len; i++) 
 		{
 			Soldier soldier = soldier12s.get(i);
-			soldier.update(delta);
+			if(soldier.update(delta))
+			{
+				tower_blood++;
+				soldier1s.remove(i);
+			}
 		}	
 		len = soldier13s.size();
 		for (int i = 0; i < len; i++) 
 		{
 			Soldier soldier = soldier13s.get(i);
-			soldier.update(delta);
+			if(soldier.update(delta))
+			{
+				tower_blood++;
+				soldier1s.remove(i);
+			}
 		}			
 		len = soldier14s.size();
 		for (int i = 0; i < len; i++) 
 		{
 			Soldier soldier = soldier14s.get(i);
-			soldier.update(delta);
+			if(soldier.update(delta))
+			{
+				tower_blood++;
+				soldier1s.remove(i);
+			}
 		}			
 		len = soldier15s.size();
 		for (int i = 0; i < len; i++) 
 		{
 			Soldier soldier = soldier15s.get(i);
-			soldier.update(delta);
+			if(soldier.update(delta))
+			{
+				tower_blood++;
+				soldier1s.remove(i);
+			}
 		}	
 		len = soldier16s.size();
 		for (int i = 0; i < len; i++) 
 		{
 			Soldier soldier = soldier16s.get(i);
-			soldier.update(delta);
+			if(soldier.update(delta))
+			{
+				tower_blood++;
+				soldier1s.remove(i);
+			}
 		}
 		len = dead_soldier1s.size();
 		for (int i = 0; i < len; i++) 
@@ -1280,7 +1345,7 @@ public class Attacker implements Screen,InputProcessor {
 	@Override
 	public void render (float delta) {
 		update(delta);
-		draw(delta);
+		draw(delta);		
 	}
 
 	@Override
@@ -1524,57 +1589,57 @@ public class Attacker implements Screen,InputProcessor {
 	{
 		if(number == 1) 
 		{
-			Soldier soldier = new Soldier(0,660,90,100,1,1);				
+			Soldier soldier = new Soldier(0,660,90,50,1,1);				
 			soldier1s.add(soldier);			
 		}
 		else if(number == 2)
 		{
-			Soldier soldier = new Soldier(0,660,90,400,1,3);				
+			Soldier soldier = new Soldier(0,660,90,200,1,3);				
 			soldier2s.add(soldier);
 		}			
 		else if(number == 3)
 		{
-			Soldier soldier = new Soldier(0,660,90,1600,1,9);				
+			Soldier soldier = new Soldier(0,660,90,500,1,9);				
 			soldier3s.add(soldier);
 		}	
 		else if(number == 4)
 		{
-			Soldier soldier = new Soldier(0,660,120,6400,1,27);				
+			Soldier soldier = new Soldier(0,660,120,2000,1,27);				
 			soldier4s.add(soldier);
 		}	
 		else if(number == 5)
 		{
-			Soldier soldier = new Soldier(0,660,150,25600,1,81);				
+			Soldier soldier = new Soldier(0,660,150,8000,1,81);				
 			soldier5s.add(soldier);
 		}			
 		else if(number == 6)
 		{
-			Soldier soldier = new Soldier(0,660,180,65000,1,400);				
+			Soldier soldier = new Soldier(0,660,180,20000,1,400);				
 			soldier6s.add(soldier);
 		}	
 		else if(number == 7)
 		{
-			Soldier soldier = new Soldier(0,660,210,140000,1,729);				
+			Soldier soldier = new Soldier(0,660,210,50000,1,729);				
 			soldier7s.add(soldier);
 		}		
 		else if(number == 8)
 		{
-			Soldier soldier = new Soldier(0,660,240,250000,1,900);				
+			Soldier soldier = new Soldier(0,660,240,80000,1,900);				
 			soldier8s.add(soldier);
 		}			
 		else if(number == 9)
 		{
-			Soldier soldier = new Soldier(0,660,270,600000,1,2500);				
+			Soldier soldier = new Soldier(0,660,270,200000,1,2500);				
 			soldier9s.add(soldier);
 		}	
 		else if(number == 10)
 		{
-			Soldier soldier = new Soldier(0,660,300,2000000,1,7000);				
+			Soldier soldier = new Soldier(0,660,300,900000,1,7000);				
 			soldier10s.add(soldier);
 		}	
 		else if(number == 11)
 		{
-			Soldier soldier = new Soldier(0,660,330,4200000,1,40000);				
+			Soldier soldier = new Soldier(0,660,330,1500000,1,40000);				
 			soldier11s.add(soldier);
 		}			
 		else if(number == 12)

@@ -93,6 +93,7 @@ public class GameScreen implements Screen,InputProcessor {
 	int exp_times = 7, runtime = 300;
 	String run_time;
 	Timer timer = new Timer();
+	float tower_blood = 0;
 
 	public GameScreen (MyPDAGame game) {
 		this.game = game;
@@ -346,97 +347,161 @@ public class GameScreen implements Screen,InputProcessor {
 		for (int i = 0; i < len; i++) 
 		{
 			Soldier soldier = soldier1s.get(i);
-			soldier.update(delta);
+			if(soldier.update(delta))
+			{
+				tower_blood++;
+				soldier1s.remove(i);
+			}
 		}
 		len = soldier2s.size();
 		for (int i = 0; i < len; i++) 
 		{
 			Soldier soldier = soldier2s.get(i);
-			soldier.update(delta);
+			if(soldier.update(delta))
+			{
+				tower_blood++;
+				soldier1s.remove(i);
+			}
 		}	
 		len = soldier3s.size();
 		for (int i = 0; i < len; i++) 
 		{
 			Soldier soldier = soldier3s.get(i);
-			soldier.update(delta);
+			if(soldier.update(delta))
+			{
+				tower_blood++;
+				soldier1s.remove(i);
+			}
 		}		
 		len = soldier4s.size();
 		for (int i = 0; i < len; i++) 
 		{
 			Soldier soldier = soldier4s.get(i);
-			soldier.update(delta);
+			if(soldier.update(delta))
+			{
+				tower_blood++;
+				soldier1s.remove(i);
+			}
 		}	
 		len = soldier5s.size();
 		for (int i = 0; i < len; i++) 
 		{
 			Soldier soldier = soldier5s.get(i);
-			soldier.update(delta);
+			if(soldier.update(delta))
+			{
+				tower_blood++;
+				soldier1s.remove(i);
+			}
 		}			
 		len = soldier6s.size();
 		for (int i = 0; i < len; i++) 
 		{
 			Soldier soldier = soldier6s.get(i);
-			soldier.update(delta);
+			if(soldier.update(delta))
+			{
+				tower_blood++;
+				soldier1s.remove(i);
+			}
 		}	
 		len = soldier7s.size();
 		for (int i = 0; i < len; i++) 
 		{
 			Soldier soldier = soldier7s.get(i);
-			soldier.update(delta);
+			if(soldier.update(delta))
+			{
+				tower_blood++;
+				soldier1s.remove(i);
+			}
 		}			
 		len = soldier8s.size();
 		for (int i = 0; i < len; i++) 
 		{
 			Soldier soldier = soldier8s.get(i);
-			soldier.update(delta);
+			if(soldier.update(delta))
+			{
+				tower_blood++;
+				soldier1s.remove(i);
+			}
 		}	
 		len = soldier9s.size();
 		for (int i = 0; i < len; i++) 
 		{
 			Soldier soldier = soldier9s.get(i);
-			soldier.update(delta);
+			if(soldier.update(delta))
+			{
+				tower_blood++;
+				soldier1s.remove(i);
+			}
 		}		
 		len = soldier10s.size();
 		for (int i = 0; i < len; i++) 
 		{
 			Soldier soldier = soldier10s.get(i);
-			soldier.update(delta);
+			if(soldier.update(delta))
+			{
+				tower_blood++;
+				soldier1s.remove(i);
+			}
 		}	
 		len = soldier11s.size();
 		for (int i = 0; i < len; i++) 
 		{
 			Soldier soldier = soldier11s.get(i);
-			soldier.update(delta);
+			if(soldier.update(delta))
+			{
+				tower_blood++;
+				soldier1s.remove(i);
+			}
 		}			
 		len = soldier12s.size();
 		for (int i = 0; i < len; i++) 
 		{
 			Soldier soldier = soldier12s.get(i);
-			soldier.update(delta);
+			if(soldier.update(delta))
+			{
+				tower_blood++;
+				soldier1s.remove(i);
+			}
 		}	
 		len = soldier13s.size();
 		for (int i = 0; i < len; i++) 
 		{
 			Soldier soldier = soldier13s.get(i);
-			soldier.update(delta);
+			if(soldier.update(delta))
+			{
+				tower_blood++;
+				soldier1s.remove(i);
+			}
 		}			
 		len = soldier14s.size();
 		for (int i = 0; i < len; i++) 
 		{
 			Soldier soldier = soldier14s.get(i);
-			soldier.update(delta);
+			if(soldier.update(delta))
+			{
+				tower_blood++;
+				soldier1s.remove(i);
+			}
 		}			
 		len = soldier15s.size();
 		for (int i = 0; i < len; i++) 
 		{
 			Soldier soldier = soldier15s.get(i);
-			soldier.update(delta);
+			if(soldier.update(delta))
+			{
+				tower_blood++;
+				soldier1s.remove(i);
+			}
 		}	
 		len = soldier16s.size();
 		for (int i = 0; i < len; i++) 
 		{
 			Soldier soldier = soldier16s.get(i);
-			soldier.update(delta);
+			if(soldier.update(delta))
+			{
+				tower_blood++;
+				soldier1s.remove(i);
+			}
 		}
 		len = dead_soldier1s.size();
 		for (int i = 0; i < len; i++) 
