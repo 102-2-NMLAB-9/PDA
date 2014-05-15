@@ -90,7 +90,7 @@ public class GameScreen implements Screen,InputProcessor {
 	List<Littlefighter> knight;
 	List<Littlefighter> bat;
 	List<Littlefighter> beacon;	
-	int exp_times = 7, runtime = 10;
+	int exp_times = 7, runtime = 300;
 	String run_time;
 	Timer timer = new Timer();
 
