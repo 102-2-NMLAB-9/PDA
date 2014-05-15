@@ -92,7 +92,7 @@ public class Attacker implements Screen,InputProcessor {
 	List<Littlefighter> knight;
 	List<Littlefighter> bat;
 	List<Littlefighter> beacon;	
-	int exp_times = 7, runtime = 150;
+	int exp_times = 7, runtime = 90;
 	String run_time;
 	Timer timer = new Timer();
 	int tower_blood = 0;	

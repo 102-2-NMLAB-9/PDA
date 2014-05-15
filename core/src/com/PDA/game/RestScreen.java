@@ -49,7 +49,7 @@ public class RestScreen implements Screen {
 			game.countGame++;
 			if (myb)
 			{
-				game.mc.defence = new Defenser(game);
+				game.mc.defence = new Defender(game);
 				game.setScreen(game.mc.defence);
 			}			
 			else

@@ -18,7 +18,7 @@ import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector3;
 
-public class Defenser implements Screen,InputProcessor {
+public class Defender implements Screen,InputProcessor {
 	MyPDAGame game;
 	GameBody game2048;
 
@@ -92,12 +92,12 @@ public class Defenser implements Screen,InputProcessor {
 	List<Littlefighter> knight;
 	List<Littlefighter> bat;
 	List<Littlefighter> beacon;	
-	int exp_times = 7, runtime = 150;
+	int exp_times = 7, runtime = 90;
 	String run_time;
 	Timer timer = new Timer();
 	int tower_blood = 0;
 
-	public Defenser (MyPDAGame game) {
+	public Defender (MyPDAGame game) {
 		this.game = game;
 		Gdx.input.setInputProcessor(this);
 		guiCam = new OrthographicCamera(1280, 960);
@@ -654,7 +654,7 @@ public class Defenser implements Screen,InputProcessor {
 		accelX = accelY = 0;
 		
 		Assets.font.draw(batcher, run_time, 1050, 600);
-		Assets.font.draw(batcher, "Defenser", 800, 530);
+		Assets.font.draw(batcher, "Defender", 800, 530);
 		Assets.font.draw(batcher, "Time:", 800, 600);
 		Assets.font.draw(batcher, "Tap it!", 800, 670);
 		Assets.font.draw(batcher, "You have to defense the entrance.", 0, 960);		
