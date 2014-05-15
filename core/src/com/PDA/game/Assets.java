@@ -142,6 +142,8 @@ public class Assets {
 	public static TextureRegion rightregion;
 	public static Texture up;
 	public static TextureRegion upregion;
+	public static Texture loseback;
+	public static TextureRegion losebackregion;
 	
 	public static Texture loadTexture (String file) {
 		return new Texture(Gdx.files.internal(file));
@@ -823,6 +825,8 @@ public class Assets {
 		rightregion = new TextureRegion(right);
 		up = loadTexture("data/up.png");
 		upregion = new TextureRegion(up);
+		loseback = loadTexture("data/lose.png");
+		losebackregion = new TextureRegion(loseback);
 		
 		soldiers = new Texture[16];
 		soldiers[0] = loadTexture("data/1.png");
