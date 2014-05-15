@@ -92,7 +92,7 @@ public class Defenser implements Screen,InputProcessor {
 	List<Littlefighter> knight;
 	List<Littlefighter> bat;
 	List<Littlefighter> beacon;	
-	int exp_times = 7, runtime;
+	int exp_times = 7, runtime = 300;
 	String run_time;
 	Timer timer = new Timer();
 
@@ -580,6 +580,7 @@ public class Defenser implements Screen,InputProcessor {
 		accelX = accelY = 0;
 		
 		Assets.font.draw(batcher, run_time, 1000, 600);
+		Assets.font.draw(batcher, "Defenser", 800, 600);
 		
 		
 		batcher.draw(Assets.doorRegion,1111,620,150,330);
