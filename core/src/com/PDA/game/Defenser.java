@@ -1283,6 +1283,7 @@ public class Defenser implements Screen,InputProcessor {
 	public void render (float delta) {
 		update(delta);
 		draw(delta);
+		Gdx.app.log("MyTag", String.valueOf(tower_blood));				
 	}
 
 	@Override
