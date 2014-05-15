@@ -1377,13 +1377,13 @@ public class Defenser implements Screen,InputProcessor {
 	}
 	@Override
 	public boolean touchUp(int screenX, int screenY, int pointer, int button) {	
-
+/*
 		if(screenX-x1 > 100) accelX = 10;
 		else if(screenY-y1 > 100) accelY = 10;
 		else if(screenX-x1 < -100) accelX = -10;
 		else if(screenY-y1 < -100) accelY = -10;
 		game2048.update(accelX, accelY);
-		
+*/
 		int target = game2048.locate(screenX, screenY);
 		if(game2048.locate(x1, y1) == target && target >= 0 && game2048.size()>1 ) {
 			if(game2048.status[target] == 1)
