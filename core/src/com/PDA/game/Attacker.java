@@ -579,6 +579,7 @@ public class Attacker implements Screen,InputProcessor {
 		*/
 		accelX = accelY = 0;
 		
+		Assets.font.draw(batcher, run_time, 1000, 600);
 		
 		batcher.draw(Assets.doorRegion,1111,620,150,330);
 		renderSoldiers();

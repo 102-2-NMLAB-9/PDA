@@ -3,6 +3,8 @@ package com.PDA.game;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.InputProcessor;
@@ -90,7 +92,9 @@ public class Defenser implements Screen,InputProcessor {
 	List<Littlefighter> knight;
 	List<Littlefighter> bat;
 	List<Littlefighter> beacon;	
-	int exp_times = 7;
+	int exp_times = 7, runtime;
+	String run_time;
+	Timer timer = new Timer();
 
 	public Defenser (MyPDAGame game) {
 		this.game = game;
@@ -103,6 +107,18 @@ public class Defenser implements Screen,InputProcessor {
 		leftbounds = new Rectangle(700, 70, 180, 180);
 		rightbounds = new Rectangle(1100, 70, 180, 180);
 		downbounds = new Rectangle(900, 70, 180, 180);
+		timer.scheduleAtFixedRate(new TimerTask() {
+            public void run() {
+                System.out.println(runtime--);
+                run_time = runtime/60 + ": ";
+                if(runtime%60 < 10) run_time += "0"; 
+                run_time += runtime%60;
+                if (runtime <= 0) {
+                    timer.cancel();
+                    // new a screen
+                }
+            }
+        }, 0, 1000);
 		
 		touchPoint = new Vector3();
 		batcher = new SpriteBatch();
@@ -562,6 +578,8 @@ public class Defenser implements Screen,InputProcessor {
 		else if (accelY < -5f) Assets.font.draw(batcher, "up", 0, 960);
 		*/
 		accelX = accelY = 0;
+		
+		Assets.font.draw(batcher, run_time, 1000, 600);
 		
 		
 		batcher.draw(Assets.doorRegion,1111,620,150,330);
