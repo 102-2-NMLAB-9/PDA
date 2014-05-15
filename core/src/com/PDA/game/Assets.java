@@ -411,7 +411,7 @@ public class Assets {
 		littlefighter[6] = loadTexture("data/n-7.png");		
 		littlefighter[7] = loadTexture("data/n-8.png");
 		littlefighter[8] = loadTexture("data/n-9.png");			
-		justin = new Animation(0.1f,new TextureRegion(littlefighter[0]),new TextureRegion(littlefighter[1]),
+		justin = new Animation(0.15f,new TextureRegion(littlefighter[0]),new TextureRegion(littlefighter[1]),
 				new TextureRegion(littlefighter[2]),new TextureRegion(littlefighter[3]),
 				new TextureRegion(littlefighter[4]),new TextureRegion(littlefighter[5]),
 				new TextureRegion(littlefighter[6]),new TextureRegion(littlefighter[7]),
