@@ -8,24 +8,24 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector3;
 
-public class LoseScreen implements Screen{
-	MyPDAGame game;
-	
+public class WinScreen implements Screen{
+	MyPDAGame game;	
+	Rectangle backBounds;
+	Vector3 touchPoint;	
 	OrthographicCamera guiCam;
 	SpriteBatch batcher;
-	Rectangle backBounds;
-	Vector3 touchPoint;
 	
-	public LoseScreen(MyPDAGame game) {
+	public WinScreen(MyPDAGame game) {
 		this.game = game;
 		guiCam = new OrthographicCamera(1280, 960);
 		guiCam.position.set(1280 / 2, 960 / 2, 0);
-		touchPoint = new Vector3();
 		batcher = new SpriteBatch();
 		backBounds = new Rectangle(0, 0, 64, 64);
+		touchPoint = new Vector3();		
 	}
 	
-	public void update(float delta) {
+	public void update () 
+	{
 		if (Gdx.input.justTouched()) {
 			guiCam.unproject(touchPoint.set(Gdx.input.getX(), Gdx.input.getY(), 0));
 
@@ -35,7 +35,7 @@ public class LoseScreen implements Screen{
 				return;
 			}
 		}
-	}
+	}	
 	
 	public void draw(float delta) {
 		GL20 gl = Gdx.gl;
@@ -43,19 +43,19 @@ public class LoseScreen implements Screen{
 		guiCam.update();
 
 		batcher.setProjectionMatrix(guiCam.combined);
-		
+
 		batcher.begin();
 		batcher.draw(Assets.backgroundRegion, 0, 0, 1280, 960);
-		batcher.draw(Assets.losebackregion, 140, 80, 1000, 800);
-		batcher.draw(Assets.back, 0, 0, 64, 64);
+		batcher.draw(Assets.winRegion, 140, 80, 1000, 800);
+		batcher.draw(Assets.back, 0, 0, 64, 64);		
 		batcher.end();
 	}
 	
 	@Override
 	public void render(float delta) {
 		// TODO Auto-generated method stub
-		update(delta);
 		draw(delta);
+		update();
 	}
 
 	@Override

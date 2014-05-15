@@ -49,8 +49,7 @@ public class MainScreen implements Screen {
 			}
 			if (highscoresBounds.contains(touchPoint.x, touchPoint.y)) {
 				Assets.playSound(Assets.clickSound);
-				game.setScreen(new LoseScreen(game));
-//				game.setScreen(new HighscoresScreen(game));
+				game.setScreen(new HighscoresScreen(game));
 				return;
 			}
 			if (helpBounds.contains(touchPoint.x, touchPoint.y)) {

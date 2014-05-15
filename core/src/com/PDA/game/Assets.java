@@ -9,6 +9,8 @@ import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 
 public class Assets {
+	public static Texture win;
+	public static TextureRegion winRegion;
 	public static Texture background;
 	public static TextureRegion backgroundRegion;
 
@@ -150,6 +152,8 @@ public class Assets {
 	}
 
 	public static void load () {
+		win = loadTexture("data/win.png");
+		winRegion = new TextureRegion(win);		
 		background = loadTexture("data/background.jpg");
 		backgroundRegion = new TextureRegion(background);
 		
