@@ -27,6 +27,7 @@ public class MyPDAGame extends Game {
 	public ArrayList<String> listHost;
 	public boolean currentVagueIndex = false;
 	public int count = 0;
+	public int countGame = 0;
 	/*
 	public Array<String> IP;
 	Server server;

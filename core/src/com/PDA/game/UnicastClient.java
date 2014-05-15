@@ -28,8 +28,8 @@ public class UnicastClient {
 	public String monIp;
 	public ChatWindow chatWindow;
 	private MapPerso<String, Test> joueurs;
-	private Attacker attack;
-	private Defenser defence;
+	public Attacker attack;
+	public Defenser defence;
 	boolean selection = false;
 	boolean type = false;
 
@@ -103,7 +103,7 @@ public class UnicastClient {
 			ds.setBroadcast(true);
 		} catch (SocketException e1) {
 			game.androidUI.showAlertBox("Disconnect",
-					"lalala", "ok", null);
+					"You have to restart you game!!!", "ok", null);
 			return;
 		}
 
@@ -150,15 +150,35 @@ public class UnicastClient {
 			break;
 		case Constants.ATTACK:
 			if (type)
-				attack.drawAttack((int)data[1]);
+			{
+				if (game.countGame == 0)
+					attack.drawAttack((int)data[1]);
+				else
+					defence.drawAttack((int)data[1]);
+			}
 			else
-				defence.drawAttack((int)data[1]);
+			{
+				if (game.countGame == 0)
+					defence.drawAttack((int)data[1]);
+				else
+					attack.drawAttack((int)data[1]);
+			}
 			break;
 		case Constants.DEFENCE:
 			if (type)
-				attack.drawDefence((int)data[1]);
+			{
+				if (game.countGame == 0)
+					attack.drawDefence((int)data[1]);
+				else
+					defence.drawDefence((int)data[1]);
+			}
 			else
-				defence.drawDefence((int)data[1]);
+			{
+				if (game.countGame == 0)
+					defence.drawDefence((int)data[1]);
+				else
+					attack.drawDefence((int)data[1]);
+			}
 			break;
 		default:
 			System.err.println("[UNICASTClient-DEFAULT]:Action non reconnue : "
