@@ -34,7 +34,7 @@ public class Soldier extends DynamicGameObject {
 		original_velocity=v;
 	}
 
-	public void update (float delta,float tower_blood) 
+	public float update (float delta) 
 	{
 		position.add(velocity.x * delta, velocity.y * delta);
 		bounds.x = position.x;
@@ -43,11 +43,12 @@ public class Soldier extends DynamicGameObject {
 		{
 			position.x = 960;
 			velocity.x = 0;
-			tower_blood += attack;
+            return attack;
 		}
 		/*if(velocity.x != 0)
 		{stateTime += delta;}*/
 		stateTime += delta;
+		return 0;
 	}
 	
 	public boolean isdead()
