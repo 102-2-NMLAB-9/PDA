@@ -92,7 +92,7 @@ public class Defenser implements Screen,InputProcessor {
 	List<Littlefighter> knight;
 	List<Littlefighter> bat;
 	List<Littlefighter> beacon;	
-	int exp_times = 7, runtime = 300;
+	int exp_times = 7, runtime = 150;
 	String run_time;
 	Timer timer = new Timer();
 	int tower_blood = 0;
@@ -191,6 +191,22 @@ public class Defenser implements Screen,InputProcessor {
 				return;
 			}
 			*/
+		}
+		if (runtime <= 0)
+		{
+			game.countGame++;
+			if (game.countGame == 1)
+			{
+				game.mc.attack = new Attacker(game);
+				game.setScreen(game.mc.attack);
+			}
+			else
+			{
+				game.countGame = 0;
+				runtime = 150;
+				tower_blood = 0;
+				game.setScreen(new MainScreen(game));
+			}
 		}
 		
 		ApplicationType appType = Gdx.app.getType();
@@ -615,6 +631,7 @@ public class Defenser implements Screen,InputProcessor {
 		
 		Assets.font.draw(batcher, run_time, 1000, 600);
 		Assets.font.draw(batcher, "Defenser", 800, 530);
+		Assets.font.draw(batcher, "Number:" + tower_blood, 0, 960);
 		
 		
 		batcher.draw(Assets.doorRegion,1111,620,150,330);
