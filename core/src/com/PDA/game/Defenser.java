@@ -194,18 +194,26 @@ public class Defenser implements Screen,InputProcessor {
 		}
 		if (runtime <= 0)
 		{
-			game.countGame++;
-			if (game.countGame == 1)
+
+			if (game.countGame == 0)
 			{
-				game.mc.attack = new Attacker(game);
-				game.setScreen(game.mc.attack);
+				game.setScreen(new RestScreen(game, false));
 			}
 			else
 			{
 				game.countGame = 0;
 				runtime = 150;
-				tower_blood = 0;
-				game.setScreen(new MainScreen(game));
+				if ( game.mc.attack.tower_blood >= game.mc.defence.tower_blood )
+				{
+					tower_blood = 0;
+					game.setScreen(new WinScreen(game));
+					
+				}
+				else
+				{
+					game.setScreen(new LoseScreen(game));
+					tower_blood = 0;
+				}
 			}
 		}
 		
@@ -382,6 +390,7 @@ public class Defenser implements Screen,InputProcessor {
 			{
 				tower_blood++;
 				soldier1s.remove(i);
+				Gdx.input.vibrate(1000);
 			}
 		}
 		for (int i = 0; i < soldier2s.size(); i++) 
@@ -391,6 +400,7 @@ public class Defenser implements Screen,InputProcessor {
 			{
 				tower_blood++;
 				soldier2s.remove(i);
+				Gdx.input.vibrate(1000);
 			}
 		}	
 		for (int i = 0; i < soldier3s.size(); i++) 
@@ -400,6 +410,7 @@ public class Defenser implements Screen,InputProcessor {
 			{
 				tower_blood++;
 				soldier3s.remove(i);
+				Gdx.input.vibrate(1000);
 			}
 		}		
 		for (int i = 0; i < soldier4s.size(); i++) 
@@ -409,6 +420,7 @@ public class Defenser implements Screen,InputProcessor {
 			{
 				tower_blood++;
 				soldier4s.remove(i);
+				Gdx.input.vibrate(1000);
 			}
 		}	
 		for (int i = 0; i < soldier5s.size(); i++) 
@@ -418,6 +430,7 @@ public class Defenser implements Screen,InputProcessor {
 			{
 				tower_blood++;
 				soldier5s.remove(i);
+				Gdx.input.vibrate(1000);
 			}
 		}			
 		for (int i = 0; i < soldier6s.size(); i++) 
@@ -427,6 +440,7 @@ public class Defenser implements Screen,InputProcessor {
 			{
 				tower_blood++;
 				soldier6s.remove(i);
+				Gdx.input.vibrate(1000);
 			}
 		}	
 		for (int i = 0; i < soldier7s.size(); i++) 
@@ -436,6 +450,7 @@ public class Defenser implements Screen,InputProcessor {
 			{
 				tower_blood++;
 				soldier7s.remove(i);
+				Gdx.input.vibrate(1000);
 			}
 		}			
 		for (int i = 0; i < soldier8s.size(); i++) 
@@ -445,6 +460,7 @@ public class Defenser implements Screen,InputProcessor {
 			{
 				tower_blood++;
 				soldier8s.remove(i);
+				Gdx.input.vibrate(1000);
 			}
 		}	
 		for (int i = 0; i < soldier9s.size(); i++) 
@@ -454,6 +470,7 @@ public class Defenser implements Screen,InputProcessor {
 			{
 				tower_blood++;
 				soldier9s.remove(i);
+				Gdx.input.vibrate(1000);
 			}
 		}		
 		for (int i = 0; i < soldier10s.size(); i++) 
@@ -463,6 +480,7 @@ public class Defenser implements Screen,InputProcessor {
 			{
 				tower_blood++;
 				soldier10s.remove(i);
+				Gdx.input.vibrate(1000);
 			}
 		}	
 		for (int i = 0; i < soldier11s.size(); i++) 
@@ -471,7 +489,8 @@ public class Defenser implements Screen,InputProcessor {
 			if(soldier.update(delta))
 			{
 				tower_blood++;
-				soldier10s.remove(i);
+				soldier11s.remove(i);
+				Gdx.input.vibrate(1000);
 			}
 		}			
 		for (int i = 0; i < soldier12s.size(); i++) 
@@ -481,6 +500,7 @@ public class Defenser implements Screen,InputProcessor {
 			{
 				tower_blood++;
 				soldier12s.remove(i);
+				Gdx.input.vibrate(1000);
 			}
 		}	
 		for (int i = 0; i < soldier13s.size(); i++) 
@@ -490,6 +510,7 @@ public class Defenser implements Screen,InputProcessor {
 			{
 				tower_blood++;
 				soldier13s.remove(i);
+				Gdx.input.vibrate(1000);
 			}
 		}			
 		for (int i = 0; i < soldier14s.size(); i++) 
@@ -499,6 +520,7 @@ public class Defenser implements Screen,InputProcessor {
 			{
 				tower_blood++;
 				soldier14s.remove(i);
+				Gdx.input.vibrate(1000);
 			}
 		}			
 		for (int i = 0; i < soldier15s.size(); i++) 
@@ -508,6 +530,7 @@ public class Defenser implements Screen,InputProcessor {
 			{
 				tower_blood++;
 				soldier15s.remove(i);
+				Gdx.input.vibrate(1000);
 			}
 		}	
 		for (int i = 0; i < soldier16s.size(); i++) 
@@ -517,6 +540,7 @@ public class Defenser implements Screen,InputProcessor {
 			{
 				tower_blood++;
 				soldier16s.remove(i);
+				Gdx.input.vibrate(1000);
 			}
 		}
 		for (int i = 0; i < dead_soldier1s.size(); i++) 
@@ -629,10 +653,11 @@ public class Defenser implements Screen,InputProcessor {
 		*/
 		accelX = accelY = 0;
 		
-		Assets.font.draw(batcher, run_time, 1000, 600);
+		Assets.font.draw(batcher, run_time, 1050, 600);
 		Assets.font.draw(batcher, "Defenser", 800, 530);
-		Assets.font.draw(batcher, "Number:" + tower_blood, 0, 960);
-		
+		Assets.font.draw(batcher, "Time:", 800, 600);
+		Assets.font.draw(batcher, "Tap it!", 800, 670);
+		Assets.font.draw(batcher, "You have to defense the entrance.", 0, 960);		
 		
 		batcher.draw(Assets.doorRegion,1111,620,150,330);
 		renderSoldiers();
