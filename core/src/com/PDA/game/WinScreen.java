@@ -43,7 +43,6 @@ public class WinScreen implements Screen{
 		guiCam.update();
 
 		batcher.setProjectionMatrix(guiCam.combined);
-		batcher.disableBlending();
 		
 		batcher.begin();
 		batcher.draw(Assets.backgroundRegion, 0, 0, 1280, 960);
